@@ -114,7 +114,7 @@ body {
     margin-top: 1vh;
 }
 
-.button:hover {
+.cursor-pointer:hover {
     cursor: pointer;
 }
 
@@ -147,6 +147,10 @@ select:-webkit-autofill:focus {
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-family: "Overpass";
+}
+
+.right {
+    left: calc(100% - 100px); !important;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
