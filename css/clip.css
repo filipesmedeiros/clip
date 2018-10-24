@@ -7,13 +7,19 @@
 /* ****************************** */
 /* ****************************** */
 
-@media (max-width: 1300px) {
+@media screen and (max-width: 780px) {
     .hide-mobile {
-        display: none; !important;
+        display: none !important;
     }
 
+    .logo-login {
+        width: 50vw !important;
+    }
+}
+
+@media screen and (max-width: 1300px) {
     .title-big {
-        font-size: 6.5vw;
+        font-size: 6.5vw !important;
     }
 }
 
@@ -196,7 +202,30 @@ select:-webkit-autofill:focus {
     padding: 0; !important;
 }
 
-.h-65-mt-10 {
-    height: 65%;
-    margin-top: 10%;
+.h-70-mt-5 {
+    height: 70%;
+    margin-top: 5%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.h-40 {
+    height: 40%;
+}
+.h-20 {
+    height: 20%;
+}
+.h-30 {
+    height: 30%;
+}
+.h-35 {
+    height: 35%;
+}
+.h-15 {
+    height: 15%;
+}
+.h-10 {
+    height: 10%;
 }
