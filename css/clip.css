@@ -13,7 +13,30 @@
     }
 
     .logo-login {
-        width: 50vw !important;
+        width: 60vw !important;
+    }
+
+    .planet {
+        width: 75px !important;
+        margin-right: -25px !important;
+    }
+
+    .login-container {
+        width: 80% !important;
+    }
+
+    .input-text-login {
+        font-size: 3.5vh !important;
+    }
+
+    .ml--2-mobile {
+        margin-left: -0.7vw;
+    }
+
+    .dividor {
+        margin-left: 0 !important;
+        margin-right: -1vw !important;
+        padding: 0 !important;
     }
 }
 
@@ -108,8 +131,8 @@ body {
     margin-bottom: 3vh;
 }
 
-.username-logo {
-    height: 7vh;
+.form-logo {
+    width: 100%;
 }
 
 .pt-2-5 {
@@ -119,9 +142,9 @@ body {
 .input-text-login {
     background: transparent;
     border: none;
-    margin-left: 1vw;
-    margin-top: 0.3em;
-    font-size: 4vh;
+    height: 5vh;
+    width: 100%;
+    font-size: 5vh;
     outline: none;
 }
 
@@ -173,7 +196,8 @@ select:-webkit-autofill:focus {
 }
 
 .right {
-    left: calc(100% - 100px); !important;
+    left: 100%;
+    -webkit-transform: translate(-100%, 0);
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
@@ -185,8 +209,7 @@ select:-webkit-autofill:focus {
 }
 
 .vertical-center {
-    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
+    min-height: 100%;
 
     display: flex;
     align-items: center;
@@ -228,4 +251,14 @@ select:-webkit-autofill:focus {
 }
 .h-10 {
     height: 10%;
+}
+
+.dividor {
+    border-left: 4px #032237 solid;
+    margin-right: -1.2vw;
+    margin-left: 1vw;
+}
+
+.h-75-imp {
+    height: 75% !important;
 }
