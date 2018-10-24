@@ -26,7 +26,7 @@
     }
 
     .input-text-login {
-        font-size: 2.8vh !important;
+        font-size: 6vw !important;
     }
 
     .ml--2-mobile {
@@ -64,7 +64,7 @@
     }
 
     .submit-login {
-        width: 6vh !important;
+        width: 9vw !important;
     }
 
     .logos-uni-fct {
@@ -79,6 +79,18 @@
 @media screen and (max-width: 1300px) {
     .title-big {
         font-size: 6.5vw !important;
+    }
+}
+
+/* When keyboard is up */
+@media screen and (max-height: 550px) {
+    .login-container {
+        height: 70vh !important;
+    }
+
+    .forgot-password {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
     }
 }
 
