@@ -37,6 +37,10 @@
         margin-bottom: -4vw !important;
     }
 
+    .mb--px-mobile {
+        margin-bottom: 0 !important;
+    }
+
     .mt--2-mobile {
         margin-top: -2vh !important;
     }
@@ -60,7 +64,11 @@
     }
 
     .submit-login {
-        width: 90% !important;
+        width: 6vh !important;
+    }
+
+    .logos-uni-fct {
+        width: 80% !important;
     }
 }
 
@@ -185,12 +193,12 @@ body {
 
 
 .submit-login {
-    width: 60%;
-    margin-left: 2vw;
+    width: 2.7vw;
+    margin-left: 1.5vw;
 }
 
 .login-container {
-    margin-top: 25%;
+    margin-top: 25vh;
 }
 
 .cursor-pointer:hover {
@@ -299,4 +307,11 @@ select:-webkit-autofill:focus {
 
 .h-75-imp {
     height: 75% !important;
+}
+
+.mt-8 {
+    margin-top: 8vh;
+}
+.mt-10 {
+    margin-top: 10vh;
 }
