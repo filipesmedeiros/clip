@@ -70,6 +70,10 @@
     .logos-uni-fct {
         width: 80% !important;
     }
+
+    .text-box-login {
+        height: 15vw !important;
+    }
 }
 
 @media screen and (max-width: 1300px) {
@@ -156,7 +160,7 @@ body {
 }
 
 .text-box-login {
-    height: 8vh;
+    height: 4vw;
     background-color: #E3E3E3;
     border-radius: 5px;
     box-shadow: 0 0 40px rgba(0, 0, 0, .3);
