@@ -3,6 +3,23 @@
     src: url(../fonts/overpass/overpass-regular.otf);
 }
 
+/*           For mobile           */
+/* ****************************** */
+/* ****************************** */
+
+@media (max-width: 1300px) {
+    .hide-mobile {
+        display: none; !important;
+    }
+
+    .title-big {
+        font-size: 6.5vw;
+    }
+}
+
+/* ****************************** */
+/* ****************************** */
+
 html,
 body {
     height: 100%;
@@ -173,19 +190,6 @@ select:-webkit-autofill:focus {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-/* For mobile */
-@media (max-width: 768px) {
-    .hide-mobile {
-        display: none; !important;
-    }
-}
-
-@media (max-width: 1348px) {
-    .title-big {
-        font-size: 6.5vw;
-    }
 }
 
 .padding-none {
