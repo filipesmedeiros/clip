@@ -26,17 +26,21 @@
     }
 
     .input-text-login {
-        font-size: 3.5vh !important;
+        font-size: 2.8vh !important;
     }
 
     .ml--2-mobile {
-        margin-left: -0.7vw;
+        margin-left: -2vw;
     }
 
     .dividor {
-        margin-left: 0 !important;
-        margin-right: -1vw !important;
-        padding: 0 !important;
+        margin-left: 0.5vw !important;
+        margin-right: 0.5vw !important;
+        border-left-width: 2px !important;
+    }
+
+    .submit-login {
+        width: 90% !important;
     }
 }
 
@@ -154,10 +158,8 @@ body {
 
 
 .submit-login {
-    border-left: #032237 5px solid;
-    height: 6vh;
-    padding-left: 0.8em;
-    margin-top: 1vh;
+    width: 60%;
+    margin-left: 2vw;
 }
 
 .cursor-pointer:hover {
@@ -255,8 +257,7 @@ select:-webkit-autofill:focus {
 
 .dividor {
     border-left: 4px #032237 solid;
-    margin-right: -1.2vw;
-    margin-left: 1vw;
+    margin-left: -1vw;
 }
 
 .h-75-imp {
