@@ -6,7 +6,7 @@ function logIn() {
     const password = document.getElementById('passwordInput').value;
 
     if(username === USERNAME && password === PASSWORD)
-        window.location.href = "pages/landing.html";
+        window.location.href = "pages/homepage.html";
     else
         alert("Not correct");
 }
