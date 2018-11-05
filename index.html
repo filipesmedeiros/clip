@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/clip.css">
     <link rel="icon" href="favicon.ico">
+
 </head>
 <body>
 <div class="container-fluid h-100">
@@ -66,7 +67,7 @@
                         </div>
 
                         <div class="col-11 ml--2-mobile">
-                            <input type="text" class="input-text-login vertical-center" placeholder="Identificador">
+                            <input id="usernameInput" type="text" class="input-text-login vertical-center" placeholder="Identificador">
                         </div>
                     </div>
                 </div>
@@ -78,13 +79,15 @@
                         </div>
 
                         <div class="col-9 pr-0 ml--2-mobile">
-                            <input type="password" class="input-text-login vertical-center" placeholder="Palavra-passe">
+                            <input id="passwordInput" type="password" class="input-text-login vertical-center" placeholder="Palavra-passe">
                         </div>
 
                         <div class="dividor h-75-imp my-auto"></div>
 
                         <div class="col-2 p-0">
-                            <img class="img-fluid form-logo vertical-center submit-login" src="img/SubmitLogo.svg">
+                            <a onclick="logIn()" class="form-logo vertical-center submit-login" href="#">
+                                <img class="img-fluid" src="img/SubmitLogo.svg">
+                            </a>
                         </div>
                     </div>
                 </div>
