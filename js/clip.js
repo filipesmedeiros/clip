@@ -259,5 +259,17 @@ function submit_reservation(){
 
 }
 
+window.onkeyup = function(e) {
+   var key = e.keyCode ? e.keyCode : e.which;
+   var passwordbox = document.getElementById('passwordInput');
+	var focus = document.activeElement === passwordbox;
 
+	console.log(key);
+	console.log(focus);
+
+   if (key == 13 && focus) {
+   console.log("???");
+	logIn();
+   }
+}
 
