@@ -298,6 +298,15 @@ select:-webkit-autofill:focus {
     margin-top: 5%;
 }
 
+.ml--2 {
+    margin-left: -20px;
+}
+
+.mr--2 {
+    float: right;
+    margin-right: -20px;
+}
+
 .w-80{
     width: 75%;
 }

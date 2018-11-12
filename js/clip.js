@@ -168,7 +168,7 @@ function availability(option) {
     document.getElementById("name_gab_selected").innerHTML= "";
     document.getElementById("btn_submit").style.display = "none";
 
-    for(let i = 1; i<5; i++) {
+    for(let i = 1; i < 5; i++) {
         document.getElementById("btn_" + i).style.backgroundColor = "#032237";
         document.getElementById("option_" + i).style.color = "white";
         document.getElementById("option_" + i).style.fontFamily = "Overpass";
@@ -233,6 +233,20 @@ function select_availability(num_office){
 
 function close_submit(){
     document.getElementById("confirm_submit").style.display = "none";
+}
+
+function highlightDay(btn) {
+    if(btn.value === "t") {
+        btn.style.backgroundColor = "#032237";
+        btn.firstChild.nextSibling.style.color = "white";
+        btn.style.fontFamily = "Overpass";
+        btn.value = "f";
+    } else {
+        btn.style.backgroundColor = "white";
+        btn.firstChild.nextSibling.style.color = "#032237";
+        btn.style.fontFamily = "OverpassBold";
+        btn.value = "t";
+    }
 }
 
 function submit_reservation(){
