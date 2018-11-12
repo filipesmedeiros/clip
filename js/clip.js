@@ -229,7 +229,6 @@ function select_availability(num_office){
         }
 
     }
-
 }
 
 function close_submit(){
