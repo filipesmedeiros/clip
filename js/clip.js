@@ -154,48 +154,75 @@ function class_agora() {
     }
 }
 
-function availability(option) {
+function onDateChange() {
 
-    hour_seleted=option;
-
-    document.getElementById("info_availability").style.display = "block";
-    document.getElementById("gab_group_availability").style.display = "block";
-    var selected_date = document.getElementById("date_input").value;
-
-    let table_availability = document.getElementById("table_availability");
-
-    table_availability.innerHTML= "";
-    document.getElementById("name_gab_selected").innerHTML= "";
-    document.getElementById("btn_submit").style.display = "none";
-
-    for(let i = 1; i < 5; i++) {
+    for (let i = 1; i < 5; i++) {
         document.getElementById("btn_" + i).style.backgroundColor = "#032237";
         document.getElementById("option_" + i).style.color = "white";
         document.getElementById("option_" + i).style.fontFamily = "Overpass";
     }
+}
 
-    document.getElementById("btn_"+ option).style.backgroundColor="#FFFFFF";
-    document.getElementById("option_" + option).style.color="#032237";
-    document.getElementById("option_" + option).style.fontFamily="OverpassBold";
+function confirmDateHourToSelect(option) {
 
-    count_gab_available = temp_array.length;
+    var selected_date = document.getElementById("date_input").value;
+    hour_seleted = option;
+    var c_date = new Date();
+    var current_date = c_date.getFullYear()+"-"+(c_date.getMonth()+1)+"-"+c_date.getDate();
 
-
-    for(let i = 0; i < count_gab_available ; i++) {
-
-        let row = table_availability.insertRow(-1);
-        let cell_0 = row.insertCell(0);
-        let cell_1 = row.insertCell(1);
-
-        if(temp_array_availability[i] === "Available")
-            cell_0.outerHTML = "<td bgcolor='green'></td>";
-
-        if(temp_array_availability[i] === "No-Available")
-            cell_0.outerHTML = "<td bgcolor='red'></td>" ;
-
-        cell_1.outerHTML = '<a class="finger-pointer bold_none" id="gab_selected_'+i+'" onclick="select_availability(\''+i+'\')">'+temp_array[i]+'</a>';
+    if(selected_date >= current_date && hour_seleted!=null) {
+        document.getElementById("name_invalidDate").style.display = "none";
+        document.getElementById("img_invalidDate").style.display = "none";
+        availability(option);
     }
+    else {
+        document.getElementById("info_availability").style.display = "none";
+        document.getElementById("name_invalidDate").style.display = "inline-block";
+        document.getElementById("img_invalidDate").style.display = "inline-block";
+        document.getElementById("name_invalidDate").innerHTML = "Data inválida. Por favor selecione outra data.";
+        document.getElementById("gab_group_availability").style.display = "none";
 
+    }
+}
+
+function availability(option) {
+
+       document.getElementById("info_availability").style.display = "block";
+       document.getElementById("gab_group_availability").style.display = "block";
+
+       let table_availability = document.getElementById("table_availability");
+
+       table_availability.innerHTML = "";
+       document.getElementById("name_gab_selected").innerHTML = "";
+       document.getElementById("btn_submit").style.display = "none";
+
+       for (let i = 1; i < 5; i++) {
+           document.getElementById("btn_" + i).style.backgroundColor = "#032237";
+           document.getElementById("option_" + i).style.color = "white";
+           document.getElementById("option_" + i).style.fontFamily = "Overpass";
+       }
+
+       document.getElementById("btn_" + option).style.backgroundColor = "#FFFFFF";
+       document.getElementById("option_" + option).style.color = "#032237";
+       document.getElementById("option_" + option).style.fontFamily = "OverpassBold";
+
+       count_gab_available = temp_array.length;
+
+
+       for (let i = 0; i < count_gab_available; i++) {
+
+           let row = table_availability.insertRow(-1);
+           let cell_0 = row.insertCell(0);
+           let cell_1 = row.insertCell(1);
+
+           if (temp_array_availability[i] === "Available")
+               cell_0.outerHTML = "<td bgcolor='green'></td>";
+
+           if (temp_array_availability[i] === "No-Available")
+               cell_0.outerHTML = "<td bgcolor='red'></td>";
+
+           cell_1.outerHTML = '<a class="finger-pointer bold_none" id="gab_selected_' + i + '" onclick="select_availability(\'' + i + '\')">' + temp_array[i] + '</a>';
+       }
 }
 
 function select_availability(num_office){
@@ -233,20 +260,6 @@ function select_availability(num_office){
 
 function close_submit(){
     document.getElementById("confirm_submit").style.display = "none";
-}
-
-function highlightDay(btn) {
-    if(btn.value === "t") {
-        btn.style.backgroundColor = "#032237";
-        btn.firstChild.nextSibling.style.color = "white";
-        btn.style.fontFamily = "Overpass";
-        btn.value = "f";
-    } else {
-        btn.style.backgroundColor = "white";
-        btn.firstChild.nextSibling.style.color = "#032237";
-        btn.style.fontFamily = "OverpassBold";
-        btn.value = "t";
-    }
 }
 
 function submit_reservation(){
