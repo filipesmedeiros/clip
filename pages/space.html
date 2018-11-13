@@ -19,7 +19,9 @@
                 <i class="fa fa-bell fa-icon" style="font-size:24px;"></i>
             </div>
             <div class="user-picture text-center">
-                <img class="img-circle" src="../img/CircleSecondary.svg">
+                <a href="profile.html">
+                    <img class="img-circle" src="../img/CircleSecondary.svg">
+                </a>
             </div>
             <ul class="nav navbar-nav">
                 <a class="font-options" href="">Semestre</a>
@@ -40,12 +42,12 @@
         </div>
         <div class="col-lg-10 col-md-10" style="background:#EFF0EF">
             <div class="row">
-                <div class="col-lg-12 col-md-12 text-center" >
+                <div class="col-lg-12 col-md-12 text-center">
                     <h1 class="title-big-h1">Reserva de Espaços</h1>
                 </div>
             </div>
             <div class="row margin-top-3">
-                <div class="col-lg-6 col-md-6 text-center padding-none" >
+                <div class="col-lg-6 col-md-6 text-center padding-none">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 text-right">
                             <i class="fa fa-institution" style="font-size:2rem; color:#032237; margin-top:0.5rem"></i>
@@ -55,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 text-center padding-none" >
+                <div class="col-lg-6 col-md-6 text-center padding-none">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 text-right">
                             <i class="fa fa-users" style="font-size:2rem; color:#032237; margin-top:0.5rem"></i>
@@ -67,21 +69,32 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-md-6" >
-                    <div class="container-fluid h-100 w-75" id="biblioteca"  style="background:#ffffff">
+                <div class="col-lg-6 col-md-6">
+                    <div class="container-fluid h-100 w-75" id="biblioteca" style="background:#ffffff">
                         <section class="nav navbar-nav margin-none">
-                            <option class="dropdown-style-not-available" id="auditory" onclick="auditory()">Auditório</option>
-                            <option class="finger-pointer dropdown-style" id="gab_group" onclick="gab_group()">Gabinete de Trabalho em Grupo</option>
-                            <option class="dropdown-style-not-available" id="gab_ind" onclick="gab_ind()">Gabinete de Trabalho Individual</option>
-                            <option class="dropdown-style-not-available" id="lab_des_ino" onclick="lab_des_ino()">Laboratório de Design e Inovação</option>
-                            <option class="dropdown-style-not-available" id="class_mult" onclick="class_mult()">Sala Multiusos</option>
+                            <option class="dropdown-style-not-available" id="auditory" onclick="auditory()">Auditório
+                            </option>
+                            <option class="finger-pointer dropdown-style" id="gab_group" onclick="gab_group()">Gabinete
+                                de Trabalho em Grupo
+                            </option>
+                            <option class="dropdown-style-not-available" id="gab_ind" onclick="gab_ind()">Gabinete de
+                                Trabalho Individual
+                            </option>
+                            <option class="dropdown-style-not-available" id="lab_des_ino" onclick="lab_des_ino()">
+                                Laboratório de Design e Inovação
+                            </option>
+                            <option class="dropdown-style-not-available" id="class_mult" onclick="class_mult()">Sala
+                                Multiusos
+                            </option>
                         </section>
                     </div>
                 </div>
                 <div id="comunication" class="col-lg-6 col-md-6">
                     <div class="container-fluid h-25 w-75" style="background:#ffffff">
                         <section class="nav navbar-nav margin-none">
-                            <option class="dropdown-style-not-available" id="class_agora" onclick="class_agora()">Sala Ágora</option>
+                            <option class="dropdown-style-not-available" id="class_agora" onclick="class_agora()">Sala
+                                Ágora
+                            </option>
                         </section>
                     </div>
                 </div>
@@ -89,7 +102,8 @@
             <!--Form-->
             <div class="row">
                 <div class="col-lg-6 col-md-6" id="gab_group_form" style="display:none">
-                    <div class="container-fluid h-80" style="background:#032237; border-radius:1%; height:340px; margin-top: 2rem">
+                    <div class="container-fluid h-80"
+                         style="background:#032237; border-radius:1%; height:340px; margin-top: 2rem">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 text-center">
                                 <h5 class="type-letter-color">Data</h5>
@@ -98,7 +112,8 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3 text-center"></div>
                             <div class="col-lg-6 col-md-6 text-center">
-                                <input class="form-control w-70 m-auto text-center" type="date" id="date_input" onchange="onDateChange()">
+                                <input class="form-control w-70 m-auto text-center" type="date" id="date_input"
+                                       onchange="onDateChange()">
                             </div>
                             <div class="col-lg-3 col-md-3 text-center"></div>
                         </div>
@@ -110,22 +125,31 @@
                         <div class="row">
                             <div class="col-lg-2 col-md-2 text-right"></div>
                             <div class="col-lg-2 col-md-2 text-right">
-                                <button type="button" class="btn button-medium-border" id="btn_1" onclick="confirmDateHourToSelect(1)" ><p class="text-button-medium" id="option_1">9:00</p></button>
+                                <button type="button" class="btn button-medium-border" id="btn_1"
+                                        onclick="confirmDateHourToSelect(1)"><p class="text-button-medium"
+                                                                                id="option_1">9:00</p></button>
                             </div>
                             <div class="col-lg-2 col-md-2 text-right">
-                                <button type="button" class="btn button-medium-border" id="btn_2" onclick="confirmDateHourToSelect(2)"><p class="text-button-medium" id="option_2">12:00</p></button>
+                                <button type="button" class="btn button-medium-border" id="btn_2"
+                                        onclick="confirmDateHourToSelect(2)"><p class="text-button-medium"
+                                                                                id="option_2">12:00</p></button>
                             </div>
                             <div class="col-lg-2 col-md-2 text-right">
-                                <button type="button" class="btn button-medium-border" id="btn_3" onclick="confirmDateHourToSelect(3)"><p class="text-button-medium" id="option_3">14:00</p></button>
+                                <button type="button" class="btn button-medium-border" id="btn_3"
+                                        onclick="confirmDateHourToSelect(3)"><p class="text-button-medium"
+                                                                                id="option_3">14:00</p></button>
                             </div>
                             <div class="col-lg-2 col-md-2 text-right">
-                                <button type="button" class="btn button-medium-border" id="btn_4" onclick="confirmDateHourToSelect(4)"><p class="text-button-medium" id="option_4">17:00</p></button>
+                                <button type="button" class="btn button-medium-border" id="btn_4"
+                                        onclick="confirmDateHourToSelect(4)"><p class="text-button-medium"
+                                                                                id="option_4">17:00</p></button>
                             </div>
                             <div class="col-lg-2 col-md-2 text-right"></div>
                         </div>
                         <div class="row" id="invalidDate">
                             <div class="col-lg-12 col-md-12 text-center margin-top-1">
-                                <img class="display-none mr-2" src="../img/error.svg" width="25" height="25" id="img_invalidDate" >
+                                <img class="display-none mr-2" src="../img/error.svg" width="25" height="25"
+                                     id="img_invalidDate">
                                 <h6 class="type_letter" id="name_invalidDate"></h6>
                             </div>
                         </div>
@@ -151,7 +175,8 @@
                                     <hr class="display-none" id="hr_show">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 text-center">
-                                            <h5 class="type_letter margin-bottom-3">Reserva Gabinete de Trabalho Individual</h5>
+                                            <h5 class="type_letter margin-bottom-3">Reserva Gabinete de Trabalho
+                                                Individual</h5>
                                         </div>
                                     </div>
                                     <div class="row margin-bottom-3">
@@ -177,7 +202,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 text-center">
-                                            <button type="button" class="btn button-medium-light margin-none"><p class="text-button-small-bold-light">Confirmar</p></button>
+                                            <button type="button" class="btn button-medium-light margin-none"><p
+                                                    class="text-button-small-bold-light">Confirmar</p></button>
                                         </div>
                                     </div>
                                 </div>
@@ -236,7 +262,8 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <p class="info_style">* Os organizadores dos eventos devem assegurar que os participantes
-                            não façam barulho à entrada e saída do auditório para não pertubar o normal funcionamento da Biblioteca. </p>
+                            não façam barulho à entrada e saída do auditório para não pertubar o normal funcionamento da
+                            Biblioteca. </p>
                     </div>
                 </div>
             </div>
