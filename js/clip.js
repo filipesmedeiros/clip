@@ -23,11 +23,11 @@ function logIn() {
 }
 
 function on() {
-    document.getElementById("overlay").style.display = "block";
+    document.getElementById("hideoverlay").style.display = "inline";
 }
 
 function off() {
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("hideoverlay").style.display = "none";
 }
 
 function auditory() {
