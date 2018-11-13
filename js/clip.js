@@ -305,3 +305,46 @@ window.onkeyup = function (e) {
     }
 }
 
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////
+
+// SCHEDULE
+
+//////////////////////////////////////////////////////////
+
+
+
+function addActivity(time, day, duration, name, color) {
+    let daycol = document.getElementById(day);
+
+    let children = daycol.children;
+
+    for(let i = 0; i < duration; i++) {
+        console.log("time ---> ");
+        console.log(children[time - 7 + i]);
+
+        console.log("no time");
+        console.log(children[i]);
+        children[time - 7 + i].style.display = "none";
+    }
+
+    let el = document.createElement("div");
+    el.classList.add("activity-cell");
+    el.id = "activity";
+    el.height = (45 * duration) + "px";
+
+    el.innerText = name;
+    el.style.backgroundColor = color;
+
+    daycol.insertBefore(el, children[time - 7]);
+
+}
+
+
+
