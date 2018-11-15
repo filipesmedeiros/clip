@@ -206,6 +206,10 @@ body {
     margin-bottom: 3vh;
 }
 
+.margin-top--1 {
+    margin-bottom: -2vh;
+}
+
 .form-logo {
     width: 100%;
 }
@@ -287,7 +291,7 @@ select:-webkit-autofill:focus {
 .vertical-center {
     min-height: 100%;
 
-    display: flex;
+    display: flex !important;
     align-items: center;
 }
 
@@ -397,8 +401,22 @@ select:-webkit-autofill:focus {
     margin-top: 10vh;
 }
 
+.mt-15 {
+    margin-top: 15vh;
+}
+
+.mt-20 {
+    margin-top: 20vh;
+}
+
 .nav-bar {
     background: #032237;
+}
+
+.scroll{
+    overflow: scroll;
+    height: 400px;
+
 }
 
 .font-options {
@@ -459,6 +477,12 @@ hr {
     margin-right: 1rem
 }
 
+.small-title {
+    font-family: OverpassBold;
+    color: #032237;
+    font-size: 0.7rem !important;
+}
+
 .title {
     margin-top: 2rem;
     font-family: OverpassBold;
@@ -473,10 +497,29 @@ hr {
     font-size: 1.3rem !important;
 }
 
+.normal_big_title-white {
+    margin-top: 2rem;
+    font-family: OverpassBold;
+    color: #ffffff;
+    font-size: 1.3rem !important;
+}
+
 .sub-title {
     font-family: OverpassBold;
     color: #032237;
     font-size: 1rem !important;
+}
+
+.sub-title-notes {
+    font-family: OverpassBold;
+    color: #032237;
+    font-size: 1.2rem !important;
+}
+
+.sub-title-white-notes {
+    font-family: OverpassBold;
+    color: #ffffff;
+    font-size: 1.2rem !important;
 }
 
 .sub-title-white {
@@ -530,6 +573,10 @@ hr {
     font-family: OverpassBold;
     font-size: 1.2rem;
     margin-top: 0.5rem;
+}
+
+.border-bott {
+    border-bottom: solid 5px #032237;
 }
 
 .button-medium {
@@ -611,7 +658,7 @@ hr {
 .text_submit {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 58%;
     font-size: 50px;
     color: white;
     transform: translate(-50%, -50%);
@@ -707,6 +754,12 @@ hr {
 
 .title-big-h2 {
     font-family: OverpassBold;
+    font-size: 2rem;
+    color: #032237;
+}
+
+.title-big-h2-normal {
+    font-family: Overpass;
     font-size: 2rem;
     color: #032237;
 }
