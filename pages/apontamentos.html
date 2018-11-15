@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
 <div class="container-fluid h-100">
@@ -53,8 +55,19 @@
                     <h1 class="title-big-h2-normal">2018/2019</h1>
                 </div>
             </div>
-            <div class="row margin-top-3">
 
+            <div class="row">
+                <input class="w-25 input-notes" type="text"
+                       style="margin-left: 28rem; margin-top: 2rem; margin-bottom: 2rem " id="myInput"
+                       onkeyup="myFunction()"
+                       placeholder="Procurar apontamentos...">
+
+                <i class="fas fa-search"
+                   style="font-size:2rem; color:#032237; margin-left: 3vh;  margin-top: 2rem; margin-bottom: 2rem "></i>
+
+            </div>
+
+            <div class="row margin-top-2">
                 <!-----RECENTES---------------------------------------------------------------------------------------->
 
                 <div class="col-lg-6 col-md-6">
@@ -157,136 +170,118 @@
                             <p class="sub-title-notes">Data</p>
                         </div>
                     </div>
-                        <div class="list-group ml-5 mr-5 scroll">
-                            <a href="#" class="list-group-item secondary-bg py-1">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 text-center">
-                                        <span class="sub-title">IIO</span>
-                                        <span class="badge">1</span>
-                                    </div>
+                    <div class="list-group ml-5 mr-5 scroll">
+                        <a href="#" class="list-group-item secondary-bg py-1">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 text-center">
+                                    <span class="sub-title">IIO</span>
+                                    <span class="badge" id="badge_IIO">1</span>
                                 </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 d-inline-block text-left">
-                                        <span class="sub-title-normal">Aula de PLI</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <span class="sub-title-normal">IIO</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <span class="small-title">05/10/2018</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <i class="fas fa-angle-right" style="font-size:2rem; color:#032237;"></i>
-                                    </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 d-inline-block text-left">
+                                    <span class="sub-title-normal">Aula de PLI</span>
                                 </div>
-                            </a>
-                            <a href="#" class="list-group-item secondary-bg py-1">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 text-center">
-                                        <span class="sub-title">AA</span>
-                                        <span class="badge">2</span>
-                                    </div>
+                                <div class="col-lg-2 col-md-2 d-inline-block text-right">
+                                    <span class="small-title">05/10/2018</span>
                                 </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 d-inline-block text-left">
-                                        <span class="sub-title-normal">Bases de Python</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <span class="sub-title-normal">AA</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <span class="small-title">03/10/2018</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <i class="fas fa-angle-right" style="font-size:2rem; color:#032237;"></i>
-                                    </div>
+                                <div class="col-lg-2 col-md-2 d-inline-block text-right">
+                                    <i class="fas fa-angle-right" style="font-size:2rem; color:#032237;"></i>
                                 </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 d-inline-block text-left">
-                                        <span class="sub-title-normal">Aula prática 3</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <span class="sub-title-normal">AA</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <span class="small-title">16/10/2018</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <i class="fas fa-angle-right" style="font-size:2rem; color:#032237;"></i>
-                                    </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item secondary-bg py-1">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 text-center">
+                                    <span class="sub-title">AA</span>
+                                    <span class="badge" id="badge_AA">2</span>
                                 </div>
-                            </a>
-                            <a href="#" class="list-group-item secondary-bg py-1">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 text-center">
-                                        <span class="sub-title">ICL</span>
-                                        <span class="badge">1</span>
-                                    </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 d-inline-block text-left">
+                                    <span class="sub-title-normal">Bases de Python</span>
                                 </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 d-inline-block text-left">
-                                        <span class="sub-title-normal">Linguagens e Alfabetos</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <span class="sub-title-normal">ICL</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <span class="small-title">01/10/2018</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <i class="fas fa-angle-right" style="font-size:2rem; color:#032237;"></i>
-                                    </div>
+                                <div class="col-lg-2 col-md-2 d-inline-block text-right">
+                                    <span class="small-title">03/10/2018</span>
                                 </div>
-                            </a>
-                            <a href="#" class="list-group-item secondary-bg py-1">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 text-center">
-                                        <span class="sub-title">IPM</span>
-                                        <span class="badge">1</span>
-                                    </div>
+                                <div class="col-lg-2 col-md-2 d-inline-block text-right">
+                                    <i class="fas fa-angle-right" style="font-size:2rem; color:#032237;"></i>
                                 </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 d-inline-block text-left">
-                                        <span class="sub-title-normal">1º Teste</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <span class="sub-title-normal">IPM</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <span class="small-title">10/10/2018</span>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 d-inline-block text-right">
-                                        <i class="fas fa-angle-right" style="font-size:2rem; color:#032237;"></i>
-                                    </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 d-inline-block text-left">
+                                    <span class="sub-title-normal">Aula prática 3</span>
                                 </div>
-                            </a>
-                        </div>
+                                <div class="col-lg-2 col-md-2 d-inline-block text-right">
+                                    <span class="small-title">16/10/2018</span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 d-inline-block text-right">
+                                    <i class="fas fa-angle-right" style="font-size:2rem; color:#032237;"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item secondary-bg py-1">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 text-center">
+                                    <span class="sub-title">ICL</span>
+                                    <span class="badge" id="badge_ICL">1</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 d-inline-block text-left">
+                                    <span class="sub-title-normal">Linguagens e Alfabetos</span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 d-inline-block text-right">
+                                    <span class="small-title">01/10/2018</span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 d-inline-block text-right">
+                                    <i class="fas fa-angle-right" style="font-size:2rem; color:#032237;"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item secondary-bg py-1">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 text-center">
+                                    <span class="sub-title">IPM</span>
+                                    <span class="badge" id="badge_IPM">1</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 d-inline-block text-left">
+                                    <span class="sub-title-normal">1º Teste</span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 d-inline-block text-right">
+                                    <span class="small-title">10/10/2018</span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 d-inline-block text-right">
+                                    <i class="fas fa-angle-right" style="font-size:2rem; color:#032237;"></i>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+                </div>
 
 
                 <!---------end Todos-------------------------------------------------------------------------------->
             </div>
-            <div class="row mt-5">
-                <div class="col-lg-10 col-md-10 text-right">
-                    <p class="text-btn">Novo apontamento</p>
-                </div>
-                <div class="col-lg-2 col-md-2 text-left">
-                    <i class="fas fa-file-upload cursor-pointer"
-                       style="font-size:2rem; color:#032237; margin-top:0.5rem"></i>
-                </div>
+            <div class="row ml-10">
+                <p class="text-btn">Novo apontamento</p>
+                <i class="fas fa-file-upload cursor-pointer"
+                   style="font-size:2rem; color:#032237; margin-top:0.5rem; margin-left: 2rem"></i>
             </div>
         </div>
     </div>
+    <script src="../js/clip.js"></script>
 </div>
 </body>
 </html>

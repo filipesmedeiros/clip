@@ -290,6 +290,15 @@ function add_email() {
     document.getElementById("text_submit").style.display = "block";
 }
 
+function update_badge(id){
+    let badge = document.getElementById(id);
+    let number;
+
+    if(badge != null) {
+        number = badge.innerText;
+        badge.innerText = (parseInt(number)+1);
+    }
+}
 
 window.onkeyup = function (e) {
     var key = e.keyCode ? e.keyCode : e.which;
