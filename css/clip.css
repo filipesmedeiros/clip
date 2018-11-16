@@ -155,6 +155,17 @@ body {
     box-sizing: border-box;
     border: none;
     border-bottom: 2px solid #032237;
+    outline: none;
+    background: transparent;
+}
+
+.input-title[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    background: transparent;
+    outline: none;
 }
 
 .title-big {
@@ -334,6 +345,10 @@ select:-webkit-autofill:focus {
     margin-left: 200px;
 }
 
+.ml-15 {
+    margin-left: 250px;
+}
+
 .mr-10 {
     margin-right: 200px;
 }
@@ -412,6 +427,10 @@ select:-webkit-autofill:focus {
     margin-top: 8vh;
 }
 
+.mt-5 {
+    margin-top: 5vh;
+}
+
 .mt-10 {
     margin-top: 10vh;
 }
@@ -428,7 +447,7 @@ select:-webkit-autofill:focus {
     background: #032237;
 }
 
-.scroll{
+.scroll {
     overflow: scroll;
     height: 400px;
 
@@ -555,6 +574,12 @@ hr {
     font-size: 1rem !important;
 }
 
+.form-control-yolo {
+    min-width: 0;
+    width: 25px !important;
+    color: red;
+}
+
 .btn-circle {
     width: 30px;
     height: 30px;
@@ -599,6 +624,13 @@ hr {
     color: #032237;
     background-color: #032237;
     border-color: #032237;
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .button-medium-light {

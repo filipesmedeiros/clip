@@ -10,6 +10,8 @@ var available = true;
 var temp_array = ["Gabinete de Trabalho de Grupo: 2.1", "Gabinete de Trabalho de Grupo: 3.1"];
 var temp_array_availability = ["Available", "No-Available"];
 
+var apontamentos_array = [];
+
 
 function logIn() {
     const username = document.getElementById('usernameInput').value;
@@ -290,14 +292,62 @@ function add_email() {
     document.getElementById("text_submit").style.display = "block";
 }
 
-function update_badge(id){
-    let badge = document.getElementById(id);
-    let number;
+function update_badge(id) {
 
-    if(badge != null) {
-        number = badge.innerText;
-        badge.innerText = (parseInt(number)+1);
+    let id_output, number;
+
+    if (id === "AA")
+        id_output = "badge_AA";
+    if (id === "IPM")
+        id_output = "badge_IPM";
+    if (id === "IIO")
+        id_output = "badge_IIO";
+    if (name === "ICL")
+        id_output = "badge_ICL";
+    if (id === "Outra")
+        id_output = "badge_Outra";
+
+    let doc = document.getElementById(id_output);
+
+    if (doc != null) {
+        number = doc.innerText;
+        doc.innerText = (parseInt(number) + 1);
     }
+}
+
+function changeDropdownName(name) {
+
+    let name_output = "";
+
+    if (name === 1)
+        name_output = "AA";
+    if (name === 2)
+        name_output = "IPM";
+    if (name === 3)
+        name_output = "IIO";
+    if (name === 4)
+        name_output = "ICL";
+    if (name === 5)
+        name_output = "Outra";
+
+    document.getElementById("dropdownCadeiras").innerText = name_output;
+}
+
+function newApontamento() {
+
+    var c = document.getElementById("dropdownCadeiras").innerText;
+    var c_date = new Date();
+    var d = c_date.getFullYear() + "-" + (c_date.getMonth() + 1) + "-" + c_date.getDate();
+    var t = document.getElementById("titulo").value;
+    var f = document.getElementById("exampleFormControlFile1").value;
+
+    let apontamento = {cadeira: c, data: d, titulo: t, ficheiro: f};
+
+    console.log(apontamento.cadeira + " " + apontamento.data + " " + apontamento.ficheiro + " " + apontamento.titulo);
+
+    apontamentos_array.push(apontamento);
+
+    update_badge(c);
 }
 
 window.onkeyup = function (e) {
@@ -315,12 +365,6 @@ window.onkeyup = function (e) {
 }
 
 
-
-
-
-
-
-
 //////////////////////////////////////////////////////////
 
 // SCHEDULE
@@ -328,13 +372,12 @@ window.onkeyup = function (e) {
 //////////////////////////////////////////////////////////
 
 
-
 function addActivity(time, day, duration, name, color) {
     let daycol = document.getElementById(day);
 
     let children = daycol.children;
 
-    for(let i = 0; i < duration; i++) {
+    for (let i = 0; i < duration; i++) {
         console.log("time ---> ");
         console.log(children[time - 7 + i]);
 
