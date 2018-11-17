@@ -749,6 +749,12 @@ hr {
     color: #032237;
 }
 
+.title-big-h3 {
+    font-family: OverpassBold;
+    font-size: 1.5rem;
+    color: #032237;
+}
+
 .title-big-h2-normal {
     font-family: Overpass;
     font-size: 2rem;

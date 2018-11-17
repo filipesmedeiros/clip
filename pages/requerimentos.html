@@ -165,15 +165,15 @@
             <!----end SEMESTRES TODOS---------------------------------------------------------------------------------->
 
             <div class="row ml-10">
-                <p class="text-btn">Novo requerimento</p>
-                <i class="fas fa-edit"
+                <p class="text-btn title-big-h3 cursor-pointer" onclick="on('add-req')">Novo requerimento</p>
+                <i class="fas fa-edit cursor-pointer"
                    style="font-size:2rem; color:#032237; margin-top:0.5rem; margin-left: 2rem"
-                   onclick="add_email()"></i>
+                   onclick="on('add-req')"></i>
             </div>
 
             <!---------pop up novo apontament-------------------------------------------------------------------------->
-            <div id="hideoverlay" class="display-none">
-                <div id="overlay" onclick="off()">
+            <div id="overlay-add-req" class="display-none">
+                <div id="overlay-add-req-back" class="overlay-back" onclick="off('add-req')">
                 </div>
                 <div class="add_activity giantclip-bg text-center text_submit"
                      style="height: 72vh; width: 90vh">
