@@ -8,104 +8,6 @@
     src: url(../fonts/overpass/overpass-bold.otf);
 }
 
-/*           For mobile           */
-/* ****************************** */
-/* ****************************** */
-
-@media screen and (max-width: 780px) {
-    .hide-mobile {
-        display: none !important;
-    }
-
-    .logo-login {
-        width: 60vw !important;
-    }
-
-    .planet {
-        width: 75px !important;
-        margin-right: -25px !important;
-    }
-
-    .login-container {
-        width: 80% !important;
-    }
-
-    .input-text-login {
-        font-size: 4.9vw !important;
-    }
-
-    .ml--2-mobile {
-        margin-left: -2vw !important;
-    }
-
-    .mb--2-mobile {
-        margin-bottom: -4vw !important;
-    }
-
-    .mb--px-mobile {
-        margin-bottom: 0 !important;
-    }
-
-    .mt--2-mobile {
-        margin-top: -2vh !important;
-    }
-
-    .mb-2-mobile {
-        margin-bottom: 2vh !important;
-    }
-
-    .mr--3-mobile {
-        margin-right: -3vw !important;
-    }
-
-    .pb-2-mobile {
-        padding-bottom: 2vh !important;
-    }
-
-    .dividor {
-        margin-left: 0.5vw !important;
-        margin-right: 0.5vw !important;
-        border-left-width: 2px !important;
-    }
-
-    .submit-login {
-        width: 9vw !important;
-    }
-
-    .logos-uni-fct {
-        width: 80% !important;
-    }
-
-    .text-box-login {
-        height: 15vw !important;
-    }
-
-    .forgot-password {
-        font-size: 4vw !important;
-    }
-}
-
-@media screen and (max-width: 1300px) {
-    .title-big {
-        font-size: 6.5vw !important;
-    }
-}
-
-/* When keyboard is up */
-@media screen and (max-height: 550px) {
-    .login-container {
-        height: 70vh !important;
-    }
-
-    .forgot-password {
-        padding-left: 0 !important;
-        margin-left: 0 !important;
-    }
-}
-
-/* ****************************** */
-/* ****************************** */
-
 html,
 body {
     height: 100%;
@@ -192,6 +94,7 @@ body {
 
 .margin-right-6 {
     margin-right: 6vh;
+    margin-left: -6vh;
 }
 
 .margin-left-20 {
@@ -464,6 +367,11 @@ select:-webkit-autofill:focus {
     margin-top: -2vh;
 }
 
+.mt-40 {
+    margin-top: 200px !important;
+    margin-left: -50px;
+}
+
 .nav-bar {
     background: #032237;
 }
@@ -612,6 +520,10 @@ hr {
     color: red;
 }
 
+.color-select {
+    border: none;
+}
+
 .btn-circle {
     width: 30px;
     height: 30px;
@@ -643,7 +555,7 @@ hr {
 
 .text-btn {
     font-family: OverpassBold;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     margin-top: 0.5rem;
 }
 
@@ -707,7 +619,7 @@ hr {
     -ms-transform: translate(-50%, -50%);
 }
 
-#overlay {
+.overlay-back {
     position: fixed; /* Sit on top of the page content */
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
@@ -747,7 +659,7 @@ hr {
 .add_activity {
     width: 800px;
     height: 500px;
-    border-radius: 1%;
+    border-radius: 7px;
     z-index: 100;
     position: fixed;
     cursor: auto;
@@ -755,13 +667,13 @@ hr {
 
 .confirm_submit {
     width: 500px;
-    border-radius: 2%;
+    border-radius: 6px;
     background: #032237;
 }
 
 .attention {
     width: 500px;
-    border-radius: 2%;
+    border-radius: 5px;
     background: #032237;
     margin: 0.5rem;
 }
@@ -904,31 +816,161 @@ td {
 
 .sched-cell {
     height: 45px;
-    background: darkgrey;
-    border-bottom: black solid 1px;
     font-size: 15px;
     font-family: Overpass;
 }
 
 .sched-col {
     padding: 0;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 1px solid #032237;
+    border-right: 1px solid #032237;
+}
+
+.pl--2 {
+    padding-left: 230px;
+}
+
+.ml-6 {
+    margin-left: 6rem;
+}
+
+.left-border {
+    border-left: 2px solid #032237 !important;
+}
+
+.right-border {
+    border-right: 2px solid #032237 !important;
+}
+
+.border-bottom {
+    border-bottom: 2px solid #032237 !important;
 }
 
 .day-cell {
-    font-size: 30px;
-}
-
-.schedule {
-
+    padding-top: 5px;
+    font-size: 24px;
+    background: #032237;
+    color: white;
 }
 
 .activity-cell {
-    height: 90px;
-    background: lightblue;
+    padding-top: 10%;
+    font-family: OverpassBold;
+}
+
+.activity-cell:hover {
+    cursor: pointer;
+}
+
+.class-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.prat-cell {
+    background: #002d47;
 }
 
 .class-cell {
-
+    padding-top: 7px;
+    font-size: 15px;
+    color: white;
+    background: #00243b;
+    /* border-bottom: 1px solid #032237; */
+    /* border-top: 1px solid #032237; */
+    font-family: Overpass;
 }
+
+@media screen and (max-width: 780px) {
+    .hide-mobile {
+        display: none !important;
+    }
+
+    .logo-login {
+        width: 60vw !important;
+    }
+
+    .planet {
+        width: 75px !important;
+        margin-right: -25px !important;
+    }
+
+    .login-container {
+        width: 80% !important;
+    }
+
+    .input-text-login {
+        font-size: 4.9vw !important;
+    }
+
+    .ml--2-mobile {
+        margin-left: -2vw !important;
+    }
+
+    .mb--2-mobile {
+        margin-bottom: -4vw !important;
+    }
+
+    .mb--px-mobile {
+        margin-bottom: 0 !important;
+    }
+
+    .mt--2-mobile {
+        margin-top: -2vh !important;
+    }
+
+    .mb-2-mobile {
+        margin-bottom: 2vh !important;
+    }
+
+    .mr--3-mobile {
+        margin-right: -3vw !important;
+    }
+
+    .pb-2-mobile {
+        padding-bottom: 2vh !important;
+    }
+
+    .dividor {
+        margin-left: 0.5vw !important;
+        margin-right: 0.5vw !important;
+        border-left-width: 2px !important;
+    }
+
+    .submit-login {
+        width: 9vw !important;
+    }
+
+    .logos-uni-fct {
+        width: 80% !important;
+    }
+
+    .text-box-login {
+        height: 15vw !important;
+    }
+
+    .forgot-password {
+        font-size: 4vw !important;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .title-big {
+        font-size: 6.5vw !important;
+    }
+}
+
+/* When keyboard is up */
+@media screen and (max-height: 550px) {
+    .login-container {
+        height: 70vh !important;
+    }
+
+    .forgot-password {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* ****************************** */
+/* ****************************** */

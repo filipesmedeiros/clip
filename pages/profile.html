@@ -172,7 +172,7 @@
             <div class="row ml-10 mr-5 margin-top-2">
                 <!---- EMAIL ---->
                 <div class="col-lg-1 col-md-1 text-right margin-top-2" id="btn_addemail">
-                    <button class="btn btn-circle " onclick="add_email()">
+                    <button class="btn btn-circle " onclick="on('add-email')">
                         <img class="img-circle" style="margin-top: -6.5px" src="../img/Add.svg" height="30"
                              width="auto">
                     </button>
@@ -226,9 +226,12 @@
                 </div>
             </div>
         </div>
+
+
+
         <!--------Pop up add email ------------------------------------------------------------------------------------>
-        <div id="hideoverlay" class="display-none">
-            <div id="overlay" onclick="off()">
+        <div id="overlay-add-email" class="display-none">
+            <div id="overlay-add-email-back" onclick="off('add-email')">
             </div>
             <div class="add_activity giantclip-bg text-center text_submit"
                  style="height: 35vh; width: 70vh">
@@ -237,7 +240,7 @@
                         <h5 class="type_letter mt-3">Adicionar E-mail</h5>
                     </div>
                     <div class="col-lg-2 col-md-2 margin-top--3 ">
-                        <img src="../img/close.svg" height="40">
+                        <img src="../img/close.svg" height="40" onclick="off('add-email')">
                     </div>
                 </div>
                 <div class="row ml-5">
