@@ -467,11 +467,10 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-10 col-md-10">
-                            <span class="text sub-title-white">Escolhe a cor para esta atividade!</span>
-                            <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'} jscolor-active" style="background-image: none; background-color: rgb(171, 154, 255); color: rgb(0, 0, 0);">
-                                Escolhe a cor para esta atividade!
-                            </button>
-                            <input id="color-select" type="color" value="#00c5ff" onchange="changeColor(event)" class="color-select">
+                            <span class="sub-title-white">Escolhe a cor para esta atividade!</span>
+                            <input class="jscolor jscolor-active text sub-title" value="00c5ff" id="color-select"
+                                   onchange="changeColor(event)" autocomplete="off"
+                                   style="background: #00c5ff none;color: #032237">
                         </div>
                         <div class="col-lg-2 col-md-2 text-center">
                             <button class="btn btn-submit" onclick="addActivityGetValues()">
@@ -485,6 +484,7 @@
     </div>
 </div>
 
+<script src="../js/jscolor.js"></script>
 <script src="../js/clip.js"></script>
 </body>
 </html>

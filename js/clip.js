@@ -525,7 +525,9 @@ function addClass(time, day, duration, name, room, shift, id, color) {
 let color = '#00c5ff';
 
 function changeColor(event) {
-    color = event.target.value;
+    color = '#' + event.target.value;
+
+    console.log(color);
 }
 
 function addActivityGetValues() {
@@ -645,15 +647,13 @@ function highlightDay(day) {
     if (day.getAttribute('data-id') === 'false') {
         day.style.backgroundColor = "#FFFFFF";
 
-        console.log(day.firstChild);
-
-        day.firstChild.color = "#032237";
+        day.style.color = "#032237";
         day.style.fontFamily = "OverpassBold";
 
         day.setAttribute('data-id', 'true');
     } else {
         day.style.backgroundColor = "#032237";
-        day.style.color = "#FFFFFF";
+        day.firstChild.color = "#FFFFFF";
         day.style.fontFamily = "Overpass";
 
         day.setAttribute('data-id', 'false');
