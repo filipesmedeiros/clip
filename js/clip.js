@@ -15,7 +15,6 @@ var apontamentos_recentes_array = [];
 var maxSize = 5;
 var objectURL;
 
-
 function logIn() {
     const username = document.getElementById('usernameInput').value;
     const password = document.getElementById('passwordInput').value;
@@ -443,6 +442,13 @@ function myFunction() {
             }
         }
     }
+}
+
+function countCaracteres(){
+
+    let textsize = document.getElementById("ambito").value.length;
+
+    document.getElementById("counter_carac").innerText = textsize;
 }
 
 window.onkeyup = function (e) {

@@ -156,6 +156,7 @@ body {
     border: none;
     border-bottom: 2px solid #032237;
     outline: none;
+    border-radius: 5px;
     background: transparent;
 }
 
@@ -166,6 +167,15 @@ body {
     border-bottom: 2px solid #ffffff;
     background: transparent;
     outline: none;
+}
+
+.input-req{
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    background: #ffffff;
+    outline: none;
+    border-radius: 5px;
 }
 
 .title-big {
@@ -341,12 +351,19 @@ select:-webkit-autofill:focus {
     margin-left: -20px;
 }
 
+.ml--3 {
+    margin-left: -30px;
+}
 .ml-10 {
     margin-left: 200px;
 }
 
 .ml-15 {
     margin-left: 250px;
+}
+
+.ml-20 {
+    margin-left: 300px;
 }
 
 .mr-10 {
@@ -443,13 +460,18 @@ select:-webkit-autofill:focus {
     margin-top: 20vh;
 }
 
+.mt--2 {
+    margin-top: -2vh;
+}
+
 .nav-bar {
     background: #032237;
 }
 
 .scroll {
-    overflow: scroll;
     height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
 
 }
 
@@ -470,6 +492,10 @@ select:-webkit-autofill:focus {
     margin-bottom: 0;
     margin-top: 0.5rem;
     margin-left: 1.5rem;
+}
+
+textarea {
+    resize: none;
 }
 
 a:hover {
@@ -546,6 +572,12 @@ hr {
 
 .sub-title-notes {
     font-family: OverpassBold;
+    color: #032237;
+    font-size: 1.2rem !important;
+}
+
+.sub-title-notes-normal {
+    font-family: Overpass;
     color: #032237;
     font-size: 1.2rem !important;
 }
