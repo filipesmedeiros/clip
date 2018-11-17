@@ -779,7 +779,6 @@ td {
 
 .sched-cell {
     height: 45px;
-    background: darkgrey;
     font-size: 15px;
     font-family: Overpass;
 }
@@ -790,8 +789,25 @@ td {
     border-right: 1px solid #032237;
 }
 
+.ml-6 {
+    margin-left: 7rem;
+}
+
+.left-border {
+    border-left: 2px solid #032237 !important;
+}
+
+.right-border {
+    border-right: 2px solid #032237 !important;
+}
+
+.border-bottom {
+    border-bottom: 2px solid #032237 !important;
+}
+
 .day-cell {
-    font-size: 30px;
+    padding-top: 5px;
+    font-size: 24px;
     background: #032237;
     color: white;
 }
