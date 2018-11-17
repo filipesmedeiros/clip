@@ -395,10 +395,8 @@ function addClass(time, day, duration, name, room, shift, id, color) {
     let blocks = '';
 
     for (let i = 0; i < duration; i++) {
-        console.log(children[time - 7 + i]);
         blocks += children[time - 7 + i + numActInTheDay].id + ' ';
         children[time - 7 + i + numActInTheDay].style.display = "none";
-        console.log(children[time - 7 + i]);
     }
 
     let el = document.createElement("div");
@@ -418,7 +416,6 @@ function addClass(time, day, duration, name, room, shift, id, color) {
         hourarray.push(i);
 
     activities_array.push({'actName': name, 'day': day, 'hours': hourarray});
-    console.log(activities_array);
 
     off('add-act');
 }
@@ -508,7 +505,6 @@ function addActivity(time, day, duration, name, color) {
         hourarray.push(i);
 
     activities_array.push({'actName': name, 'day': day, 'hours': hourarray});
-    console.log(activities_array);
 
     off('add-act');
 }
@@ -546,7 +542,10 @@ function deleteAct() {
 function highlightDay(day) {
     if (day.getAttribute('data-id') === 'false') {
         day.style.backgroundColor = "#FFFFFF";
-        day.style.color = "#032237";
+
+        console.log(day.firstChild);
+
+        day.firstChild.color = "#032237";
         day.style.fontFamily = "OverpassBold";
 
         day.setAttribute('data-id', 'true');
