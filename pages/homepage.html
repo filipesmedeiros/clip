@@ -44,9 +44,9 @@
         </div>
         <div class="col-lg-10 col-md-10" style="background:#ffffff">
             <div class="row">
-                <div class="col-lg-12 col-md-12 text-center">
-                    <h1 class="title">Horário 1º Semestre</h1>
-                    <h1 class="sub-title">2018/2019</h1>
+                <div class="col-lg-12 col-md12 text-center pl--2">
+                    <h1 class="title-big-h1">Horário 1º Semestre</h1>
+                    <h1 class="title-big-h2-normal">2018/2019</h1>
                 </div>
             </div>
             <div class="row h-80">
@@ -68,7 +68,7 @@
 
 
 
-                    <div class="container-fluid mt-3 ml-6 schedule">
+                    <div class="container-fluid mt-3 ml-6">
                         <div class="row">
                             <div class="col-1 offset-2 sched-col left-border">
                                 <div class="sched-cell day-cell">
@@ -329,29 +329,26 @@
 
                 </div>
                 <div class="col-lg-2 col-md-2 text-center padding-none">
-                    <div class="container-fluid distribute-vert">
+                    <div class="container-fluid distribute-vert padding-none">
+                        <!--
                         <button type="button" class="btn button-medium"><p class="text-button-medium">Turmas</p>
                         </button>
                         <button type="button" class="btn button-medium"><p class="text-button-medium">Escolhido</p>
                         </button>
                         <button type="button" class="btn button-medium"><p class="text-button-medium">Completo</p>
                         </button>
+                        -->
 
+                        <button id="add-act-btn" onclick="on('add-act')" type="button"
+                                class="btn button-medium margin-right-6">
+                            <p class="text-button-medium">Adicionar atividade</p>
+                        </button>
 
-                        <button id="delete-act-btn" onclick="deleteAct()" type="button" class="btn button-medium mt-40 display-none">
+                        <button id="delete-act-btn" onclick="deleteAct()" type="button"
+                                class="btn button-medium mt-40 display-none margin-right-6">
                             <p class="text-button-medium">Apagar atividade</p>
                         </button>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-10 col-md-10 text-right">
-                    <p class="text-btn">Adicionar atividade</p>
-                </div>
-                <div class="col-lg-2 col-md-2 text-left">
-                    <button type="button" class="btn btn-add btn-circle btn-lg" onclick="on('add-act')">
-                        <i class="fa fa-plus fa-style"></i>
-                    </button>
                 </div>
             </div>
 
@@ -469,7 +466,10 @@
                         <div class="col-lg-3 col-md-3 text-center"></div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-10 col-md-10"></div>
+                        <div class="col-lg-10 col-md-10">
+                            <span class="text sub-title-white">Escolhe a cor para esta atividade!</span>
+                            <input id="color-select" type="color" value="#00c5ff" onchange="changeColor(event)" class="color-select">
+                        </div>
                         <div class="col-lg-2 col-md-2 text-center">
                             <button class="btn btn-submit" onclick="addActivityGetValues()">
                                 <img src="../img/SubmitLogo.svg" width="50" height="50">

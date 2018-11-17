@@ -84,6 +84,7 @@ body {
 
 .margin-right-6 {
     margin-right: 6vh;
+    margin-left: -6vh;
 }
 
 .margin-left-20 {
@@ -487,6 +488,10 @@ hr {
     color: red;
 }
 
+.color-select {
+    border: none;
+}
+
 .btn-circle {
     width: 30px;
     height: 30px;
@@ -518,7 +523,7 @@ hr {
 
 .text-btn {
     font-family: OverpassBold;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     margin-top: 0.5rem;
 }
 
@@ -789,8 +794,12 @@ td {
     border-right: 1px solid #032237;
 }
 
+.pl--2 {
+    padding-left: 230px;
+}
+
 .ml-6 {
-    margin-left: 7rem;
+    margin-left: 6rem;
 }
 
 .left-border {
@@ -812,24 +821,31 @@ td {
     color: white;
 }
 
-.schedule {
-
-}
-
-.act-name {
-}
-
 .activity-cell {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+    padding-top: 3px;
 }
 
 .activity-cell:hover {
     cursor: pointer;
 }
 
+.class-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.prat-cell {
+    background: #002d47;
+}
+
 .class-cell {
+    padding-top: 7px;
+    font-size: 15px;
+    color: white;
+    background: #00243b;
+    border-bottom: 1px solid #032237;
+    border-top: 1px solid #032237;
+    font-family: Overpass;
 }
 
 @media screen and (max-width: 780px) {

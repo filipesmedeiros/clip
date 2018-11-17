@@ -361,13 +361,20 @@ window.onkeyup = function (e) {
 //////////////////////////////////////////////////////////
 
 
-window.onload = onload;
+window.onload = onload();
 
 function onload() {
-    addClass(9, 'col-2f', 2, 'IPM')
+    addClass(9, 'col-2f', 2, 'IPM', 'T1', 'Ed.4/203', '1', '#00375b');
+    addClass(14, 'col-2f', 2, 'IIO', 'T2', 'Ed.7/1D', '1', '#00375b');
+    addClass(16, 'col-2f', 2, 'IPM', 'P2', 'Ed.2/120', '2', '#00578a');
+    addClass(9, 'col-3f', 2, 'ICL', 'T1', 'Ed.2/128', '1', '#00375b');
+    addClass(11, 'col-3f', 2, 'ICL', 'P1', 'Ed.2/121', '2', '#00578a');
+    addClass(14, 'col-3f', 2, 'IIO', 'P6', 'Ed.7/1.4', '2', '#00578a');
+    addClass(16, 'col-3f', 2, 'AA', 'T1', 'Ed.2/128', '1', '#00375b');
+    addClass(9, 'col-5f', 2, 'AA', 'P6', 'Ed.2/120', '2', '#00578a');
 }
 
-function addClass(time, day, duration, name, room, shift) {
+function addClass(time, day, duration, name, room, shift, id, color) {
     let numActInTheDay = 0;
 
     for(let i = 0; i < activities_array.length; i++) {
@@ -395,19 +402,16 @@ function addClass(time, day, duration, name, room, shift) {
     }
 
     let el = document.createElement("div");
-    el.classList.add("activity-cell");
-    el.id = name;
+    el.classList.add("class-cell");
+    el.id = name + id;
     el.setAttribute('data-id', blocks);
     el.style.height = (45 * duration) + "px";
-    el.onclick = deleteActivityButton;
 
-    el.innerHTML = '<span class="act-name" style="margin-top:' + (20 * duration) + 'px">' + name + '</span>';
-
-
-
+    el.innerHTML = '<span class="class-name" style="margin-top:' + (20 * duration) + 'px">'
+        + name + '</span><p class="class-shift">' + shift + '<br>' + room + '</p>';
     el.style.backgroundColor = color;
 
-    daycol.insertBefore(el, children[time - 7]);
+    daycol.insertBefore(el, children[time - 7 + numActInTheDay]);
 
     let hourarray = [];
     for(let i = time; i < time + duration; i++)
@@ -417,6 +421,12 @@ function addClass(time, day, duration, name, room, shift) {
     console.log(activities_array);
 
     off('add-act');
+}
+
+let color = '';
+
+function changeColor(event) {
+    color = event.target.value;
 }
 
 function addActivityGetValues() {
@@ -438,12 +448,15 @@ function addActivityGetValues() {
     for(let i = 0; i < dayBtns.length; i++)
         if(dayBtns[i].getAttribute('data-id') === 'true') {
             daysOne = true;
-            addActivity(+ihour, 'col'.concat(dayBtns[i].id.substr(3, dayBtns[i].id.length)), duration, name, '#00c5ff');
+            addActivity(+ihour, 'col'.concat(dayBtns[i].id.substr(3, dayBtns[i].id.length)), duration, name, color);
         }
 
     document.getElementById('act-title').value = '';
     document.getElementById('i-act-hour').value = 8;
     document.getElementById('f-act-hour').value = 9;
+
+    color = '#00c5ff';
+    document.getElementById("color-select").value = '#00c5ff';
 
     if(!daysOne)
         alert("Tens de selecionar pelo menos um dia!")
@@ -486,7 +499,7 @@ function addActivity(time, day, duration, name, color) {
     el.innerHTML = '<span class="act-name" style="margin-top:' + (20 * duration) + 'px">' + name + '</span>';
     el.style.backgroundColor = color;
 
-    daycol.insertBefore(el, children[time - 7]);
+    daycol.insertBefore(el, children[time - 7 + numActInTheDay]);
 
     let hourarray = [];
     for(let i = time; i < time + duration; i++)
@@ -543,8 +556,6 @@ function highlightDay(day) {
         day.setAttribute('data-id', 'false');
     }
 }
-
-
 
 
 
