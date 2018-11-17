@@ -127,7 +127,7 @@
 
 
 
-                            <div class="col-1 sched-col" id="col2f">
+                            <div class="col-1 sched-col" id="col-2f">
                                 <div class="sched-cell day-cell">
                                     2ºf
                                 </div>
@@ -152,7 +152,7 @@
 
 
 
-                            <div class="col-1 sched-col" id="col3f">
+                            <div class="col-1 sched-col" id="col-3f">
                                 <div class="sched-cell day-cell">
                                     3ºf
                                 </div>
@@ -173,7 +173,7 @@
 
 
 
-                            <div class="col-1 sched-col" id="col4f">
+                            <div class="col-1 sched-col" id="col-4f">
                                 <div class="sched-cell day-cell">
                                     4ºf
                                 </div>
@@ -195,7 +195,7 @@
 
 
 
-                            <div class="col-1 sched-col" id="col5f">
+                            <div class="col-1 sched-col" id="col-5f">
                                 <div class="sched-cell day-cell">
                                     5ºf
                                 </div>
@@ -216,7 +216,7 @@
 
 
 
-                            <div class="col-1 sched-col" id="col6f">
+                            <div class="col-1 sched-col" id="col-6f">
                                 <div class="sched-cell day-cell">
                                     6ºf
                                 </div>
@@ -237,7 +237,7 @@
 
 
 
-                            <div class="col-1 sched-col" id="cols">
+                            <div class="col-1 sched-col" id="col-s">
                                 <div class="sched-cell day-cell">
                                     S
                                 </div>
@@ -258,7 +258,7 @@
 
 
 
-                            <div class="col-1 sched-col" id="cold">
+                            <div class="col-1 sched-col" id="col-d">
                                 <div class="sched-cell day-cell">
                                     D
                                 </div>
@@ -306,11 +306,16 @@
                 </div>
                 <div class="col-lg-2 col-md-2 text-center padding-none">
                     <div class="container-fluid distribute-vert">
-                        <button type="button" class="btn button-medium" onclick="addActivity(9, 'col2f', 2, 'GYM', '#ccc')"><p class="text-button-medium">Turmas</p>
+                        <button type="button" class="btn button-medium"><p class="text-button-medium">Turmas</p>
                         </button>
                         <button type="button" class="btn button-medium"><p class="text-button-medium">Escolhido</p>
                         </button>
                         <button type="button" class="btn button-medium"><p class="text-button-medium">Completo</p>
+                        </button>
+
+
+                        <button id="delete-act-btn" onclick="deleteAct()" type="button" class="btn button-medium mt-40">
+                            <p class="text-button-medium">Apagar atividade</p>
                         </button>
                     </div>
                 </div>
@@ -320,18 +325,29 @@
                     <p class="text-btn">Adicionar atividade</p>
                 </div>
                 <div class="col-lg-2 col-md-2 text-left">
-                    <button type="button" class="btn btn-add btn-circle btn-lg" onclick="on()">
+                    <button type="button" class="btn btn-add btn-circle btn-lg" onclick="on('add-act')">
                         <i class="fa fa-plus fa-style"></i>
                     </button>
                 </div>
             </div>
-            <div id="hideoverlay" class="display-none">
-                <div id="overlay" onclick="off()">
+
+
+
+            <!------------------------
+            -------------------------
+            ----------------------
+                       MODALS
+            ----------------------------
+            --------------------------
+            ----------------------------->
+
+            <div id="overlay-add-act" class="display-none overlay">
+                <div id="overlay-add-act-back" class="overlay-back"  onclick="off('add-act')">
                 </div>
                 <div class="text_submit add_activity giantclip-bg text-center">
                     <div class="row w-100" style="margin-top:-20px">
                         <div class="col-lg-12 col-md-12 text-right">
-                            <button class="btn" onclick="off()">
+                            <button class="btn" onclick="off('add-act')">
                                 <i type="button" class="fa fa-times" style="color:#032237"></i>
                             </button>
                         </div>
@@ -349,8 +365,7 @@
                     <div class="row">
                         <div class="col-lg-2 col-md-2 text-center"></div>
                         <div class="col-lg-8 col-md-8 text-center">
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp" placeholder="Título">
+                            <input type="email" class="form-control input-title" id="act-title" placeholder="Título">
                         </div>
                         <div class="col-lg-2 col-md-2 text-center"></div>
                     </div>
@@ -364,17 +379,15 @@
                             <h6 class="type-letter-small">Início</h6>
                         </div>
                         <div class="col-lg-2 col-md-1 text-center">
-                            <input class="form-control w-70 m-auto" type="number" min="8" max="20">
+                            <input id="i-act-hour" class="form-control w-70 m-auto" value="8" type="number" min="8" max="20">
                         </div>
                         <div class="col-lg-2 col-md-1 text-center">
-                            <input class="form-control w-70 ml--2" type="number" min="00" max="59">
                         </div>
 
                         <div class="col-lg-2 col-md-1 text-center">
-                            <input class="form-control w-70 mr--2" type="number" min="8" max="20">
+                            <input id="f-act-hour" class="form-control w-70 mr--2" value="8" type="number" min="8" max="20">
                         </div>
                         <div class="col-lg-2 col-md-1 text-center">
-                            <input class="form-control w-70 m-auto" type="number" min="00" max="59">
                         </div>
                         <div class="col-lg-2 col-md-3 text-left">
                             <h6 class="type-letter-small">Fim</h6>
@@ -382,49 +395,49 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-md-12 text-center">
-                            <h6 class="type-letter-small">Dia da semana</h6>
+                            <h6 class="type-letter-small">Dias da semana</h6>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-2 col-md-2 text-center"></div>
                         <div class="col-lg-1 col-md-1 text-right">
-                            <button id="btn-2f" type="button" class="btn button-medium-border"
+                            <button id="btn-2f" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">2ªf</p>
                             </button>
                         </div>
                         <div class="col-lg-1 col-md-1 text-right">
-                            <button id="btn-3f" type="button" class="btn button-medium-border"
+                            <button id="btn-3f" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">3ªf</p>
                             </button>
                         </div>
                         <div class="col-lg-1 col-md-1 text-center">
-                            <button id="btn-4f" type="button" class="btn button-medium-border"
+                            <button id="btn-4f" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">4ªf</p>
                             </button>
                         </div>
                         <div class="col-lg-1 col-md-1 text-center">
-                            <button id="btn-5f" type="button" class="btn button-medium-border"
+                            <button id="btn-5f" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">5ªf</p>
                             </button>
                         </div>
                         <div class="col-lg-1 col-md-1 text-center">
-                            <button id="btn-6f" type="button" class="btn button-medium-border"
+                            <button id="btn-6f" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">6ªf</p>
                             </button>
                         </div>
                         <div class="col-lg-1 col-md-1 text-center">
-                            <button id="btn-s" type="button" class="btn button-medium-border"
+                            <button id="btn-s" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">Sab</p>
                             </button>
                         </div>
                         <div class="col-lg-1 col-md-1 text-center">
-                            <button id="btn-d" type="button" class="btn button-medium-border"
+                            <button id="btn-d" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">Dom</p>
                             </button>
@@ -434,7 +447,7 @@
                     <div class="row">
                         <div class="col-lg-10 col-md-10"></div>
                         <div class="col-lg-2 col-md-2 text-center">
-                            <button class="btn btn-submit">
+                            <button class="btn btn-submit" onclick="addActivityGetValues()">
                                 <img src="../img/SubmitLogo.svg" width="50" height="50">
                             </button>
                         </div>

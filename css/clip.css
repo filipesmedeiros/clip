@@ -8,104 +8,6 @@
     src: url(../fonts/overpass/overpass-bold.otf);
 }
 
-/*           For mobile           */
-/* ****************************** */
-/* ****************************** */
-
-@media screen and (max-width: 780px) {
-    .hide-mobile {
-        display: none !important;
-    }
-
-    .logo-login {
-        width: 60vw !important;
-    }
-
-    .planet {
-        width: 75px !important;
-        margin-right: -25px !important;
-    }
-
-    .login-container {
-        width: 80% !important;
-    }
-
-    .input-text-login {
-        font-size: 4.9vw !important;
-    }
-
-    .ml--2-mobile {
-        margin-left: -2vw !important;
-    }
-
-    .mb--2-mobile {
-        margin-bottom: -4vw !important;
-    }
-
-    .mb--px-mobile {
-        margin-bottom: 0 !important;
-    }
-
-    .mt--2-mobile {
-        margin-top: -2vh !important;
-    }
-
-    .mb-2-mobile {
-        margin-bottom: 2vh !important;
-    }
-
-    .mr--3-mobile {
-        margin-right: -3vw !important;
-    }
-
-    .pb-2-mobile {
-        padding-bottom: 2vh !important;
-    }
-
-    .dividor {
-        margin-left: 0.5vw !important;
-        margin-right: 0.5vw !important;
-        border-left-width: 2px !important;
-    }
-
-    .submit-login {
-        width: 9vw !important;
-    }
-
-    .logos-uni-fct {
-        width: 80% !important;
-    }
-
-    .text-box-login {
-        height: 15vw !important;
-    }
-
-    .forgot-password {
-        font-size: 4vw !important;
-    }
-}
-
-@media screen and (max-width: 1300px) {
-    .title-big {
-        font-size: 6.5vw !important;
-    }
-}
-
-/* When keyboard is up */
-@media screen and (max-height: 550px) {
-    .login-container {
-        height: 70vh !important;
-    }
-
-    .forgot-password {
-        padding-left: 0 !important;
-        margin-left: 0 !important;
-    }
-}
-
-/* ****************************** */
-/* ****************************** */
-
 html,
 body {
     height: 100%;
@@ -443,6 +345,11 @@ select:-webkit-autofill:focus {
     margin-top: 20vh;
 }
 
+.mt-40 {
+    margin-top: 200px !important;
+    margin-left: -50px;
+}
+
 .nav-bar {
     background: #032237;
 }
@@ -675,7 +582,7 @@ ul {
     -ms-transform: translate(-50%, -50%);
 }
 
-#overlay {
+.overlay-back {
     position: fixed; /* Sit on top of the page content */
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
@@ -900,3 +807,97 @@ td {
 .class-cell {
 
 }
+
+@media screen and (max-width: 780px) {
+    .hide-mobile {
+        display: none !important;
+    }
+
+    .logo-login {
+        width: 60vw !important;
+    }
+
+    .planet {
+        width: 75px !important;
+        margin-right: -25px !important;
+    }
+
+    .login-container {
+        width: 80% !important;
+    }
+
+    .input-text-login {
+        font-size: 4.9vw !important;
+    }
+
+    .ml--2-mobile {
+        margin-left: -2vw !important;
+    }
+
+    .mb--2-mobile {
+        margin-bottom: -4vw !important;
+    }
+
+    .mb--px-mobile {
+        margin-bottom: 0 !important;
+    }
+
+    .mt--2-mobile {
+        margin-top: -2vh !important;
+    }
+
+    .mb-2-mobile {
+        margin-bottom: 2vh !important;
+    }
+
+    .mr--3-mobile {
+        margin-right: -3vw !important;
+    }
+
+    .pb-2-mobile {
+        padding-bottom: 2vh !important;
+    }
+
+    .dividor {
+        margin-left: 0.5vw !important;
+        margin-right: 0.5vw !important;
+        border-left-width: 2px !important;
+    }
+
+    .submit-login {
+        width: 9vw !important;
+    }
+
+    .logos-uni-fct {
+        width: 80% !important;
+    }
+
+    .text-box-login {
+        height: 15vw !important;
+    }
+
+    .forgot-password {
+        font-size: 4vw !important;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .title-big {
+        font-size: 6.5vw !important;
+    }
+}
+
+/* When keyboard is up */
+@media screen and (max-height: 550px) {
+    .login-container {
+        height: 70vh !important;
+    }
+
+    .forgot-password {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* ****************************** */
+/* ****************************** */

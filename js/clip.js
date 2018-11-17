@@ -24,12 +24,12 @@ function logIn() {
         alert("Not correct");
 }
 
-function on() {
-    document.getElementById("hideoverlay").style.display = "inline";
+function on(overlay) {
+    document.getElementById("overlay-" + overlay).style.display = "inline";
 }
 
-function off() {
-    document.getElementById("hideoverlay").style.display = "none";
+function off(overlay) {
+    document.getElementById("overlay-" + overlay).style.display = "none";
 }
 
 function auditory() {
@@ -287,11 +287,6 @@ function submit_reservation() {
 
 }
 
-function add_email() {
-    on();
-    document.getElementById("text_submit").style.display = "block";
-}
-
 function update_badge(id) {
 
     let id_output, number;
@@ -371,32 +366,82 @@ window.onkeyup = function (e) {
 
 //////////////////////////////////////////////////////////
 
+function addActivityGetValues() {
+    let ihour = document.getElementById('i-act-hour').value;
+    let fhour = document.getElementById('f-act-hour').value;
+
+    let duration = fhour - ihour;
+
+    let name = document.getElementById('act-title').value;
+
+    let dayBtns = document.getElementsByClassName('day-btn');
+    console.log(dayBtns);
+
+    for(let i = 0; i < dayBtns.length; i++)
+        if(dayBtns[i].getAttribute('data-id') === 'true') {
+            console.log(dayBtns[i]);
+            addActivity(ihour, 'col'.concat(dayBtns[i].id.substr(3, dayBtns[i].id.length)), duration, name, '#00c5ff');
+        }
+}
 
 function addActivity(time, day, duration, name, color) {
+    debugger;
+    console.log(day);
     let daycol = document.getElementById(day);
+    console.log(day);
 
     let children = daycol.children;
 
-    for (let i = 0; i < duration; i++) {
-        console.log("time ---> ");
-        console.log(children[time - 7 + i]);
-
-        console.log("no time");
-        console.log(children[i]);
+    for (let i = 0; i < duration; i++)
         children[time - 7 + i].style.display = "none";
-    }
 
     let el = document.createElement("div");
     el.classList.add("activity-cell");
-    el.id = "activity";
+    el.id = "name";
     el.height = (45 * duration) + "px";
+    el.onclick = deleteActivityButton;
 
     el.innerText = name;
     el.style.backgroundColor = color;
 
     daycol.insertBefore(el, children[time - 7]);
 
+    off('add-act');
 }
+
+Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
+}
+
+var currentActivity = null;
+
+function deleteActivityButton(event) {
+    currentActivity = event.target;
+    console.log(currentActivity);
+    document.getElementById('delete-act-btn').display = 'block !important';
+}
+
+function deleteAct() {
+    currentActivity.remove();
+}
+
+function highlightDay(day) {
+    if (day.getAttribute('data-id') === 'false') {
+        day.style.backgroundColor = "#FFFFFF";
+        day.style.color = "#032237";
+        day.style.fontFamily = "OverpassBold";
+
+        day.setAttribute('data-id', 'true');
+    } else {
+        day.style.backgroundColor = "#032237";
+        day.style.color = "#FFFFFF";
+        day.style.fontFamily = "Overpass";
+
+        day.setAttribute('data-id', 'false');
+    }
+}
+
+
 
 
 
