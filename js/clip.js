@@ -11,27 +11,29 @@ var temp_array = ["Gabinete de Trabalho de Grupo: 2.1", "Gabinete de Trabalho de
 var temp_array_availability = ["Available", "No-Available"];
 
 var apontamentos_array = [];
+
 var apontamentos_recentes_array = [];
 var maxSize = 5;
 var objectURL;
+
+let activities_array = [];
 
 function logIn() {
     const username = document.getElementById('usernameInput').value;
     const password = document.getElementById('passwordInput').value;
 
-    if (username === USERNAME && password === PASSWORD) {
-        console.log("Logged in");
+    if (username === USERNAME && password === PASSWORD)
         window.location.href = "pages/homepage.html";
-    } else
+    else
         alert("Not correct");
 }
 
-function on() {
-    document.getElementById("hideoverlay").style.display = "inline";
+function on(overlay) {
+    document.getElementById("overlay-" + overlay).style.display = "inline";
 }
 
-function off() {
-    document.getElementById("hideoverlay").style.display = "none";
+function off(overlay) {
+    document.getElementById("overlay-" + overlay).style.display = "none";
 }
 
 function auditory() {
@@ -289,11 +291,6 @@ function submit_reservation() {
 
 }
 
-function add_email() {
-    on();
-    document.getElementById("text_submit").style.display = "block";
-}
-
 function update_badge(id) {
 
     let id_output, number;
@@ -452,19 +449,15 @@ function countCaracteres(){
 }
 
 window.onkeyup = function (e) {
-    var key = e.keyCode ? e.keyCode : e.which;
-    var passwordbox = document.getElementById('passwordInput');
-    var focus = document.activeElement === passwordbox;
+    let passwordbox = document.getElementById('passwordInput');
+    let focus = document.activeElement === passwordbox;
+    if(!focus)
+        return;
 
-    console.log(key);
-    console.log(focus);
-
-    if (key == 13 && focus) {
-        console.log("???");
+    if (e.keyCode == 13) {
         logIn();
     }
 }
-
 
 //////////////////////////////////////////////////////////
 
@@ -473,30 +466,201 @@ window.onkeyup = function (e) {
 //////////////////////////////////////////////////////////
 
 
-function addActivity(time, day, duration, name, color) {
+window.onload = onload();
+
+function onload() {
+    addClass(9, 'col-2f', 2, 'IPM', 'T1', 'Ed.4/203', '1', '#00375b');
+    addClass(14, 'col-2f', 2, 'IIO', 'T2', 'Ed.7/1D', '1', '#00375b');
+    addClass(16, 'col-2f', 2, 'IPM', 'P2', 'Ed.2/120', '2', '#00578a');
+    addClass(9, 'col-3f', 2, 'ICL', 'T1', 'Ed.2/128', '1', '#00375b');
+    addClass(11, 'col-3f', 2, 'ICL', 'P1', 'Ed.2/121', '2', '#00578a');
+    addClass(14, 'col-3f', 2, 'IIO', 'P6', 'Ed.7/1.4', '2', '#00578a');
+    addClass(16, 'col-3f', 2, 'AA', 'T1', 'Ed.2/128', '1', '#00375b');
+    addClass(9, 'col-5f', 2, 'AA', 'P6', 'Ed.2/120', '2', '#00578a');
+}
+
+function addClass(time, day, duration, name, room, shift, id, color) {
+    let numActInTheDay = 0;
+
+    for(let i = 0; i < activities_array.length; i++) {
+        if(activities_array[i].day == day) {
+            numActInTheDay++;
+            for(let j = time; j < time + duration; j++)
+                if(activities_array[i].hours.includes(j)) {
+                    alert('Atividades sobreposta com ' + activities_array[i].actName + ', escolhe horas diferentes');
+                    return;
+                }
+        }
+    }
+
     let daycol = document.getElementById(day);
 
     let children = daycol.children;
 
-    for (let i = 0; i < duration; i++) {
-        console.log("time ---> ");
-        console.log(children[time - 7 + i]);
+    let blocks = '';
 
-        console.log("no time");
-        console.log(children[i]);
-        children[time - 7 + i].style.display = "none";
+    for (let i = 0; i < duration; i++) {
+        blocks += children[time - 7 + i + numActInTheDay].id + ' ';
+        children[time - 7 + i + numActInTheDay].style.display = "none";
+    }
+
+    let el = document.createElement("div");
+    el.classList.add("class-cell");
+    el.id = name + id;
+    el.setAttribute('data-id', blocks);
+    el.style.height = (45 * duration) + "px";
+
+    el.innerHTML = '<span class="class-name" style="margin-top:' + (20 * duration) + 'px">'
+        + name + '</span><p class="class-shift">' + shift + '<br>' + room + '</p>';
+    el.style.backgroundColor = color;
+
+    daycol.insertBefore(el, children[time - 7 + numActInTheDay]);
+
+    let hourarray = [];
+    for(let i = time; i < time + duration; i++)
+        hourarray.push(i);
+
+    activities_array.push({'actName': name, 'day': day, 'hours': hourarray});
+
+    off('add-act');
+}
+
+let color = '#00c5ff';
+
+function changeColor(event) {
+    color = event.target.value;
+}
+
+function addActivityGetValues() {
+    let ihour = document.getElementById('i-act-hour').value;
+    let fhour = document.getElementById('f-act-hour').value;
+
+    if(+ihour >= +fhour) {
+        alert("Horas inválidas!");
+        return;
+    }
+
+    let duration = +fhour - +ihour;
+
+    let name = document.getElementById('act-title').value;
+
+    let dayBtns = document.getElementsByClassName('day-btn');
+
+    let daysOne = false;
+    for(let i = 0; i < dayBtns.length; i++)
+        if(dayBtns[i].getAttribute('data-id') === 'true') {
+            daysOne = true;
+            addActivity(+ihour, 'col'.concat(dayBtns[i].id.substr(3, dayBtns[i].id.length)), duration, name, color);
+        }
+
+    document.getElementById('act-title').value = '';
+    document.getElementById('i-act-hour').value = 8;
+    document.getElementById('f-act-hour').value = 9;
+
+    color = '#00c5ff';
+    document.getElementById("color-select").value = '#00c5ff';
+
+    if(!daysOne)
+        alert("Tens de selecionar pelo menos um dia!")
+}
+
+function addActivity(time, day, duration, name, color) {
+    let numActInTheDay = 0;
+
+    for(let i = 0; i < activities_array.length; i++) {
+        if(activities_array[i].day == day) {
+            if (activities_array[i].hours[0] < time)
+                numActInTheDay++;
+            for (let j = time; j < time + duration; j++)
+                if (activities_array[i].hours.includes(j)) {
+                    alert('Atividades sobreposta com ' + activities_array[i].actName + ', escolhe horas diferentes');
+                    return;
+                }
+        }
+    }
+
+    let daycol = document.getElementById(day);
+
+    let children = daycol.children;
+
+    let blocks = '';
+
+    for (let i = 0; i < duration; i++) {
+        blocks += children[time - 7 + i + numActInTheDay].id + ' ';
+        children[time - 7 + i + numActInTheDay].style.display = "none";
     }
 
     let el = document.createElement("div");
     el.classList.add("activity-cell");
-    el.id = "activity";
-    el.height = (45 * duration) + "px";
+    el.id = name;
+    el.setAttribute('data-id', blocks);
+    el.style.height = (45 * duration) + "px";
+    el.onclick = deleteActivityButton;
 
-    el.innerText = name;
+    el.innerHTML = '<span class="act-name" style="margin-top:' + (20 * duration) + 'px">' + name + '</span>';
     el.style.backgroundColor = color;
 
-    daycol.insertBefore(el, children[time - 7]);
+    if(color < '#888888')
+        el.style.color = 'white';
 
+    daycol.insertBefore(el, children[time - 7 + numActInTheDay]);
+
+    let hourarray = [];
+    for(let i = time; i < time + duration; i++)
+        hourarray.push(i);
+
+    activities_array.push({'actName': name, 'day': day, 'hours': hourarray});
+
+    off('add-act');
+}
+
+Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
+}
+
+var currentActivity = null;
+
+function deleteActivityButton(event) {
+    currentActivity = event.target;
+    if(currentActivity.tagName === 'SPAN')
+        currentActivity = currentActivity.parentElement;
+    document.getElementById('delete-act-btn').classList.remove('display-none');
+}
+
+function deleteAct() {
+    let blocks = currentActivity.getAttribute('data-id').split(' ');
+
+    for(let i = 0; i < blocks.length; i++) {
+        if(blocks[i] !== ' ' && blocks[i] !== '')
+            document.getElementById(blocks[i]).style.display = 'block';
+    }
+
+    for(let i = 0; i < activities_array.length; i++)
+        if(activities_array[i].actName == currentActivity.id)
+            activities_array.splice(i, 1);
+
+    currentActivity.remove();
+
+    document.getElementById('delete-act-btn').classList.add('display-none');
+}
+
+function highlightDay(day) {
+    if (day.getAttribute('data-id') === 'false') {
+        day.style.backgroundColor = "#FFFFFF";
+
+        console.log(day.firstChild);
+
+        day.firstChild.color = "#032237";
+        day.style.fontFamily = "OverpassBold";
+
+        day.setAttribute('data-id', 'true');
+    } else {
+        day.style.backgroundColor = "#032237";
+        day.style.color = "#FFFFFF";
+        day.style.fontFamily = "Overpass";
+
+        day.setAttribute('data-id', 'false');
+    }
 }
 
 
