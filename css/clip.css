@@ -377,7 +377,7 @@ select:-webkit-autofill:focus {
 }
 
 .scroll {
-    height: 400px;
+    height: 370px;
     overflow-x: hidden;
     overflow-y: auto;
 
