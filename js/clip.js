@@ -11,6 +11,9 @@ var temp_array = ["Gabinete de Trabalho de Grupo: 2.1", "Gabinete de Trabalho de
 var temp_array_availability = ["Available", "No-Available"];
 
 var apontamentos_array = [];
+var apontamentos_recentes_array = [];
+var maxSize = 5;
+var objectURL;
 
 
 function logIn() {
@@ -302,7 +305,7 @@ function update_badge(id) {
         id_output = "badge_IPM";
     if (id === "IIO")
         id_output = "badge_IIO";
-    if (name === "ICL")
+    if (id === "ICL")
         id_output = "badge_ICL";
     if (id === "Outra")
         id_output = "badge_Outra";
@@ -337,17 +340,109 @@ function newApontamento() {
 
     var c = document.getElementById("dropdownCadeiras").innerText;
     var c_date = new Date();
-    var d = c_date.getFullYear() + "-" + (c_date.getMonth() + 1) + "-" + c_date.getDate();
+    var d = c_date.getDate() + "/" + (c_date.getMonth() + 1) + "/" + c_date.getFullYear();
     var t = document.getElementById("titulo").value;
     var f = document.getElementById("exampleFormControlFile1").value;
 
     let apontamento = {cadeira: c, data: d, titulo: t, ficheiro: f};
-
-    console.log(apontamento.cadeira + " " + apontamento.data + " " + apontamento.ficheiro + " " + apontamento.titulo);
+    let url = window.URL.createObjectURL(objectURL);
 
     apontamentos_array.push(apontamento);
+    var id_list = document.getElementById("list_" + c);
+    var new_apontamento = document.createElement("li");
+
+    new_apontamento.innerHTML = ' <a href="' + url + '" class="list-group-item">' +
+        '<div class="row"><div class="col-lg-8 col-md-8 d-inline-block text-left">' +
+        '<span class="sub-title-normal">' + apontamento.titulo + '</span>' +
+        '</div>' +
+        '<div class="col-lg-2 col-md-2 d-inline-block text-right">' +
+        '<span class="small-title">' + apontamento.data + '</span>' +
+        '</div>' +
+        '<div class="col-lg-2 col-md-2 d-inline-block text-right">' +
+        '<i class="fas fa-angle-right" style="font-size:2rem; color:#032237;"></i>' +
+        '</div>' +
+        '</div>' +
+        '</a> ';
+
+    id_list.appendChild(new_apontamento);
+
+    let id_list_recentes = document.getElementById("list_recentes");
+    apontamentos_recentes_array.splice(id_list_recentes.children.length % maxSize, 0, apontamento);
+    let new_recent = document.createElement("li");
+
+    while (id_list_recentes.children.length >= 5) {
+        console.log(id_list_recentes.lastChild);
+        id_list_recentes.removeChild(id_list_recentes.lastChild);
+        apontamentos_recentes_array.pop();
+    }
+    let vcolor = "";
+    if (id_list_recentes.children.length % 2 == 1)
+        vcolor = "secondary-bg";
+
+    new_recent.innerHTML = '  <a href="\' + url + \'"class="list-group-item "' + vcolor + '>\n' +
+        '<div class="row">\n' +
+        '<div class="col-lg-6 col-md-6 d-inline-block text-left">\n' +
+        '<span class="sub-title-normal">' + apontamento.titulo + '</span>\n' +
+        '</div>\n' +
+        '<div class="col-lg-2 col-md-2 d-inline-block text-right">\n' +
+        '<span class="sub-title-normal">' + apontamento.cadeira + '</span>\n' +
+        '</div>\n' +
+        '<div class="col-lg-2 col-md-2 d-inline-block text-right">\n' +
+        '<span class="small-title">' + apontamento.data + '</span>\n' +
+        '</div>\n' +
+        '<div class="col-lg-2 col-md-2 d-inline-block text-right">\n' +
+        '<i class="fas fa-angle-right" style="font-size:2rem; color:#032237;"></i>\n' +
+        '</div>\n' +
+        '</div>\n' +
+        '</a>';
+
+    id_list_recentes.insertBefore(new_recent, id_list_recentes.firstChild);
 
     update_badge(c);
+
+    document.getElementById("dropdownCadeiras").innerText = "Selecionar Cadeira";
+    document.getElementById("titulo").value = "";
+    document.getElementById("exampleFormControlFile1").value = "";
+
+    off();
+    document.getElementById("text_submit").style.display = "none";
+
+}
+
+function saveFiles(input) {
+    objectURL = input.files.item(0);
+}
+
+function myFunction() {
+
+    let input, filter, li, a, i;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+
+    let ul = [];
+
+    let ul_IIO = document.getElementById("list_IIO");
+    ul.push(ul_IIO);
+    let ul_ICL = document.getElementById("list_ICL");
+    ul.push(ul_ICL);
+    let ul_AA = document.getElementById("list_AA");
+    ul.push(ul_AA);
+    let ul_IPM = document.getElementById("list_IPM");
+    ul.push(ul_IPM);
+
+    for (let j = 0; j < ul.length; j++) {
+
+        li = ul[j].getElementsByTagName("li");
+
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
 }
 
 window.onkeyup = function (e) {
