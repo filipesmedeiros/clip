@@ -158,55 +158,65 @@
                                 <h6 class="type_letter" id="name_gab_selected"></h6>
                             </div>
                         </div>
-                        <div id="confirm_submit" onclick="close_submit()">
-                            <div id="text_submit">
-                                <div class="confirm_submit">
-                                    <div class="row display-none" id="fa_show">
-                                        <div class="col-lg-12 col-md-12 text-center">
-                                            <i class="fa fa-warning" style="font-size:1.6rem"></i>
-                                        </div>
-                                    </div>
-                                    <div class="row display-none" id="attention_show">
-                                        <div class="col-lg-12 col-md-12 text-center">
-                                            <h6 class="type_letter">Esta sala está reservada, se fizer a reserva ficará
-                                                em fila de espera. No caso de haver desistência será avisado(a).</h6>
-                                        </div>
-                                    </div>
-                                    <hr class="display-none" id="hr_show">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 text-center">
-                                            <h5 class="type_letter margin-bottom-3">Reserva Gabinete de Trabalho
-                                                Individual</h5>
-                                        </div>
-                                    </div>
-                                    <div class="row margin-bottom-3">
-                                        <div class="col-lg-1 col-md-1"></div>
-                                        <div class="col-lg-2 col-md-2 text-right">
-                                            <h6 class="type_letter">Dia:</h6>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 text-left">
-                                            <h6 class="type_letter_no_bold" id="date_output"></h6>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 text-right">
-                                            <h6 class="type_letter">Hora:</h6>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 text-left">
-                                            <h6 class="type_letter_no_bold" id="hour_output"></h6>
-                                        </div>
-                                        <div class="col-lg-1 col-md-1"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 text-center">
-                                            <h6 class="type_letter" id="gab_output"></h6>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 text-center">
-                                            <button type="button" class="btn button-medium-light margin-none"><p
-                                                    class="text-button-small-bold-light">Confirmar</p></button>
-                                        </div>
+
+
+
+                        <div id="overlay-confirm-res" class="display-none">
+                            <div id="overlay-confirm-res-back" class="overlay-back" onclick="off('confirm-res')">
+                            </div>
+                            <div class="add_activity giantclip-bg text-center text_submit col-lg-5 col-md-5">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-2 margin-top--3 ml-auto">
+                                        <img class="cursor-pointer" src="../img/close.svg" height="40"
+                                             onclick="off('confirm-res')">
                                     </div>
                                 </div>
+                                <div class="row display-none" id="fa_show">
+                                    <div class="col-lg-12 col-md-12 text-center">
+                                        <i class="fa fa-warning" style="font-size:1.6rem"></i>
+                                    </div>
+                                </div>
+                                <div class="row display-none" id="attention_show">
+                                    <div class="col-lg-12 col-md-12 text-center">
+                                        <h6 class="type_letter">Esta sala está reservada, se fizer a reserva ficará
+                                            em fila de espera. No caso de haver desistência será avisado(a).</h6>
+                                    </div>
+                                </div>
+                                <hr class="display-none" id="hr_show">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 text-center">
+                                        <h5 class="type_letter margin-bottom-3">Reserva Gabinete de Trabalho
+                                            Individual</h5>
+                                    </div>
+                                </div>
+                                <div class="row margin-bottom-3">
+                                    <div class="col-lg-1 col-md-1"></div>
+                                    <div class="col-lg-2 col-md-2 text-right">
+                                        <h6 class="type_letter">Dia:</h6>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 text-left">
+                                        <h6 class="type_letter_no_bold" id="date_output"></h6>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 text-right">
+                                        <h6 class="type_letter">Hora:</h6>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 text-left">
+                                        <h6 class="type_letter_no_bold" id="hour_output"></h6>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 text-center">
+                                        <h6 class="type_letter" id="gab_output"></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 text-center">
+                                        <button type="button" class="btn button-medium-light margin-none"><p
+                                                class="text-button-small-bold-light">Confirmar</p></button>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                         <div class="row">

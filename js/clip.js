@@ -263,16 +263,11 @@ function select_availability(num_office) {
 
     }
 }
-
-function close_submit() {
-    document.getElementById("confirm_submit").style.display = "none";
-}
-
 function submit_reservation() {
 
     let selected_date = document.getElementById("date_input").value;
 
-    document.getElementById("confirm_submit").style.display = "block";
+    on("confirm-res");
 
     let hour_output = "";
 
@@ -469,6 +464,9 @@ window.onkeyup = function (e) {
 window.onload = onload();
 
 function onload() {
+    if(window.location != "pages/homepage.html")
+        return;
+
     addClass(9, 'col-2f', 2, 'IPM', 'T1', 'Ed.4/203', '1', '#00375b');
     addClass(14, 'col-2f', 2, 'IIO', 'T2', 'Ed.7/1D', '1', '#00375b');
     addClass(16, 'col-2f', 2, 'IPM', 'P2', 'Ed.2/120', '2', '#00578a');
