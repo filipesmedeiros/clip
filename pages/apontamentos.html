@@ -162,7 +162,8 @@
                     <div class="row">
                         <div class="m-auto ">
                             <div class="col-lg-3 col-md-3 d-inline-block">
-                                <i class="fas fa-file-alt" style="font-size:2rem; color:#032237; margin-top:0.5rem; margin-right: 2rem"></i>
+                                <i class="fas fa-file-alt"
+                                   style="font-size:2rem; color:#032237; margin-top:0.5rem; margin-right: 2rem"></i>
                             </div>
                             <div class="col-lg-3 col-md-3 d-inline-block">
                                 <p class="title-big-h2">Todos</p>
@@ -308,14 +309,13 @@
             <div id="hideoverlay" class="display-none">
                 <div id="overlay" onclick="off()">
                 </div>
-                <div class="add_activity giantclip-bg text-center text_submit"
-                     style="height: 50vh; width: 70vh">
+                <div class="add_activity giantclip-bg text-center text_submit col-lg-5 col-md-5">
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 margin-top--3 ml-15">
-                            <img src="../img/close.svg" height="40">
+                        <div class="col-lg-2 col-md-2 margin-top--3 ml-auto">
+                            <img class="cursor-pointer" src="../img/close.svg" height="40" onclick="off()">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class=" row">
                         <div class="col-lg-12 col-md-12 text-center">
                             <h5 class="sub-title-white-notes">Novo apontamento</h5>
                         </div>
@@ -350,8 +350,7 @@
                         </form>
                     </div>
                     <div class="row">
-                        <div class="col-lg-10 col-md-10"></div>
-                        <div class="col-lg-2 col-md-2 text-left">
+                        <div class="col-lg-2 col-md-2 ml-auto">
                             <button class="btn btn-submit" onclick="newApontamento()">
                                 <img src="../img/SubmitLogo.svg" width="50" height="50">
                             </button>
