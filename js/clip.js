@@ -354,14 +354,70 @@ window.onkeyup = function (e) {
     }
 }
 
-
-
-
 //////////////////////////////////////////////////////////
 
 // SCHEDULE
 
 //////////////////////////////////////////////////////////
+
+
+window.onload = onload;
+
+function onload() {
+    addClass(9, 'col-2f', 2, 'IPM')
+}
+
+function addClass(time, day, duration, name, room, shift) {
+    let numActInTheDay = 0;
+
+    for(let i = 0; i < activities_array.length; i++) {
+        if(activities_array[i].day == day) {
+            numActInTheDay++;
+            for(let j = time; j < time + duration; j++)
+                if(activities_array[i].hours.includes(j)) {
+                    alert('Atividades sobreposta com ' + activities_array[i].actName + ', escolhe horas diferentes');
+                    return;
+                }
+        }
+    }
+
+    let daycol = document.getElementById(day);
+
+    let children = daycol.children;
+
+    let blocks = '';
+
+    for (let i = 0; i < duration; i++) {
+        console.log(children[time - 7 + i]);
+        blocks += children[time - 7 + i + numActInTheDay].id + ' ';
+        children[time - 7 + i + numActInTheDay].style.display = "none";
+        console.log(children[time - 7 + i]);
+    }
+
+    let el = document.createElement("div");
+    el.classList.add("activity-cell");
+    el.id = name;
+    el.setAttribute('data-id', blocks);
+    el.style.height = (45 * duration) + "px";
+    el.onclick = deleteActivityButton;
+
+    el.innerHTML = '<span class="act-name" style="margin-top:' + (20 * duration) + 'px">' + name + '</span>';
+
+
+
+    el.style.backgroundColor = color;
+
+    daycol.insertBefore(el, children[time - 7]);
+
+    let hourarray = [];
+    for(let i = time; i < time + duration; i++)
+        hourarray.push(i);
+
+    activities_array.push({'actName': name, 'day': day, 'hours': hourarray});
+    console.log(activities_array);
+
+    off('add-act');
+}
 
 function addActivityGetValues() {
     let ihour = document.getElementById('i-act-hour').value;
@@ -394,8 +450,6 @@ function addActivityGetValues() {
 }
 
 function addActivity(time, day, duration, name, color) {
-    debugger;
-
     let numActInTheDay = 0;
 
     for(let i = 0; i < activities_array.length; i++) {
