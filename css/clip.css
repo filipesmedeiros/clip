@@ -674,6 +674,15 @@ hr {
     cursor: auto;
 }
 
+.add_activity2 {
+    width: 800px;
+    height: 430px;
+    border-radius: 7px;
+    z-index: 100;
+    position: fixed;
+    cursor: auto;
+}
+
 .confirm_submit {
     width: 500px;
     border-radius: 6px;
