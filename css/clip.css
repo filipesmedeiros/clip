@@ -780,32 +780,40 @@ td {
 .sched-cell {
     height: 45px;
     background: darkgrey;
-    border-bottom: black solid 1px;
     font-size: 15px;
     font-family: Overpass;
 }
 
 .sched-col {
     padding: 0;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 1px solid #032237;
+    border-right: 1px solid #032237;
 }
 
 .day-cell {
     font-size: 30px;
+    background: #032237;
+    color: white;
 }
 
 .schedule {
 
 }
 
+.act-name {
+}
+
 .activity-cell {
-    height: 90px;
-    background: lightblue;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.activity-cell:hover {
+    cursor: pointer;
 }
 
 .class-cell {
-
 }
 
 @media screen and (max-width: 780px) {

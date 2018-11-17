@@ -12,15 +12,15 @@ var temp_array_availability = ["Available", "No-Available"];
 
 var apontamentos_array = [];
 
+let activities_array = [];
 
 function logIn() {
     const username = document.getElementById('usernameInput').value;
     const password = document.getElementById('passwordInput').value;
 
-    if (username === USERNAME && password === PASSWORD) {
-        console.log("Logged in");
+    if (username === USERNAME && password === PASSWORD)
         window.location.href = "pages/homepage.html";
-    } else
+    else
         alert("Not correct");
 }
 
@@ -338,23 +338,18 @@ function newApontamento() {
 
     let apontamento = {cadeira: c, data: d, titulo: t, ficheiro: f};
 
-    console.log(apontamento.cadeira + " " + apontamento.data + " " + apontamento.ficheiro + " " + apontamento.titulo);
-
     apontamentos_array.push(apontamento);
 
     update_badge(c);
 }
 
 window.onkeyup = function (e) {
-    var key = e.keyCode ? e.keyCode : e.which;
-    var passwordbox = document.getElementById('passwordInput');
-    var focus = document.activeElement === passwordbox;
+    let passwordbox = document.getElementById('passwordInput');
+    let focus = document.activeElement === passwordbox;
+    if(!focus)
+        return;
 
-    console.log(key);
-    console.log(focus);
-
-    if (key == 13 && focus) {
-        console.log("???");
+    if (e.keyCode == 13) {
         logIn();
     }
 }
@@ -370,41 +365,79 @@ function addActivityGetValues() {
     let ihour = document.getElementById('i-act-hour').value;
     let fhour = document.getElementById('f-act-hour').value;
 
-    let duration = fhour - ihour;
+    if(+ihour >= +fhour) {
+        alert("Horas inválidas!");
+        return;
+    }
+
+    let duration = +fhour - +ihour;
 
     let name = document.getElementById('act-title').value;
 
     let dayBtns = document.getElementsByClassName('day-btn');
-    console.log(dayBtns);
 
+    let daysOne = false;
     for(let i = 0; i < dayBtns.length; i++)
         if(dayBtns[i].getAttribute('data-id') === 'true') {
-            console.log(dayBtns[i]);
-            addActivity(ihour, 'col'.concat(dayBtns[i].id.substr(3, dayBtns[i].id.length)), duration, name, '#00c5ff');
+            daysOne = true;
+            addActivity(+ihour, 'col'.concat(dayBtns[i].id.substr(3, dayBtns[i].id.length)), duration, name, '#00c5ff');
         }
+
+    document.getElementById('act-title').value = '';
+    document.getElementById('i-act-hour').value = 8;
+    document.getElementById('f-act-hour').value = 9;
+
+    if(!daysOne)
+        alert("Tens de selecionar pelo menos um dia!")
 }
 
 function addActivity(time, day, duration, name, color) {
     debugger;
-    console.log(day);
+
+    let numActInTheDay = 0;
+
+    for(let i = 0; i < activities_array.length; i++) {
+        if(activities_array[i].day == day) {
+            numActInTheDay++;
+            for(let j = time; j < time + duration; j++)
+                if(activities_array[i].hours.includes(j)) {
+                    alert('Atividades sobreposta com ' + activities_array[i].actName + ', escolhe horas diferentes');
+                    return;
+                }
+        }
+    }
+
     let daycol = document.getElementById(day);
-    console.log(day);
 
     let children = daycol.children;
 
-    for (let i = 0; i < duration; i++)
-        children[time - 7 + i].style.display = "none";
+    let blocks = '';
+
+    for (let i = 0; i < duration; i++) {
+        console.log(children[time - 7 + i]);
+        blocks += children[time - 7 + i + numActInTheDay].id + ' ';
+        children[time - 7 + i + numActInTheDay].style.display = "none";
+        console.log(children[time - 7 + i]);
+    }
 
     let el = document.createElement("div");
     el.classList.add("activity-cell");
-    el.id = "name";
-    el.height = (45 * duration) + "px";
+    el.id = name;
+    el.setAttribute('data-id', blocks);
+    el.style.height = (45 * duration) + "px";
     el.onclick = deleteActivityButton;
 
-    el.innerText = name;
+    el.innerHTML = '<span class="act-name" style="margin-top:' + (20 * duration) + 'px">' + name + '</span>';
     el.style.backgroundColor = color;
 
     daycol.insertBefore(el, children[time - 7]);
+
+    let hourarray = [];
+    for(let i = time; i < time + duration; i++)
+        hourarray.push(i);
+
+    activities_array.push({'actName': name, 'day': day, 'hours': hourarray});
+    console.log(activities_array);
 
     off('add-act');
 }
@@ -417,12 +450,26 @@ var currentActivity = null;
 
 function deleteActivityButton(event) {
     currentActivity = event.target;
-    console.log(currentActivity);
-    document.getElementById('delete-act-btn').display = 'block !important';
+    if(currentActivity.tagName === 'SPAN')
+        currentActivity = currentActivity.parentElement;
+    document.getElementById('delete-act-btn').classList.remove('display-none');
 }
 
 function deleteAct() {
+    let blocks = currentActivity.getAttribute('data-id').split(' ');
+
+    for(let i = 0; i < blocks.length; i++) {
+        if(blocks[i] !== ' ' && blocks[i] !== '')
+            document.getElementById(blocks[i]).style.display = 'block';
+    }
+
+    for(let i = 0; i < activities_array.length; i++)
+        if(activities_array[i].actName == currentActivity.id)
+            activities_array.splice(i, 1);
+
     currentActivity.remove();
+
+    document.getElementById('delete-act-btn').classList.add('display-none');
 }
 
 function highlightDay(day) {
