@@ -423,7 +423,7 @@ function addClass(time, day, duration, name, room, shift, id, color) {
     off('add-act');
 }
 
-let color = '';
+let color = '#00c5ff';
 
 function changeColor(event) {
     color = event.target.value;
@@ -467,9 +467,10 @@ function addActivity(time, day, duration, name, color) {
 
     for(let i = 0; i < activities_array.length; i++) {
         if(activities_array[i].day == day) {
-            numActInTheDay++;
-            for(let j = time; j < time + duration; j++)
-                if(activities_array[i].hours.includes(j)) {
+            if (activities_array[i].hours[0] < time)
+                numActInTheDay++;
+            for (let j = time; j < time + duration; j++)
+                if (activities_array[i].hours.includes(j)) {
                     alert('Atividades sobreposta com ' + activities_array[i].actName + ', escolhe horas diferentes');
                     return;
                 }
@@ -483,10 +484,8 @@ function addActivity(time, day, duration, name, color) {
     let blocks = '';
 
     for (let i = 0; i < duration; i++) {
-        console.log(children[time - 7 + i]);
         blocks += children[time - 7 + i + numActInTheDay].id + ' ';
         children[time - 7 + i + numActInTheDay].style.display = "none";
-        console.log(children[time - 7 + i]);
     }
 
     let el = document.createElement("div");
@@ -498,6 +497,9 @@ function addActivity(time, day, duration, name, color) {
 
     el.innerHTML = '<span class="act-name" style="margin-top:' + (20 * duration) + 'px">' + name + '</span>';
     el.style.backgroundColor = color;
+
+    if(color < '#888888')
+        el.style.color = 'white';
 
     daycol.insertBefore(el, children[time - 7 + numActInTheDay]);
 

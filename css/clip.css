@@ -627,7 +627,7 @@ ul {
 .add_activity {
     width: 800px;
     height: 500px;
-    border-radius: 1%;
+    border-radius: 7px;
     z-index: 100;
     position: fixed;
     cursor: auto;
@@ -635,13 +635,13 @@ ul {
 
 .confirm_submit {
     width: 500px;
-    border-radius: 2%;
+    border-radius: 6px;
     background: #032237;
 }
 
 .attention {
     width: 500px;
-    border-radius: 2%;
+    border-radius: 5px;
     background: #032237;
     margin: 0.5rem;
 }
@@ -822,7 +822,8 @@ td {
 }
 
 .activity-cell {
-    padding-top: 3px;
+    padding-top: 10%;
+    font-family: OverpassBold;
 }
 
 .activity-cell:hover {
@@ -843,8 +844,8 @@ td {
     font-size: 15px;
     color: white;
     background: #00243b;
-    border-bottom: 1px solid #032237;
-    border-top: 1px solid #032237;
+    /* border-bottom: 1px solid #032237; */
+    /* border-top: 1px solid #032237; */
     font-family: Overpass;
 }
 
