@@ -460,11 +460,10 @@ window.onkeyup = function (e) {
 
 //////////////////////////////////////////////////////////
 
-
 window.onload = onload();
 
 function onload() {
-    if(window.location != "pages/homepage.html")
+    if(!window.location.href.includes('homepage'))
         return;
 
     addClass(9, 'col-2f', 2, 'IPM', 'T1', 'Ed.4/203', '1', '#00375b');
