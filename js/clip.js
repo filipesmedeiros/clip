@@ -28,6 +28,10 @@ function logIn() {
         alert("Not correct");
 }
 
+function logOut() {
+    window.location.href = "../index.html";
+}
+
 function on(overlay) {
     document.getElementById("overlay-" + overlay).style.display = "inline";
 }
