@@ -38,6 +38,15 @@ body {
 
 .giantclip-bg-nav {
     background: #032237 url("../img/LoginBackground.svg") no-repeat right top/cover;
+    height: 800px;
+}
+
+.h-700{
+    height: 692px;
+}
+
+.h-800{
+    height: 830px;
 }
 
 .primary-text {
@@ -71,13 +80,19 @@ body {
     outline: none;
 }
 
-.input-req{
+.input-req {
     width: 100%;
     box-sizing: border-box;
     border: none;
     background: #ffffff;
     outline: none;
     border-radius: 5px;
+}
+
+.small-text {
+    font-size: 15px;
+    font-family: "Overpass";
+    color: #032237;
 }
 
 .title-big {
@@ -250,6 +265,11 @@ select:-webkit-autofill:focus {
     margin-top: 5%;
 }
 
+.h-70 {
+    height: 70%;
+
+}
+
 .ml--2 {
     margin-left: -20px;
 }
@@ -257,6 +277,7 @@ select:-webkit-autofill:focus {
 .ml--3 {
     margin-left: -30px;
 }
+
 .ml-10 {
     margin-left: 200px;
 }
@@ -276,6 +297,10 @@ select:-webkit-autofill:focus {
 .mr--2 {
     float: right;
     margin-right: -20px;
+}
+
+.h-110 {
+    height: 110%;
 }
 
 .w-80 {
@@ -356,7 +381,7 @@ select:-webkit-autofill:focus {
 }
 
 .mt-15 {
-    margin-top: 15vh;
+    margin-top: 15%;
 }
 
 .mt-20 {
@@ -761,6 +786,17 @@ hr {
     margin-top: 1rem;
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 0 10px 10px 0;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    z-index: 30;
+}
+
 .title-big-h2 {
     font-family: OverpassBold;
     font-size: 2rem;
@@ -770,6 +806,12 @@ hr {
 .title-big-h3 {
     font-family: OverpassBold;
     font-size: 1.5rem;
+    color: #032237;
+}
+
+.title-big-h3-2{
+    font-family: OverpassBold;
+    font-size: 3vh;
     color: #032237;
 }
 
