@@ -25,31 +25,41 @@
                     <img class="img-circle" src="../img/CircleSecondary.svg">
                 </a>
             </div>
+
             <ul class="nav navbar-nav">
-                <a class="font-options" href="homepage.html">Semestre</a>
+                <div id="semestre" onclick="selectSection('semestre')" class="option-selected">
+                    <a class="font-options font-options-selected" href="homepage.html">Semestre</a>
+                </div>
                 <a class="font-options-small" href="homepage.html">Horário</a>
                 <a class="font-options-small" href="">Calendário</a>
                 <a class="font-options-small" href="apontamentos.html">Apontamentos</a>
                 <a class="font-options-small" href="">Resultados</a>
                 <a class="font-options-small" href="">Cadeiras</a>
                 <hr>
-                <a class="font-options" href="">Progresso</a>
+                <div id="progresso" onclick="selectSection('progresso')">
+                    <a class="font-options" href="">Progresso</a>
+                </div>
                 <hr>
-                <a class="font-options" href="">Inscrição</a>
+
+                <div id="inscricao" onclick="selectSection('inscricao')">
+                    <a class="font-options" href="">Inscrição</a>
+                </div>
                 <hr>
-                <a class="font-options" href="space.html">Espaços</a>
+
+                <div id="espacos" onclick="selectSection('espacos')">
+                    <a class="font-options" href="space.html">Espaços</a>
+                </div>
                 <hr>
-                <a class="font-options" href="requerimentos.html">Requerimentos</a>
+
+                <div id="requerimentos" onclick="selectSection('requerimentos')">
+                    <a class="font-options" href="requerimentos.html">Requerimentos</a>
+                </div>
             </ul>
 
-            <div class="container-fluid text-center mt-3">
-                <span class="font-options d-inline-block cursor-pointer">
-                    <a class="text-white" href="../index.html">Sair</a>
-                </span>
-                <a href="../index.html">
-                    <i class="fas fa-sign-out-alt fa-icon d-inline-block cursor-pointer ml-2"
-                       style="font-size:20px; color:white"></i>
-                </a>
+            <div class="container-fluid text-center mt-3 ml--2">
+                <span class="font-options d-inline-block cursor-pointer"> Sair </span>
+                <i class="fas fa-sign-out-alt fa-icon d-inline-block cursor-pointer ml--2"
+                   style="font-size:20px; color:white"></i>
             </div>
 
         </div>
@@ -171,8 +181,6 @@
                                 <h6 class="type_letter" id="name_gab_selected"></h6>
                             </div>
                         </div>
-
-                        <!--- rodape --->
 
                         <div id="overlay-confirm-res" class="display-none">
                             <div id="overlay-confirm-res-back" class="overlay-back" onclick="off('confirm-res')">

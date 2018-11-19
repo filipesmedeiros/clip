@@ -415,6 +415,21 @@ select:-webkit-autofill:focus {
     color: white !important;
     margin-bottom: 0;
     margin-top: 0;
+    padding: 0 2rem 0 2rem;
+}
+
+.option-selected {
+    background: white;
+}
+
+.font-options-selected {
+    font-family: "OverpassBold";
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #032237 !important;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0 2rem 0 2rem;
 }
 
 .font-options-small {
@@ -425,6 +440,7 @@ select:-webkit-autofill:focus {
     margin-bottom: 0;
     margin-top: 0.5rem;
     margin-left: 1.5rem;
+    padding: 0 4rem 0 2rem;
 }
 
 textarea {
@@ -436,10 +452,6 @@ a:hover {
     text-decoration: none;
 }
 
-ul {
-    margin: 2rem;
-}
-
 .top-style {
     background: white;
     padding: 0.5rem;
@@ -447,7 +459,8 @@ ul {
 
 hr {
     border-top: 1px solid rgb(255, 255, 255);
-    width: 98%;
+    width: 75%;
+    margin-left: 1rem;
 }
 
 .img-circle {

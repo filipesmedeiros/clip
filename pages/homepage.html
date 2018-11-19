@@ -25,26 +25,40 @@
                     <img class="img-circle" src="../img/CircleSecondary.svg">
                 </a>
             </div>
+
             <ul class="nav navbar-nav">
-                <a class="font-options" href="homepage.html">Semestre</a>
+                <div onclick="selectSection(this)" class="option-selected">
+                    <a class="font-options font-options-selected" href="homepage.html">Semestre</a>
+                </div>
                 <a class="font-options-small" href="homepage.html">Horário</a>
                 <a class="font-options-small" href="">Calendário</a>
                 <a class="font-options-small" href="apontamentos.html">Apontamentos</a>
                 <a class="font-options-small" href="">Resultados</a>
                 <a class="font-options-small" href="">Cadeiras</a>
                 <hr>
-                <a class="font-options" href="">Progresso</a>
+                <div onclick="selectSection(this)">
+                    <a class="font-options" href="">Progresso</a>
+                </div>
                 <hr>
-                <a class="font-options" href="">Inscrição</a>
+
+                <div onclick="selectSection(this)">
+                    <a class="font-options" href="">Inscrição</a>
+                </div>
                 <hr>
-                <a class="font-options" href="space.html">Espaços</a>
+
+                <div onclick="selectSection(this)">
+                    <a class="font-options" href="space.html">Espaços</a>
+                </div>
                 <hr>
-                <a class="font-options" href="requerimentos.html">Requerimentos</a>
+
+                <div onclick="selectSection(this)">
+                    <a class="font-options" href="requerimentos.html">Requerimentos</a>
+                </div>
             </ul>
 
-            <div class="container-fluid text-center mt-3">
+            <div class="container-fluid text-center mt-3 ml--2">
                 <span class="font-options d-inline-block cursor-pointer"> Sair </span>
-                <i class="fas fa-sign-out-alt fa-icon d-inline-block cursor-pointer ml-2"
+                <i class="fas fa-sign-out-alt fa-icon d-inline-block cursor-pointer ml--2"
                    style="font-size:20px; color:white"></i>
             </div>
 
@@ -458,7 +472,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-10 col-md-10">
-                            <span class="sub-title-white">Escolhe a cor para esta atividade!</span>
+                            <span class="sub-title-white mr-3">Escolhe a cor para esta atividade </span>
                             <input class="jscolor jscolor-active text sub-title" value="00c5ff" id="color-select"
                                    onchange="changeColor(event)" autocomplete="off"
                                    style="background: #00c5ff none;color: #032237">
