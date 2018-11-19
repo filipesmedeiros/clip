@@ -469,6 +469,11 @@ hr {
     border-radius: 50%;
 }
 
+.profile-pic{
+    height: 15vh;
+    width: 15vh;
+}
+
 .user-picture {
     margin-bottom: 3rem;
     margin-top: 3rem;
@@ -505,6 +510,13 @@ hr {
     font-size: 1.3rem !important;
 }
 
+.big_title {
+    margin-top: 2rem;
+    font-family: Overpass;
+    color: #032237;
+    font-size: 1.3rem !important;
+}
+
 .normal_big_title-white {
     margin-top: 2rem;
     font-family: OverpassBold;
@@ -513,10 +525,10 @@ hr {
 }
 
 .sub-title {
-    font-family: OverpassBold;
-    color: #032237;
-    font-size: 1rem !important;
-}
+     font-family: OverpassBold;
+     color: #032237;
+     font-size: 1rem !important;
+ }
 
 .sub-title-notes {
     font-family: OverpassBold;
@@ -601,6 +613,11 @@ hr {
 
 .border-bott {
     border-bottom: solid 5px #032237;
+}
+
+.border-bott-alt {
+    border-bottom: solid 1px #032237;
+    padding: 2vh;
 }
 
 .button-medium {
@@ -925,6 +942,10 @@ td {
 
 .border-bottom {
     border-bottom: 2px solid #032237 !important;
+}
+
+.mtop-5 {
+    margin-top: 2.5rem;
 }
 
 .day-cell {
