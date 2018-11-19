@@ -468,15 +468,15 @@ function selectSection(id, id_font) {
     let option = document.getElementById(id);
     let font = document.getElementById(id_font);
 
-    let sel = document.getElementsByClassName('font-options-selected');
-    for (let i = 0; i < sel.length; i++)
-        sel[i].classList.remove('font-options-selected');
+    let fontSel = document.getElementsByClassName('font-options-selected');
+    for (let i = 0; i < fontSel.length; i++)
+        fontSel[i].classList.remove('font-options-selected');
 
-    sel = document.getElementsByClassName('option-selected');
+    let sel  = document.getElementsByClassName('option-selected');
     for (let i = 0; i < sel.length; i++)
         sel[i].classList.remove('option-selected');
 
-    font.add('font-options-selected');
+    font.classList.add('font-options-selected');
     option.classList.add('option-selected');
 
     localStorage.setItem('selected', id);
