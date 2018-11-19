@@ -420,6 +420,8 @@ select:-webkit-autofill:focus {
 
 .option-selected {
     background: white;
+    border-radius: 5px;
+    margin-left: 5px;
 }
 
 .font-options-selected {

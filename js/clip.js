@@ -465,22 +465,26 @@ function selectSection(id, id_font) {
 
     console.log(id + " " + id_font);
 
-    let option = document.getElementById(id);
-    let font = document.getElementById(id_font);
+    if (id !== "" && id_font !== "") {
 
-    let fontSel = document.getElementsByClassName('font-options-selected');
-    for (let i = 0; i < fontSel.length; i++)
-        fontSel[i].classList.remove('font-options-selected');
+        let option = document.getElementById(id);
+        let font = document.getElementById(id_font);
 
-    let sel  = document.getElementsByClassName('option-selected');
-    for (let i = 0; i < sel.length; i++)
-        sel[i].classList.remove('option-selected');
+        let fontSel = document.getElementsByClassName('font-options-selected');
+        for (let i = 0; i < fontSel.length; i++)
+            fontSel[i].classList.remove('font-options-selected');
 
-    font.classList.add('font-options-selected');
-    option.classList.add('option-selected');
+        let sel = document.getElementsByClassName('option-selected');
+        for (let i = 0; i < sel.length; i++)
+            sel[i].classList.remove('option-selected');
 
-    localStorage.setItem('selected', id);
-    localStorage.setItem('font', id_font);
+        font.classList.add('font-options-selected');
+        option.classList.add('option-selected');
+
+        localStorage.setItem('selected', id);
+        localStorage.setItem('font', id_font);
+
+    }
 }
 
 function addClass(time, day, duration, name, room, shift, id, color) {
