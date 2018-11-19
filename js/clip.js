@@ -263,6 +263,7 @@ function select_availability(num_office) {
 
     }
 }
+
 function submit_reservation() {
 
     let selected_date = document.getElementById("date_input").value;
@@ -436,7 +437,7 @@ function myFunction() {
     }
 }
 
-function countCaracteres(){
+function countCaracteres() {
 
     let textsize = document.getElementById("ambito").value.length;
 
@@ -446,7 +447,7 @@ function countCaracteres(){
 window.onkeyup = function (e) {
     let passwordbox = document.getElementById('passwordInput');
     let focus = document.activeElement === passwordbox;
-    if(!focus)
+    if (!focus)
         return;
 
     if (e.keyCode == 13) {
@@ -460,32 +461,36 @@ window.onkeyup = function (e) {
 
 //////////////////////////////////////////////////////////
 
-function selectSection(id) {
-    console.log(id);
+function selectSection(id, id_font) {
+
+    console.log(id + " " + id_font);
+
     let option = document.getElementById(id);
+    let font = document.getElementById(id_font);
 
     let sel = document.getElementsByClassName('font-options-selected');
-    for(let i = 0; i < sel.length; i++)
+    for (let i = 0; i < sel.length; i++)
         sel[i].classList.remove('font-options-selected');
 
     sel = document.getElementsByClassName('option-selected');
-    for(let i = 0; i < sel.length; i++)
+    for (let i = 0; i < sel.length; i++)
         sel[i].classList.remove('option-selected');
 
-    option.firstChild.nextSibling.classList.add('font-options-selected');
+    font.add('font-options-selected');
     option.classList.add('option-selected');
 
-    localStorage.setItem('selected', option);
+    localStorage.setItem('selected', id);
+    localStorage.setItem('font', id_font);
 }
 
 function addClass(time, day, duration, name, room, shift, id, color) {
     let numActInTheDay = 0;
 
-    for(let i = 0; i < activities_array.length; i++) {
-        if(activities_array[i].day == day) {
+    for (let i = 0; i < activities_array.length; i++) {
+        if (activities_array[i].day == day) {
             numActInTheDay++;
-            for(let j = time; j < time + duration; j++)
-                if(activities_array[i].hours.includes(j)) {
+            for (let j = time; j < time + duration; j++)
+                if (activities_array[i].hours.includes(j)) {
                     alert('Atividades sobreposta com ' + activities_array[i].actName + ', escolhe horas diferentes');
                     return;
                 }
@@ -516,7 +521,7 @@ function addClass(time, day, duration, name, room, shift, id, color) {
     daycol.insertBefore(el, children[time - 7 + numActInTheDay]);
 
     let hourarray = [];
-    for(let i = time; i < time + duration; i++)
+    for (let i = time; i < time + duration; i++)
         hourarray.push(i);
 
     activities_array.push({'actName': name, 'day': day, 'hours': hourarray});
@@ -536,7 +541,7 @@ function addActivityGetValues() {
     let ihour = document.getElementById('i-act-hour').value;
     let fhour = document.getElementById('f-act-hour').value;
 
-    if(+ihour >= +fhour) {
+    if (+ihour >= +fhour) {
         alert("Horas inválidas!");
         return;
     }
@@ -548,8 +553,8 @@ function addActivityGetValues() {
     let dayBtns = document.getElementsByClassName('day-btn');
 
     let daysOne = false;
-    for(let i = 0; i < dayBtns.length; i++)
-        if(dayBtns[i].getAttribute('data-id') === 'true') {
+    for (let i = 0; i < dayBtns.length; i++)
+        if (dayBtns[i].getAttribute('data-id') === 'true') {
             daysOne = true;
             addActivity(+ihour, 'col'.concat(dayBtns[i].id.substr(3, dayBtns[i].id.length)), duration, name, color);
         }
@@ -561,15 +566,15 @@ function addActivityGetValues() {
     color = '#00c5ff';
     document.getElementById("color-select").value = '#00c5ff';
 
-    if(!daysOne)
+    if (!daysOne)
         alert("Tens de selecionar pelo menos um dia!")
 }
 
 function addActivity(time, day, duration, name, color) {
     let numActInTheDay = 0;
 
-    for(let i = 0; i < activities_array.length; i++) {
-        if(activities_array[i].day == day) {
+    for (let i = 0; i < activities_array.length; i++) {
+        if (activities_array[i].day == day) {
             if (activities_array[i].hours[0] < time)
                 numActInTheDay++;
             for (let j = time; j < time + duration; j++)
@@ -601,13 +606,13 @@ function addActivity(time, day, duration, name, color) {
     el.innerHTML = '<span class="act-name" style="margin-top:' + (20 * duration) + 'px">' + name + '</span>';
     el.style.backgroundColor = color;
 
-    if(color < '#888888')
+    if (color < '#888888')
         el.style.color = 'white';
 
     daycol.insertBefore(el, children[time - 7 + numActInTheDay]);
 
     let hourarray = [];
-    for(let i = time; i < time + duration; i++)
+    for (let i = time; i < time + duration; i++)
         hourarray.push(i);
 
     activities_array.push({'actName': name, 'day': day, 'hours': hourarray});
@@ -615,7 +620,7 @@ function addActivity(time, day, duration, name, color) {
     off('add-act');
 }
 
-Element.prototype.remove = function() {
+Element.prototype.remove = function () {
     this.parentElement.removeChild(this);
 }
 
@@ -623,7 +628,7 @@ var currentActivity = null;
 
 function deleteActivityButton(event) {
     currentActivity = event.target;
-    if(currentActivity.tagName === 'SPAN')
+    if (currentActivity.tagName === 'SPAN')
         currentActivity = currentActivity.parentElement;
     document.getElementById('delete-act-btn').classList.remove('display-none');
 }
@@ -631,13 +636,13 @@ function deleteActivityButton(event) {
 function deleteAct() {
     let blocks = currentActivity.getAttribute('data-id').split(' ');
 
-    for(let i = 0; i < blocks.length; i++) {
-        if(blocks[i] !== ' ' && blocks[i] !== '')
+    for (let i = 0; i < blocks.length; i++) {
+        if (blocks[i] !== ' ' && blocks[i] !== '')
             document.getElementById(blocks[i]).style.display = 'block';
     }
 
-    for(let i = 0; i < activities_array.length; i++)
-        if(activities_array[i].actName == currentActivity.id)
+    for (let i = 0; i < activities_array.length; i++)
+        if (activities_array[i].actName == currentActivity.id)
             activities_array.splice(i, 1);
 
     currentActivity.remove();
@@ -667,11 +672,13 @@ function highlightDay(day) {
 window.onload = onload();
 
 function onload() {
-    let selectedOption = localStorage.getItem('selected');
-    if(selectedOption != undefined)
-        selectSection(selectedOption);
 
-    if(!window.location.href.includes('homepage'))
+    let selectedOption = localStorage.getItem('selected');
+    let optionFont = localStorage.getItem('font');
+    if (selectedOption != undefined && optionFont != undefined)
+        selectSection(selectedOption, optionFont);
+
+    if (!window.location.href.includes('homepage'))
         return;
 
     addClass(9, 'col-2f', 2, 'IPM', 'T1', 'Ed.4/203', '1', '#00375b');
