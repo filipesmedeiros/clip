@@ -198,6 +198,8 @@ body {
     cursor: pointer;
 }
 
+
+
 .password-input-login {
     margin-top: 0.3em;
     width: 20vw;
@@ -223,6 +225,7 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     border: none;
     transition: background-color 5000s ease-in-out 0s;
+    outline: none;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -622,10 +625,12 @@ hr {
 
 .button-medium {
     margin-top: 2rem;
-    color: #032237;
+    color: white;
+    padding: 7px;
     background-color: #032237;
     border-color: #032237;
     border-radius: 5px;
+    outline: none;
 }
 
 .list {
@@ -826,7 +831,7 @@ hr {
     width: 100%;
     background-color: white;
     text-align: center;
-    z-index: 30;
+    z-index: 100;
 }
 
 .title-big-h2 {
