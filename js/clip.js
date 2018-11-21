@@ -267,9 +267,6 @@ function select_availability(num_office) {
             document.getElementById("attention_show").style.display = "none";
             document.getElementById("hr_show").style.display = "none";
         }
-
-        document.getElementById("caixa").style.height="40vh";
-
     }
 }
 
