@@ -820,7 +820,7 @@ hr {
 
 .title-big-h1 {
     font-family: OverpassBold;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #032237;
     margin-top: 1rem;
 }
@@ -838,25 +838,25 @@ hr {
 
 .title-big-h2 {
     font-family: OverpassBold;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #032237;
 }
 
 .title-big-h3 {
     font-family: OverpassBold;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #032237;
 }
 
 .title-big-h3-2{
     font-family: OverpassBold;
-    font-size: 3vh;
+    font-size: 2.5vh;
     color: #032237;
 }
 
 .title-big-h2-normal {
     font-family: Overpass;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #032237;
 }
 

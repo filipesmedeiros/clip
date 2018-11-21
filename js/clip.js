@@ -41,6 +41,7 @@ function off(overlay) {
 }
 
 function auditory() {
+
     if (!selected) {
         document.getElementById("gab_group").style.display = "none";
         document.getElementById("gab_ind").style.display = "none";
@@ -60,6 +61,7 @@ function auditory() {
 }
 
 function gab_group() {
+
     if (!selected) {
         document.getElementById("auditory").style.display = "none";
         document.getElementById("gab_ind").style.display = "none";
@@ -82,7 +84,6 @@ function gab_group() {
         document.getElementById("name_gab_selected").innerHTML = "";
         document.getElementById('date_input').value = "";
 
-
         for (let i = 1; i < 5; i++) {
 
             document.getElementById("btn_" + i).style.backgroundColor = "#032237";
@@ -90,7 +91,6 @@ function gab_group() {
             document.getElementById("option_" + i).style.fontFamily = "Overpass";
 
         }
-
 
         selected = false;
     }
@@ -236,6 +236,7 @@ function availability(option) {
 }
 
 function select_availability(num_office) {
+
     var selected_date = document.getElementById("date_input").value;
 
     if (selected_date !== "") {
@@ -492,6 +493,7 @@ function selectSection(id, id_font) {
 }
 
 function addClass(time, day, duration, name, room, shift, id, color) {
+
     let numActInTheDay = 0;
 
     for (let i = 0; i < activities_array.length; i++) {
@@ -546,6 +548,7 @@ function changeColor(event) {
 }
 
 function addActivityGetValues() {
+
     let ihour = document.getElementById('i-act-hour').value;
     let fhour = document.getElementById('f-act-hour').value;
 
@@ -579,6 +582,7 @@ function addActivityGetValues() {
 }
 
 function addActivity(time, day, duration, name, color) {
+
     let numActInTheDay = 0;
 
     for (let i = 0; i < activities_array.length; i++) {
@@ -659,7 +663,9 @@ function deleteAct() {
 }
 
 function highlightDay(day) {
+
     if (day.getAttribute('data-id') === 'false') {
+
         day.style.backgroundColor = "#FFFFFF";
 
         day.style.color = "#032237";
@@ -667,7 +673,9 @@ function highlightDay(day) {
         day.firstChild.nextSibling.style.fontFamily = "OverpassBold";
 
         day.setAttribute('data-id', 'true');
+
     } else {
+
         day.style.backgroundColor = "#032237";
         day.firstChild.color = "#FFFFFF";
         day.firstChild.nextSibling.style.color = "#FFFFFF";
