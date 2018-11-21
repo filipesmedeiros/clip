@@ -38,7 +38,7 @@ body {
 
 .giantclip-bg-nav {
     background: #032237 url("../img/LoginBackground.svg") no-repeat right top/cover;
-    height: 100vh;
+    height: 45rem;
 }
 
 .h-700{
@@ -423,8 +423,8 @@ select:-webkit-autofill:focus {
 
 .option-selected {
     background: white;
-    border-radius: 5px;
-    margin-left: 5px;
+    margin-left: 10px;
+    border-radius: 5px 0 0 5px;
 }
 
 .font-options-selected {
@@ -649,7 +649,7 @@ hr {
 }
 
 .button-medium-border {
-    margin-top: 2rem;
+    margin-top: 1vh;
     color: #032237;
     background-color: #032237;
     border-color: white;
@@ -657,7 +657,7 @@ hr {
 
 .text-button-medium {
     font-family: "Overpass";
-    font-size: 1rem;
+    font-size: 2vh;
     color: white;
     margin: 0;
 }
@@ -782,7 +782,7 @@ hr {
 
 .dropdown-style {
     font-family: Overpass;
-    font-size: 1.1rem;
+    font-size: 2.3vh;
     text-decoration: none;
     color: #032237 !important;
     margin-top: 1rem;
@@ -790,7 +790,7 @@ hr {
 
 .dropdown-style-not-available {
     font-family: Overpass;
-    font-size: 1.1rem;
+    font-size: 2.3vh;
     text-decoration: none;
     color: #747474 !important;
     margin-top: 1rem;
@@ -812,7 +812,7 @@ hr {
 
 .dropdown-style:hover {
     font-family: OverpassBold !important;
-    font-size: 1.1rem;
+    font-size: 2.3vh;
     text-decoration: none;
     color: #032237 !important;
     margin-top: 1rem;
@@ -826,14 +826,12 @@ hr {
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    padding: 0 10px 10px 0;
-    width: 100%;
-    background-color: white;
-    text-align: center;
-    z-index: 100;
+    position:fixed;
+    right:0;
+    bottom:0;
+    margin:0.5rem;
+    padding:0;
+    width:75%;
 }
 
 .title-big-h2 {
@@ -867,13 +865,14 @@ hr {
 .type-letter-color {
     font-family: OverpassBold;
     color: white;
-    margin-top: 2rem;
+    margin-top: 2vh;
 }
 
 .type_letter {
     font-family: OverpassBold;
     color: white;
     margin-top: 0.5rem;
+    font-size: 2vh;
 }
 
 .type_letter_no_bold {

@@ -13,19 +13,21 @@
 <body>
 <div class="container-fluid h-100">
     <div class="row h-100 ">
+
         <div class="col-lg-2 col-md-2 padding-none giantclip-bg-nav">
+
             <div class="top-style text-center">
                 <img src="../img/LogoPrimary.svg" height="80" width="auto">
             </div>
 
             <i class="fa fa-bell fa-icon float-right d-inline-block" style="font-size:24px;"></i>
 
-
             <div class="user-picture text-center">
                 <a href="profile.html">
                     <img class="img-circle" src="../img/Person.svg">
                 </a>
             </div>
+
             <ul class="nav navbar-nav">
                 <div id="semestre" onclick="selectSection('semestre','semestre_font')">
                     <a id="semestre_font" class="font-options" href="homepage.html">Semestre</a>
@@ -55,7 +57,9 @@
                     <a id="requerimentos_font" class="font-options" href="requerimentos.html">Requerimentos</a>
                 </div>
             </ul>
+
         </div>
+
         <div class="col-lg-9 col-md-9" style="background:#ffffff">
             <div class="row">
                 <div class="col-lg-12 col-md-12 text-center">
@@ -63,23 +67,29 @@
                 </div>
             </div>
             <div class="row margin-top-3">
-                <div class="col-lg-6 col-md-6 text-center padding-none">
+                <div class="col-lg-6 col-md-6">
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 text-right">
-                            <i class="fa fa-institution" style="font-size:2rem; color:#032237; margin-top:0.5rem"></i>
-                        </div>
-                        <div class="col-lg-9 col-md-9 text-left">
-                            <p class="title-big-h2">Biblioteca</p>
+                        <div class="m-auto ">
+                            <div class="col-lg-3 col-md-3 d-inline-block">
+                                <i class="fa fa-institution"
+                                   style="font-size:2rem; color:#032237; margin-top:0.5rem"></i>
+                            </div>
+                            <div class="col-lg-3 col-md-3 d-inline-block">
+                                <p class="title-big-h2" style="width: 35vh">Biblioteca</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 text-center padding-none">
+                <div class="col-lg-6 col-md-6">
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 text-right">
-                            <i class="fa fa-users" style="font-size:2rem; color:#032237; margin-top:0.5rem"></i>
-                        </div>
-                        <div class="col-lg-9 col-md-9 text-left">
-                            <p class="title-big-h2">Comunicação e Cultura</p>
+                        <div class="m-auto ">
+                            <div class="col-lg-3 col-md-3 d-inline-block">
+                                <i class="fa fa-users"
+                                   style="font-size:2rem; color:#032237; margin-top:0.5rem;"></i>
+                            </div>
+                            <div class="col-lg-3 col-md-3 d-inline-block">
+                                <p class="title-big-h2 " style="width: 35vh">Comunicação e Cultura</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -115,23 +125,25 @@
                     </div>
                 </div>
             </div>
+
             <!--Form-->
-            <div class="row">
+
+            <div class="row col-lg-12 col-md-12">
                 <div class="col-lg-7 col-md-7" id="gab_group_form" style="display:none">
-                    <div class="container-fluid h-80"
-                         style="background:#032237; border-radius:1%; height:340px; margin-top: 2rem">
+                    <div id="caixa" class="container-fluid"
+                         style="background:#032237; border-radius:1%; height:35vh; margin-top: 2rem; width: 70vh">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 text-center">
                                 <h5 class="type-letter-color">Data</h5>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-3 col-md-3 text-center"></div>
-                            <div class="col-lg-6 col-md-6 text-center">
+                            <div class="col-lg-2 col-md-2 text-center"></div>
+                            <div class="col-lg-8 col-md-8 text-center">
                                 <input class="form-control w-70 m-auto text-center" type="date" id="date_input"
                                        onchange="onDateChange()">
                             </div>
-                            <div class="col-lg-3 col-md-3 text-center"></div>
+                            <div class="col-lg-2 col-md-2 text-center"></div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 text-center">
@@ -164,7 +176,7 @@
                         </div>
                         <div class="row" id="invalidDate">
                             <div class="col-lg-12 col-md-12 text-center margin-top-1">
-                                <img class="display-none mr-2" src="../img/error.svg" width="25" height="25"
+                                <img class="display-none mr-2" src="../img/error.svg" style="height: 3vh; width: 3vh"
                                      id="img_invalidDate">
                                 <h6 class="type_letter" id="name_invalidDate"></h6>
                             </div>
@@ -235,23 +247,23 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 text-right display-none" id="btn_submit">
-                                <button class="btn btn-submit" style="margin-top: -30px" onclick="submit_reservation()">
-                                    <img src="../img/SubmitLogo.svg" width="50" height="50">
-                                </button>
+                                <i class="fas fa-arrow-circle-right cursor-pointer"
+                                   style="font-size:5.5vh; color:#ffffff; margin-left: 1.5rem"
+                                   onclick="submit_reservation()"></i>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg5 col-md-5" id="gab_group_availability" style="display:none">
-                    <div class="container-fluid h-80" style="border-radius:1%;height: 300px; margin-top: 2rem">
+                <div class="col-lg-5 col-md-5" id="gab_group_availability" style="display:none">
+                    <div class="container-fluid h-80">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 text-center">
                                 <h1 class="title_medium">Disponibilidades</h1>
                             </div>
                         </div>
-                        <div class="row text-center">
+                        <div class="row text-center mb-1">
                             <div class="col-lg-12 col-md-12">
-                                <div class="container-fluid w-70 title-big-h2">
+                                <div class="container-fluid title-big-h2" align="center">
                                     <table id="table_availability"></table>
                                 </div>
                             </div>
@@ -259,7 +271,9 @@
                     </div>
                 </div>
             </div>
+
             <!--Information-->
+
             <div class="container-fluid display-none margin-top-1" id="info_availability">
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
@@ -290,11 +304,12 @@
                     </div>
                 </div>
             </div>
+
             <!--- rodape --->
 
-            <div class="footer">
-                <a href="https://www.fct.unl.pt/" class="float-right ">
-                    <img class="img-fluid d-inline-flex" src="../img/LogoFCT.jpg" style="height: 2rem">
+            <div class="container-fluid footer">
+                <a href="https://www.fct.unl.pt/" class="float-right">
+                    <img class="d-inline-flex" src="../img/LogoFCT.jpg" style="height: 2rem">
                 </a>
             </div>
         </div>

@@ -7,8 +7,9 @@ var hour_seleted;
 var office_selected;
 var available = true;
 
-var temp_array = ["Gabinete de Trabalho de Grupo: 2.1", "Gabinete de Trabalho de Grupo: 3.1"];
-var temp_array_availability = ["Available", "No-Available"];
+var temp_array = ["Gabinete de Trabalho em Grupo : 1.2", "Gabinete de Trabalho em Grupo : 1.3","Gabinete de Trabalho em Grupo : 1.4",
+"Gabinete de Trabalho em Grupo : 2.5","Gabinete de Trabalho em Grupo : 2.7", "Gabinete de Trabalho em Grupo : 2.8"];
+var temp_array_availability = ["Available", "No-Available", "Available","Available","No-Available","No-Available"];
 
 var apontamentos_array = [];
 
@@ -210,14 +211,15 @@ function availability(option) {
         document.getElementById("btn_" + i).style.backgroundColor = "#032237";
         document.getElementById("option_" + i).style.color = "white";
         document.getElementById("option_" + i).style.fontFamily = "Overpass";
+        document.getElementById("option_" + i).style.fontSize = "2vh";
     }
 
     document.getElementById("btn_" + option).style.backgroundColor = "#FFFFFF";
     document.getElementById("option_" + option).style.color = "#032237";
     document.getElementById("option_" + option).style.fontFamily = "OverpassBold";
+    document.getElementById("option_" + option).style.fontSize = "2vh";
 
     count_gab_available = temp_array.length;
-
 
     for (let i = 0; i < count_gab_available; i++) {
 
@@ -265,6 +267,8 @@ function select_availability(num_office) {
             document.getElementById("attention_show").style.display = "none";
             document.getElementById("hr_show").style.display = "none";
         }
+
+        document.getElementById("caixa").style.height="40vh";
 
     }
 }
