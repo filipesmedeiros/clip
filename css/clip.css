@@ -38,7 +38,7 @@ body {
 
 .giantclip-bg-nav {
     background: #032237 url("../img/LoginBackground.svg") no-repeat right top/cover;
-    height: 800px;
+    height: 100vh;
 }
 
 .h-700{
@@ -466,6 +466,8 @@ hr {
     border-top: 1px solid rgb(255, 255, 255);
     width: 75%;
     margin-left: 1rem;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 .img-circle {
