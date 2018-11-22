@@ -361,52 +361,62 @@
 
             <div id="overlay-add-act" class="display-none">
                 <div id="overlay-add-act-back" class="overlay-back" onclick="off('add-act')"></div>
-                <div class="text_submit add_activity1 giantclip-bg text-center">
-                    <div class="row">
-                        <div class="col-lg-2 col-md-2 margin-top--3 ml-auto">
-                            <img class="cursor-pointer" src="../img/close.svg" height="40" onclick="off('add-act')">
+                <div class="text_submit add_activity1 p-4
+                giantclip-bg text-center d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="w-80 float-right d-inline-flex fl">
+                            <div class="w-75 float-left">
+                                <h4 class="type-letter">Nova atividade</h4>
+                            </div>
+                            <div class="w-25 float-right lh-auto">
+                                <img class="cursor-pointer" src="../img/close.svg" height="40" onclick="off('add-act')">
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 text-center">
-                            <h4 class="type-letter">Nova atividade</h4>
-                        </div>
-                    </div>
 
-                    <div class="container-fluid">
-                        <div class="d-inline-flex flex-column justify-content-center h-100 w-25">
-                                <span class="sub-title-white">Título</span>
-                            </div>
+                    <!-- Titulo -->
+                    <div>
+                        <div class="float-left text-right h-100 w-25">
+                            <span class="sub-title-white text-right">Título:</span>
                         </div>
 
-                        <div class="d-inline-flex flex-column justify-content-center w-50">
-                            <input type="text" class="input-title sub-title-normal-white m-auto" id="act-title">
+                        <div class="float-left w-75 pl-4 text-left">
+                            <input type="text"
+                                   class="input-title sub-title-normal-white w-75 m-auto"
+                                   id="act-title">
                         </div>
 
                     </div>
 
-                    <div class="container-fluid">
-                        <div class="d-inline-flex flex-column justify-content-center h-100 w-25">
-                            <span class="sub-title-white float-right">Horas:</span>
+                    <!-- Horas -->
+                    <div>
+                        <div class="float-left text-right w-25">
+                            <span class="sub-title-white text-right">Horas:</span>
                         </div>
 
-                        <div class="d-inline-block w-70 h-100">
+                        <div class="float-left w-75 pl-4 text-left">
                             <div class="d-inline-flex flex-column justify-content-center h-100">
-                                <span class="d-inline-block type-letter-small">Início</span>
+                                <label for="i-act-hour" class="d-inline-block type-letter-small">Início</label>
                             </div>
 
                             <div class="d-inline-flex flex-column justify-content-center h-100">
-                                <input id="i-act-hour" class="form-control d-inline-block" value="8"
-                                       type="number" min="8" max="20">
+                                <input id="i-act-hour" class="text-center form-control d-inline-block"
+                                       style="width: 65px;"
+                                       value="8"
+                                       type="number"
+                                       min="8" max="20">
                             </div>
 
                             <div class="d-inline-flex flex-column justify-content-center h-100">
-                                <span class="d-inline-block type-letter-small">-</span>
+                                <label for="f-act-hour" class="d-inline-block type-letter-small">-</label>
                             </div>
 
                             <div class="d-inline-flex flex-column justify-content-center h-100">
-                                <input id="f-act-hour" class="form-control d-inline-block" value="9"
-                                       type="number" min="8" max="20">
+                                <input id="f-act-hour" class="text-center form-control d-inline-block"
+                                       value="9"
+                                       style="width: 65px;"
+                                       type="number"
+                                       min="8" max="20">
                             </div>
 
                             <div class="d-inline-flex flex-column justify-content-center h-100">
@@ -415,10 +425,10 @@
                         </div>
                     </div>
 
-                    <!-- Dias da semana -->
-                    <div class="container-fluid text-center">
-                        <h6 class="type-letter-small">Dias da semana</h6>
-                        <div class="d-inline-flex justify-content-between w-76">
+                    <!-- Dias -->
+                    <div>
+                        <h6 class="type-letter-small mb-3">Dias da semana</h6>
+                        <div class="d-flex justify-content-between w-76 m-auto">
                             <button id="btn-2f" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">2ªf</p>
@@ -456,19 +466,19 @@
                         </div>
                     </div>
 
+                    <div>
+                        <label for="color-select"
+                               class="sub-title-white mr-3 float-left">
+                            Escolhe a cor para esta atividade </label>
 
-                    <div class="row">
-                        <div class="col-lg-10 col-md-10 text-right">
-                            <span class="sub-title-white mr-3">Escolhe a cor para esta atividade </span>
-                            <input class="jscolor jscolor-active text sub-title" value="00c5ff" id="color-select"
-                                   onchange="changeColor(event)" autocomplete="off"
-                                   style="background: #00c5ff none;color: #032237; border-radius: 5px">
-                        </div>
-                        <div class="col-lg-2 col-md-2 text-center mt-2">
-                            <i class="fas fa-arrow-circle-right cursor-pointer"
-                               style="font-size:5vh; color:#ffffff;"
-                               onclick="addActivityGetValues()"></i>
-                        </div>
+                        <input class="jscolor jscolor-active text sub-title float-left"
+                               value="00c5ff" id="color-select"
+                               onchange="changeColor(event)" autocomplete="off"
+                               style="background: #00c5ff none;color: #032237; border-radius: 5px">
+
+                        <i class="fas fa-arrow-circle-right cursor-pointer float-right"
+                           style="font-size:5vh; color:#ffffff;"
+                           onclick="addActivityGetValues()"></i>
                     </div>
                 </div>
             </div>

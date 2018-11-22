@@ -668,6 +668,10 @@ hr {
     border-color: white;
 }
 
+.lh-auto {
+    line-height: 0;
+}
+
 .text-button-medium {
     font-family: "Overpass";
     font-size: 2vh;
@@ -743,12 +747,9 @@ hr {
 }
 
 .add_activity1 {
-    width: 600px;
-    height: 450px;
     border-radius: 7px;
     z-index: 100;
     position: fixed;
-    cursor: auto;
 }
 
 .add_activity2 {
@@ -780,6 +781,10 @@ hr {
 .type-letter-small {
     font-family: OverpassBold;
     font-size: 1rem !important;
+}
+
+label {
+    margin: 0;
 }
 
 .btn-submit {
