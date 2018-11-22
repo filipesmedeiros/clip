@@ -669,6 +669,10 @@ hr {
 }
 
 .lh-auto {
+    line-height: 1;
+}
+
+.lh-0 {
     line-height: 0;
 }
 

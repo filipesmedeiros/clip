@@ -361,42 +361,50 @@
 
             <div id="overlay-add-act" class="display-none">
                 <div id="overlay-add-act-back" class="overlay-back" onclick="off('add-act')"></div>
-                <div class="text_submit add_activity1 p-4
+                <div class="text_submit add_activity1 pb-4
                 giantclip-bg text-center d-flex flex-column justify-content-between">
-                    <div>
-                        <div class="w-80 float-right d-inline-flex fl">
-                            <div class="w-75 float-left">
-                                <h4 class="type-letter">Nova atividade</h4>
-                            </div>
-                            <div class="w-25 float-right lh-auto">
-                                <img class="cursor-pointer" src="../img/close.svg" height="40" onclick="off('add-act')">
-                            </div>
+
+                    <!-- Titulo modal -->
+                    <div class="mb-4">
+                        <div class="w-25 float-right lh-0">
+                            <img class="cursor-pointer float-right mr-4" style="height: 40px;"
+                                 src="../img/close.svg"
+                                 onclick="off('add-act')">
+                        </div>
+
+                        <div class="w-50 float-right d-inline-flex mt-4
+                            lh-auto flex-column justify-content-center">
+                            <h4 class="type-letter">Nova atividade</h4>
                         </div>
                     </div>
 
                     <!-- Titulo -->
                     <div>
-                        <div class="float-left text-right h-100 w-25">
-                            <span class="sub-title-white text-right">Título:</span>
+                        <div class="float-left text-right w-25 lh-0 pr-3">
+                            <span class="sub-title-white text-right lh-auto">Título:</span>
                         </div>
 
-                        <div class="float-left w-75 pl-4 text-left">
+                        <div class="float-left w-50 text-left lh-0">
                             <input type="text"
-                                   class="input-title sub-title-normal-white w-75 m-auto"
+                                   class="input-title sub-title-normal-white lh-auto m-auto"
                                    id="act-title">
                         </div>
 
                     </div>
 
                     <!-- Horas -->
-                    <div>
-                        <div class="float-left text-right w-25">
-                            <span class="sub-title-white text-right">Horas:</span>
+                    <div class="mt-4 mb-4">
+                        <div class="float-left h-100 text-right w-25 lh-0 pr-3">
+                            <div class="d-flex flex-column justify-content-center h-100">
+                                <span class="sub-title-white text-right lh-auto">Horas:</span>
+                            </div>
                         </div>
 
-                        <div class="float-left w-75 pl-4 text-left">
-                            <div class="d-inline-flex flex-column justify-content-center h-100">
-                                <label for="i-act-hour" class="d-inline-block type-letter-small">Início</label>
+                        <div class="float-left w-50 text-center lh-0">
+                            <div class="d-inline-flex flex-column justify-content-center
+                            h-100">
+                                <label for="i-act-hour"
+                                       class="lh-auto d-inline-block type-letter-small">Início</label>
                             </div>
 
                             <div class="d-inline-flex flex-column justify-content-center h-100">
@@ -466,7 +474,8 @@
                         </div>
                     </div>
 
-                    <div>
+                    <!-- Cor -->
+                    <div class="ml-5 mr-5">
                         <label for="color-select"
                                class="sub-title-white mr-3 float-left">
                             Escolhe a cor para esta atividade </label>
