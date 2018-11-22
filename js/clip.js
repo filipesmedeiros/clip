@@ -24,7 +24,7 @@ function logIn() {
     const password = document.getElementById('passwordInput').value;
 
     if (username === USERNAME && password === PASSWORD)
-        window.location.href = "pages/homepage.html";
+        window.location.href = "../pages/semestre.html";
     else
         alert("Not correct");
 }
@@ -689,14 +689,20 @@ function highlightDay(day) {
 window.onload = onload();
 
 function onload() {
+    let loc = window.location.href;
 
-    let selectedOption = localStorage.getItem('selected');
-    let optionFont = localStorage.getItem('font');
-    if (selectedOption != undefined && optionFont != undefined)
-        selectSection(selectedOption, optionFont);
+    if(!loc.includes('semestre')) {
+        if(loc.includes('requerimentos'))
+            selectSection('requerimentos', 'requerimentos_font');
+        else if(loc.includes('apontamentos'))
+            selectSection('apontamentos', 'apontamentos_font');
+        else if(loc.includes('espacos'))
+            selectSection('espacos', 'espacos_font');
 
-    if (!window.location.href.includes('homepage'))
         return;
+    }
+
+    selectSection('semestre', 'semestre_font');
 
     addClass(9, 'col-2f', 2, 'IPM', 'T1', 'Ed.4/203', '1', '#00375b');
     addClass(14, 'col-2f', 2, 'IIO', 'T2', 'Ed.7/1D', '1', '#00375b');
