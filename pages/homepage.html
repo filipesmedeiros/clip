@@ -361,7 +361,7 @@
 
             <div id="overlay-add-act" class="display-none">
                 <div id="overlay-add-act-back" class="overlay-back" onclick="off('add-act')"></div>
-                <div class="text_submit add_activity1 pb-4
+                <div class="text_submit add_activity1 pb-2
                 giantclip-bg text-center d-flex flex-column justify-content-between">
 
                     <!-- Titulo modal -->
@@ -476,22 +476,25 @@
                     </div>
 
                     <!-- Cor -->
-                    <div class="ml-5 mr-5 lh-0" style="height: 9vh;">
-                        <div class="lh-0 d-inline-flex flex-column justify-content-center h-100">
-                            <label for="color-select"
-                                   class="sub-title-white float-left lh-auto">
-                                Escolhe a cor para esta atividade </label>
-                        </div>
+                    <div>
+                        <div class="lh-0 mt-3 ml-5 d-inline-block">
+                            <div class="lh-0 d-inline-flex flex-column justify-content-center h-100">
+                                <label for="color-select"
+                                       class="sub-title-white float-left lh-auto">
+                                    Escolhe a cor para esta atividade </label>
+                            </div>
 
-                        <div class="lh-0 d-inline-flex flex-column justify-content-center h-100">
-                            <input class="jscolor jscolor-active text sub-title d-inline-block"
-                                   value="00c5ff" id="color-select"
-                                   onchange="changeColor(event)" autocomplete="off"
-                                   style="background: #00c5ff none;color: #032237;
+                            <div class="lh-0 d-inline-flex flex-column justify-content-center h-100">
+                                <input class="jscolor jscolor-active text sub-title d-inline-block"
+                                       value="00c5ff" id="color-select"
+                                       onchange="changeColor(event)" autocomplete="off"
+                                       style="background: #00c5ff none;color: #032237;
                                border-radius: 5px; width: 69px;">
+                            </div>
                         </div>
 
-                        <div class="d-inline-flex flex-column justify-content-center h-100">
+
+                        <div class="d-inline-block float-right mr-4 mt-4">
                             <i class="fas fa-arrow-circle-right cursor-pointer"
                                style="font-size: 6vh; color:#ffffff;"
                                onclick="addActivityGetValues()"></i>
