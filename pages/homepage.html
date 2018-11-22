@@ -372,91 +372,91 @@
                             <h4 class="type-letter">Nova atividade</h4>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 text-center">
-                            <h6 class="type-letter-small">Título</h6>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-2 col-md-2 text-center"></div>
-                        <div class="col-lg-8 col-md-8 text-center">
-                            <input type="email" class="form-control input-title" id="act-title" placeholder="Título">
-                        </div>
-                        <div class="col-lg-2 col-md-2 text-center"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 text-center">
-                            <h6 class="type-letter-small">Hora</h6>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-2 col-md-2 "></div>
-                        <div class="col-lg-4 col-md-4 text-center">
-                            <h6 class="type-letter-small d-inline-block">Início</h6>
-                            <input id="i-act-hour" class="form-control w-20 d-inline-block" value="8" type="number" min="8"
-                                   max="20">
-                        </div>
-                        <div class="col-lg-4 col-md-4 text-center">
 
-                            <input id="f-act-hour" class="form-control w-20 d-inline-block" value="9" type="number"
-                                   min="8"
-                                   max="20">
-                            <h6 class="type-letter-small d-inline-block">Fim</h6>
+                    <div class="container-fluid">
+                        <div class="d-inline-flex flex-column justify-content-center h-100 w-25">
+                                <span class="sub-title-white">Título</span>
+                            </div>
+                        </div>
 
+                        <div class="d-inline-flex flex-column justify-content-center w-50">
+                            <input type="text" class="input-title sub-title-normal-white m-auto" id="act-title">
                         </div>
-                        <div class="col-lg-2 col-md-2"></div>
+
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 text-center">
-                            <h6 class="type-letter-small">Dias da semana</h6>
+
+                    <div class="container-fluid">
+                        <div class="d-inline-flex flex-column justify-content-center h-100 w-25">
+                            <span class="sub-title-white float-right">Horas:</span>
+                        </div>
+
+                        <div class="d-inline-block w-70 h-100">
+                            <div class="d-inline-flex flex-column justify-content-center h-100">
+                                <span class="d-inline-block type-letter-small">Início</span>
+                            </div>
+
+                            <div class="d-inline-flex flex-column justify-content-center h-100">
+                                <input id="i-act-hour" class="form-control d-inline-block" value="8"
+                                       type="number" min="8" max="20">
+                            </div>
+
+                            <div class="d-inline-flex flex-column justify-content-center h-100">
+                                <span class="d-inline-block type-letter-small">-</span>
+                            </div>
+
+                            <div class="d-inline-flex flex-column justify-content-center h-100">
+                                <input id="f-act-hour" class="form-control d-inline-block" value="9"
+                                       type="number" min="8" max="20">
+                            </div>
+
+                            <div class="d-inline-flex flex-column justify-content-center h-100">
+                                <span class="d-inline-block type-letter-small">Fim</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-2 col-md-2 text-center"></div>
-                        <div class="col-lg-1 col-md-1 text-right">
+
+                    <!-- Dias da semana -->
+                    <div class="container-fluid text-center">
+                        <h6 class="type-letter-small">Dias da semana</h6>
+                        <div class="d-inline-flex justify-content-between w-76">
                             <button id="btn-2f" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">2ªf</p>
                             </button>
-                        </div>
-                        <div class="col-lg-1 col-md-1 text-right">
+
                             <button id="btn-3f" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">3ªf</p>
                             </button>
-                        </div>
-                        <div class="col-lg-1 col-md-1 text-center">
+
                             <button id="btn-4f" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">4ªf</p>
                             </button>
-                        </div>
-                        <div class="col-lg-1 col-md-1 text-center">
+
                             <button id="btn-5f" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">5ªf</p>
                             </button>
-                        </div>
-                        <div class="col-lg-1 col-md-1 text-center">
+
                             <button id="btn-6f" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">6ªf</p>
                             </button>
-                        </div>
-                        <div class="col-lg-1 col-md-1 text-center">
+
                             <button id="btn-s" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
-                                <p class="text-button-medium">Sab</p>
+                                <p class="text-button-medium">Sáb</p>
                             </button>
-                        </div>
-                        <div class="col-lg-1 col-md-1 text-center">
+
                             <button id="btn-d" type="button" data-id="false" class="btn button-medium-border day-btn"
                                     onclick="highlightDay(this)">
                                 <p class="text-button-medium">Dom</p>
                             </button>
                         </div>
-                        <div class="col-lg-3 col-md-3 text-center"></div>
                     </div>
+
+
                     <div class="row">
                         <div class="col-lg-10 col-md-10 text-right">
                             <span class="sub-title-white mr-3">Escolhe a cor para esta atividade </span>
