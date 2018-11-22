@@ -408,7 +408,8 @@
                             </div>
 
                             <div class="d-inline-flex flex-column justify-content-center h-100">
-                                <input id="i-act-hour" class="text-center form-control d-inline-block"
+                                <input id="i-act-hour" class="text-center form-control
+                                d-inline-block"
                                        style="width: 65px;"
                                        value="8"
                                        type="number"
@@ -416,11 +417,11 @@
                             </div>
 
                             <div class="d-inline-flex flex-column justify-content-center h-100">
-                                <label for="f-act-hour" class="d-inline-block type-letter-small">-</label>
+                                <label for="f-act-hour" class="lh-auto d-inline-block type-letter-small">-</label>
                             </div>
 
                             <div class="d-inline-flex flex-column justify-content-center h-100">
-                                <input id="f-act-hour" class="text-center form-control d-inline-block"
+                                <input id="f-act-hour" class="text-center form-control"
                                        value="9"
                                        style="width: 65px;"
                                        type="number"
@@ -428,7 +429,7 @@
                             </div>
 
                             <div class="d-inline-flex flex-column justify-content-center h-100">
-                                <span class="d-inline-block type-letter-small">Fim</span>
+                                <span class="lh-auto type-letter-small">Fim</span>
                             </div>
                         </div>
                     </div>
@@ -475,19 +476,26 @@
                     </div>
 
                     <!-- Cor -->
-                    <div class="ml-5 mr-5">
-                        <label for="color-select"
-                               class="sub-title-white mr-3 float-left">
-                            Escolhe a cor para esta atividade </label>
+                    <div class="ml-5 mr-5 lh-0" style="height: 9vh;">
+                        <div class="lh-0 d-inline-flex flex-column justify-content-center h-100">
+                            <label for="color-select"
+                                   class="sub-title-white float-left lh-auto">
+                                Escolhe a cor para esta atividade </label>
+                        </div>
 
-                        <input class="jscolor jscolor-active text sub-title float-left"
-                               value="00c5ff" id="color-select"
-                               onchange="changeColor(event)" autocomplete="off"
-                               style="background: #00c5ff none;color: #032237; border-radius: 5px">
+                        <div class="lh-0 d-inline-flex flex-column justify-content-center h-100">
+                            <input class="jscolor jscolor-active text sub-title d-inline-block"
+                                   value="00c5ff" id="color-select"
+                                   onchange="changeColor(event)" autocomplete="off"
+                                   style="background: #00c5ff none;color: #032237;
+                               border-radius: 5px; width: 69px;">
+                        </div>
 
-                        <i class="fas fa-arrow-circle-right cursor-pointer float-right"
-                           style="font-size:5vh; color:#ffffff;"
-                           onclick="addActivityGetValues()"></i>
+                        <div class="d-inline-flex flex-column justify-content-center h-100">
+                            <i class="fas fa-arrow-circle-right cursor-pointer"
+                               style="font-size: 6vh; color:#ffffff;"
+                               onclick="addActivityGetValues()"></i>
+                        </div>
                     </div>
                 </div>
             </div>

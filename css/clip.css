@@ -752,6 +752,7 @@ hr {
 
 .add_activity1 {
     border-radius: 7px;
+    width: 45%;
     z-index: 100;
     position: fixed;
 }
