@@ -331,7 +331,8 @@
                         </button>
 
                         <div class="container-fluid ml--3" style="margin-top: 35rem; width: 15rem">
-                            <p class="text-btn title-big-h3-2 cursor-pointer d-inline-block" onclick="on('add-act')">Nova
+                            <p class="text-btn title-big-h3-2 cursor-pointer d-inline-block" onclick="on('add-act')">
+                                Nova
                                 atividade</p>
                             <i class="fas fa-calendar-plus cursor-pointer d-inline-block" onclick="on('add-act')"
                                style="font-size:2rem; color:#032237; margin-left: 0.5rem"></i>
@@ -359,14 +360,11 @@
             ----------------------------->
 
             <div id="overlay-add-act" class="display-none">
-                <div id="overlay-add-act-back" class="overlay-back" onclick="off('add-act')">
-                </div>
+                <div id="overlay-add-act-back" class="overlay-back" onclick="off('add-act')"></div>
                 <div class="text_submit add_activity1 giantclip-bg text-center">
-                    <div class="row w-100" style="margin-top:-20px">
-                        <div class="col-lg-12 col-md-12 text-right">
-                            <button class="btn" onclick="off('add-act')">
-                                <i type="button" class="fa fa-times" style="color:#032237"></i>
-                            </button>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 margin-top--3 ml-auto">
+                            <img class="cursor-pointer" src="../img/close.svg" height="40" onclick="off('add-act')">
                         </div>
                     </div>
                     <div class="row">
@@ -392,25 +390,21 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-2 col-md-3 text-right">
-                            <h6 class="type-letter-small">Início</h6>
-                        </div>
-                        <div class="col-lg-2 col-md-1 text-center">
-                            <input id="i-act-hour" class="form-control w-70 m-auto" value="8" type="number" min="8"
+                        <div class="col-lg-2 col-md-2 "></div>
+                        <div class="col-lg-4 col-md-4 text-center">
+                            <h6 class="type-letter-small d-inline-block">Início</h6>
+                            <input id="i-act-hour" class="form-control w-20 d-inline-block" value="8" type="number" min="8"
                                    max="20">
                         </div>
-                        <div class="col-lg-2 col-md-1 text-center">
-                        </div>
+                        <div class="col-lg-4 col-md-4 text-center">
 
-                        <div class="col-lg-2 col-md-1 text-center">
-                            <input id="f-act-hour" class="form-control w-70 mr--2" value="9" type="number" min="8"
+                            <input id="f-act-hour" class="form-control w-20 d-inline-block" value="9" type="number"
+                                   min="8"
                                    max="20">
+                            <h6 class="type-letter-small d-inline-block">Fim</h6>
+
                         </div>
-                        <div class="col-lg-2 col-md-1 text-center">
-                        </div>
-                        <div class="col-lg-2 col-md-3 text-left">
-                            <h6 class="type-letter-small">Fim</h6>
-                        </div>
+                        <div class="col-lg-2 col-md-2"></div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-md-12 text-center">
@@ -464,16 +458,16 @@
                         <div class="col-lg-3 col-md-3 text-center"></div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-10 col-md-10">
+                        <div class="col-lg-10 col-md-10 text-right">
                             <span class="sub-title-white mr-3">Escolhe a cor para esta atividade </span>
                             <input class="jscolor jscolor-active text sub-title" value="00c5ff" id="color-select"
                                    onchange="changeColor(event)" autocomplete="off"
-                                   style="background: #00c5ff none;color: #032237">
+                                   style="background: #00c5ff none;color: #032237; border-radius: 5px">
                         </div>
-                        <div class="col-lg-2 col-md-2 text-center">
-                            <button class="btn btn-submit" onclick="addActivityGetValues()">
-                                <img src="../img/SubmitLogo.svg" width="50" height="50">
-                            </button>
+                        <div class="col-lg-2 col-md-2 text-center mt-2">
+                            <i class="fas fa-arrow-circle-right cursor-pointer"
+                               style="font-size:5vh; color:#ffffff;"
+                               onclick="addActivityGetValues()"></i>
                         </div>
                     </div>
                 </div>
