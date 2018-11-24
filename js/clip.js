@@ -702,7 +702,6 @@ function addActivity(time, day, duration, name, color) {
     activities_array.push({"actName": name, "day": day, "hours": hourarray, "color": color});
 
     localStorage.setItem('activities', JSON.stringify(activities_array));
-    console.log(activities_array);
 
     off('add-act');
 }
@@ -733,6 +732,8 @@ function deleteAct() {
             activities_array.splice(i, 1);
 
     currentActivity.remove();
+
+    localStorage.setItem('activities', JSON.stringify(activities_array));
 
     document.getElementById('delete-act-btn').classList.add('display-none');
 }
