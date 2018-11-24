@@ -310,6 +310,10 @@ select:-webkit-autofill:focus {
     width: 75%;
 }
 
+.w-12-5 {
+    width: 12.5%;
+}
+
 .w-76 {
     width: 78%;
 }
@@ -621,7 +625,6 @@ hr {
 }
 
 .btn-add {
-    color: #032237;
     background-color: #032237;
     border-color: #032237;
 }
@@ -769,8 +772,6 @@ hr {
 }
 
 .add_activity2 {
-    width: 800px;
-    height: 430px;
     border-radius: 7px;
     z-index: 100;
     position: fixed;
@@ -1000,6 +1001,10 @@ td {
 
 .activity-cell:hover {
     cursor: pointer;
+}
+
+.hover-shadow:hover {
+    font-weight: bold;
 }
 
 .class-name {

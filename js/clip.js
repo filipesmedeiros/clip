@@ -257,8 +257,10 @@ function select_availability(num_office) {
             }
         }
 
+        console.log('uiohpuiip');
+
         document.getElementById("btn_submit").style.display = "block";
-        document.getElementById("gab_selected").style.display = "block";
+        document.getElementById("name_gab_selected").style.display = "block";
         document.getElementById("name_gab_selected").innerHTML = office_selected;
         document.getElementById("gab_selected_" + num_office).style.color = "white";
         document.getElementById("gab_selected_" + num_office).style.backgroundColor = "#032237";
@@ -278,7 +280,15 @@ function select_availability(num_office) {
     document.getElementById('select-gab').innerHTML = '&nbsp';
 }
 
-function submit_reservation() {
+let currReservation = {
+    date: null,
+    hour: null,
+    gab: null
+}
+
+let reservations = [];
+
+function confirm_reservation() {
 
     let selected_date = document.getElementById("date_input").value;
 
@@ -299,6 +309,19 @@ function submit_reservation() {
     document.getElementById("hour_output").innerHTML = hour_output;
     document.getElementById("gab_output").innerHTML = office_selected;
 
+    currReservation.date = selected_date;
+    currReservation.hour = hour_output;
+    currReservation.gab = office_selected;
+}
+
+function submitReservation() {
+    reservations.push(currReservation);
+}
+
+function showReservations() {
+    let modal = document.getElementById('reservationList');
+
+    let modalContent = ''
 }
 
 function update_badge(id) {
