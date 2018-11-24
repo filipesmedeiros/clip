@@ -399,7 +399,13 @@ function addEmail_Profile() {
 
             let emailInfo = {endereco: email, tipo: t};
 
+            console.log(email_array.length);
+            console.log(email_array);
+
             email_array.push(emailInfo);
+
+            console.log(email_array.length);
+            console.log(email_array);
 
             let list = document.getElementById("list_emails");
 
@@ -412,7 +418,7 @@ function addEmail_Profile() {
 
             list.appendChild(new_email);
 
-            localStorage.setItem("emails", JSON.stringify(emails_array));
+            localStorage.setItem("emails", JSON.stringify(email_array));
 
             document.getElementById('endereco_email').value = "";
 
@@ -434,13 +440,13 @@ function updateEmails() {
         if (i == 0)
             email.innerHTML = '<li>\n' +
                 '                                    <a class="sub-title-normal cursor-pointer float-right"\n' +
-                '                                       id="email-' + i + '">' + email_array[i] + '</a>\n' +
+                '                                       id="email-' + i + '">' + email_array[i].endereco + '</a>\n' +
                 '                                </li>';
 
         else
             email.innerHTML = '<li>\n' +
                 '                                    <br><a class="sub-title-normal cursor-pointer float-right mt--3"\n' +
-                '                                       id="email-' + i + '">' + email_array[i] + '</a>\n' +
+                '                                       id="email-' + i + '">' + email_array[i].endereco + '</a>\n' +
                 '                                </li>';
         list.appendChild(email);
     }
@@ -457,13 +463,13 @@ function updateViaturas() {
         if (i == 0)
             viatura.innerHTML = '<li>\n' +
                 '                                    <a class="sub-title-normal cursor-pointer float-right"\n' +
-                '                                       id="email-' + i + '">' + viaturas_array[i] + '</a>\n' +
+                '                                       id="email-' + i + '">' + viaturas_array[i].matricula + '</a>\n' +
                 '                                </li>';
 
         else
             viatura.innerHTML = '<li>\n' +
                 '                                    <br><a class="sub-title-normal cursor-pointer float-right mt--3"\n' +
-                '                                       id="email-' + i + '">' + viaturas_array[i] + '</a>\n' +
+                '                                       id="email-' + i + '">' + viaturas_array[i].matricula + '</a>\n' +
                 '                                </li>';
         list.appendChild(viatura);
     }
@@ -883,10 +889,17 @@ function onload() {
         selectSection('requerimentos', 'requerimentos_font');
 
     else if(loc.includes('perfil')) {
+
+        if (viaturas_array.length !== 1)
         viaturas_array = JSON.parse(localStorage.getItem('viaturas'));
+
         updateViaturas();
 
+        if (email_array.length !== 1)
         email_array = JSON.parse(localStorage.getItem('emails'));
+
+        console.log(email_array[0] +"   "+email_array[1]);
+
         updateEmails();
     }
 
