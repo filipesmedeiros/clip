@@ -402,7 +402,7 @@ function addEmail_Profile() {
             console.log(email_array.length);
             console.log(email_array);
 
-            email_array.push(emailInfo);
+            email_array.push(emailInfo);;
 
             console.log(email_array.length);
             console.log(email_array);
