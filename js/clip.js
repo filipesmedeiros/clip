@@ -439,27 +439,24 @@ function updateEmails() {
 
     let list = document.getElementById("list_emails");
 
-    let email = document.createElement("li");
+    let jkasebnf = [];
 
     for (let i = 0; i < email_array.length; i++) {
 
-        if (i == 0) {
-            console.log(email);
-            console.log(email_array);
+        let email = document.createElement("li");
 
-            email.innerHTML = '<li><a class="sub-title-normal cursor-pointer float-right"\n' +
-                '                                       id="email-' + i + '">' + email_array[i].endereco + '</a>\n' +
-                '                                </li>';
-        }
+        if (i == 0)
+            email.innerHTML = '<a class="sub-title-normal cursor-pointer float-right" id="email-'
+                + i + '">' + email_array[i].endereco + '</a>';
 
         else
-            email.innerHTML = '<li>\n' +
-                '                                    <br><a class="sub-title-normal cursor-pointer float-right mt--3"\n' +
-                '                                       id="email-' + i + '">' + email_array[i].endereco + '</a>\n' +
-                '                                </li>';
+            email.innerHTML = '<br><a class="sub-title-normal cursor-pointer float-right mt--3"' +
+                'id="email-' + i + '">' + email_array[i].endereco + '</a>';
 
-        list.appendChild(email);
+        jkasebnf.push(email);
     }
+
+    jkasebnf.map((el) => (list.appendChild(el)));
 }
 
 function updateViaturas() {
