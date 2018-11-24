@@ -606,9 +606,7 @@ function addClass(time, day, duration, name, room, shift, id, color) {
     for (let i = time; i < time + duration; i++)
         hourarray.push(i);
 
-    activities_array.push({'actName': name, 'day': day, 'hours': hourarray});
-
-    localStorage.setItem('activities', activities_array);
+    activities_array.push({"actName": name, "day": day, "hours": hourarray, "class": true});
 
     off('add-act');
 }
@@ -701,9 +699,10 @@ function addActivity(time, day, duration, name, color) {
     for (let i = time; i < time + duration; i++)
         hourarray.push(i);
 
-    activities_array.push({'actName': name, 'day': day, 'hours': hourarray, 'color': color});
+    activities_array.push({"actName": name, "day": day, "hours": hourarray, "color": color});
 
-    localStorage.setItem('activities', activities_array);
+    localStorage.setItem('activities', JSON.stringify(activities_array));
+    console.log(activities_array);
 
     off('add-act');
 }
@@ -787,10 +786,11 @@ function onload() {
         addClass(16, 'col-3f', 2, 'AA', 'T1', 'Ed.2/128', '1', '#00375b');
         addClass(9, 'col-5f', 2, 'AA', 'P6', 'Ed.2/120', '2', '#00578a');
 
-        let acts = localStorage.getItem('activities');
+        let acts = JSON.parse(localStorage.getItem('activities'));
         if(acts !== undefined && acts !== null && acts.length !== 0)
             for(let i = 0; i < acts.length; i++) {
-                addActivity(acts[i].hours[0], acts[i].day, acts[i].hours.length, acts[i].actName, acts[i].color);
+                if(!acts[i].class)
+                    addActivity(acts[i].hours[0], acts[i].day, acts[i].hours.length, acts[i].actName, acts[i].color);
                 console.log(i);
             }
 
