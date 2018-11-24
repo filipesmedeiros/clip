@@ -312,16 +312,27 @@ function confirm_reservation() {
     currReservation.date = selected_date;
     currReservation.hour = hour_output;
     currReservation.gab = office_selected;
+
+    console.log(currReservation);
 }
 
 function submitReservation() {
     reservations.push(currReservation);
+    currReservation = {};
+    console.log(reservations);
+    off('confirm-res');
 }
 
 function showReservations() {
-    let modal = document.getElementById('reservationList');
+    let modalSpot = document.getElementById('reservation-list');
+    if(modalSpot.childNodes.length !== 0)
+        modalSpot.removeChild(modalSpot.firstChild);
 
-    let modalContent = ''
+    let modal = createModal();
+
+    modalSpot.appendChild(modal);
+
+    addResList(reservations);
 }
 
 function update_badge(id) {
@@ -550,9 +561,6 @@ function selectSection(id, id_font) {
         font.classList.add('font-options-selected');
         option.classList.add('option-selected');
 
-        localStorage.setItem('selected', id);
-        localStorage.setItem('font', id_font);
-
     }
 }
 
@@ -599,6 +607,8 @@ function addClass(time, day, duration, name, room, shift, id, color) {
         hourarray.push(i);
 
     activities_array.push({'actName': name, 'day': day, 'hours': hourarray});
+
+    localStorage.setItem('activities', activities_array);
 
     off('add-act');
 }
@@ -691,7 +701,9 @@ function addActivity(time, day, duration, name, color) {
     for (let i = time; i < time + duration; i++)
         hourarray.push(i);
 
-    activities_array.push({'actName': name, 'day': day, 'hours': hourarray});
+    activities_array.push({'actName': name, 'day': day, 'hours': hourarray, 'color': color});
+
+    localStorage.setItem('activities', activities_array);
 
     off('add-act');
 }
@@ -754,26 +766,34 @@ window.onload = onload();
 function onload() {
     let loc = window.location.href;
 
-    if(!loc.includes('semestre')) {
-        if(loc.includes('requerimentos'))
-            selectSection('requerimentos', 'requerimentos_font');
-        else if(loc.includes('apontamentos'))
-            selectSection('semestre', 'semestre_font');
-        else if(loc.includes('espacos'))
-            selectSection('espacos', 'espacos_font');
+    if(loc.includes('requerimentos'))
+        selectSection('requerimentos', 'requerimentos_font');
 
-        return;
+    else if(loc.includes('apontamentos'))
+        selectSection('semestre', 'semestre_font');
+
+    else if(loc.includes('espacos'))
+        selectSection('espacos', 'espacos_font');
+
+    else if(loc.includes('semestre')) {
+        selectSection('semestre', 'semestre_font');
+
+        addClass(9, 'col-2f', 2, 'IPM', 'T1', 'Ed.4/203', '1', '#00375b');
+        addClass(14, 'col-2f', 2, 'IIO', 'T2', 'Ed.7/1D', '1', '#00375b');
+        addClass(16, 'col-2f', 2, 'IPM', 'P2', 'Ed.2/120', '2', '#00578a');
+        addClass(9, 'col-3f', 2, 'ICL', 'T1', 'Ed.2/128', '1', '#00375b');
+        addClass(11, 'col-3f', 2, 'ICL', 'P1', 'Ed.2/121', '2', '#00578a');
+        addClass(14, 'col-3f', 2, 'IIO', 'P6', 'Ed.7/1.4', '2', '#00578a');
+        addClass(16, 'col-3f', 2, 'AA', 'T1', 'Ed.2/128', '1', '#00375b');
+        addClass(9, 'col-5f', 2, 'AA', 'P6', 'Ed.2/120', '2', '#00578a');
+
+        let acts = localStorage.getItem('activities');
+        if(acts !== undefined && acts !== null && acts.length !== 0)
+            for(let i = 0; i < acts.length; i++) {
+                addActivity(acts[i].hours[0], acts[i].day, acts[i].hours.length, acts[i].actName, acts[i].color);
+                console.log(i);
+            }
+
     }
-
-    selectSection('semestre', 'semestre_font');
-
-    addClass(9, 'col-2f', 2, 'IPM', 'T1', 'Ed.4/203', '1', '#00375b');
-    addClass(14, 'col-2f', 2, 'IIO', 'T2', 'Ed.7/1D', '1', '#00375b');
-    addClass(16, 'col-2f', 2, 'IPM', 'P2', 'Ed.2/120', '2', '#00578a');
-    addClass(9, 'col-3f', 2, 'ICL', 'T1', 'Ed.2/128', '1', '#00375b');
-    addClass(11, 'col-3f', 2, 'ICL', 'P1', 'Ed.2/121', '2', '#00578a');
-    addClass(14, 'col-3f', 2, 'IIO', 'P6', 'Ed.7/1.4', '2', '#00578a');
-    addClass(16, 'col-3f', 2, 'AA', 'T1', 'Ed.2/128', '1', '#00375b');
-    addClass(9, 'col-5f', 2, 'AA', 'P6', 'Ed.2/120', '2', '#00578a');
 }
 
