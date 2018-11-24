@@ -427,25 +427,25 @@ function addEmail_Profile() {
             localStorage.setItem("emails", JSON.stringify(email_array));
 
             document.getElementById('endereco_email').value = "";
-
-            off("add-email");
         }
         else
             alert("Email inválido");
     }
+
+    off("add-email");
 }
 
 function updateEmails() {
 
     let list = document.getElementById("list_emails");
 
-    let jkasebnf = [];
+    let arr = [];
 
     for (let i = 0; i < email_array.length; i++) {
 
         let email = document.createElement("li");
 
-        if (i == 0)
+        if(i === 0)
             email.innerHTML = '<a class="sub-title-normal cursor-pointer float-right" id="email-'
                 + i + '">' + email_array[i].endereco + '</a>';
 
@@ -453,33 +453,36 @@ function updateEmails() {
             email.innerHTML = '<br><a class="sub-title-normal cursor-pointer float-right mt--3"' +
                 'id="email-' + i + '">' + email_array[i].endereco + '</a>';
 
-        jkasebnf.push(email);
+        arr.push(email);
     }
 
-    jkasebnf.map((el) => (list.appendChild(el)));
+    arr.map((el) => (list.appendChild(el)));
 }
 
 function updateViaturas() {
 
     let list = document.getElementById("list_viaturas");
 
-    let viatura = document.createElement("li");
+    let arr = [];
 
     for (let i = 0; i < viaturas_array.length; i++) {
 
+        console.log(viaturas_array);
+
+        let viatura = document.createElement("li");
+
         if (i == 0)
-            viatura.innerHTML = '<li>\n' +
-                '                                    <a class="sub-title-normal cursor-pointer float-right"\n' +
-                '                                       id="email-' + i + '">' + viaturas_array[i].matricula + '</a>\n' +
-                '                                </li>';
+            viatura.innerHTML = '<a class="sub-title-normal cursor-pointer float-right"\n id="viatura-' + i + '">'
+                + viaturas_array[i].matricula + '</a>';
 
         else
-            viatura.innerHTML = '<li>\n' +
-                '                                    <br><a class="sub-title-normal cursor-pointer float-right mt--3"\n' +
-                '                                       id="email-' + i + '">' + viaturas_array[i].matricula + '</a>\n' +
-                '                                </li>';
-        list.appendChild(viatura);
+            viatura.innerHTML = '<br><a class="sub-title-normal cursor-pointer float-right mt--3"\n' +
+            'id="viatura-' + i + '">' + viaturas_array[i].matricula + '</a>';
+
+        arr.push(viatura);
     }
+
+    arr.map((el) => {list.appendChild(el)});
 
 }
 
@@ -523,14 +526,13 @@ function addViaturas_Profile() {
             document.getElementById('modelo_viaturas').value = "";
             document.getElementById('color_viaturas').value = "";
 
-            off("add-viatura");
-
             localStorage.setItem("viaturas", JSON.stringify(viaturas_array));
         }
         else
             alert("Matrícula inválida");
     }
 
+    off("add-viatura");
 }
 
 
@@ -899,6 +901,8 @@ function onload() {
 
         if(localStorage.getItem('viaturas') !== null)
             viaturas_array = JSON.parse(localStorage.getItem('viaturas'));
+
+        updateViaturas();
 
         if(localStorage.getItem('emails') !== null)
             email_array = JSON.parse(localStorage.getItem('emails'));
