@@ -64,9 +64,12 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 text-center">
                     <h1 class="title-big-h1">Reserva de Espaços</h1>
+                    <button class="btn btn-add sub-title-normal-white hover-shadow"
+                    onclick="showReservations()">
+                        Lista de reservas</button>
                 </div>
             </div>
-            <div class="row margin-top-3">
+            <div class="row mt-3">
                 <div class="col-lg-6 col-md-6">
                     <div class="row">
                         <div class="m-auto ">
@@ -117,11 +120,11 @@
                 </div>
                 <div id="comunication" class="col-lg-6 col-md-6">
                     <div class="container-fluid h-25 w-75" style="background:#EFEFEF">
-                        <section class="nav navbar-nav margin-none">
-                            <option class="dropdown-style-not-available" id="class_agora" onclick="class_agora()">Sala
+                        <div class="nav navbar-nav margin-none">
+                            <div class="dropdown-style-not-available" id="class_agora" onclick="class_agora()">Sala
                                 Ágora
-                            </option>
-                        </section>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -183,83 +186,84 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-9 col-md-9 display-none text-right margin-top-1 " id="gab_selected">
-                                <h1 class="type_letter" id="name_gab_selected"></h1>
+                        <div class="row justify-content-end mt--2">
+                            <div class="w-50">
+                                <h1 class="type_letter text-center" id="name_gab_selected"></h1>
                             </div>
-                            <div class="col-lg-3 col-md-3 display-none text-center mt-2" id="btn_submit">
-                                <i class="fas fa-arrow-circle-right cursor-pointer"
-                                   style="font-size:5vh; color:#ffffff;"
-                                   onclick="submit_reservation()"></i>
+                            <div class="w-25 pr-3">
+                                <i id="btn_submit" class="fas fa-arrow-circle-right cursor-pointer float-right"
+                                   style="font-size:5vh; color:#ffffff; display: none;"
+                                   onclick="confirm_reservation()"></i>
                             </div>
                         </div>
+
+
+                        <!-------------->
+                        <!-------------->
+                        <!-- Modal -->
+                        <!-------------->
+                        <!-------------->
+
 
                         <div id="overlay-confirm-res" class="display-none">
-                            <div id="overlay-confirm-res-back" class="overlay-back" onclick="off('confirm-res')">
-                            </div>
-                            <div class="add_activity2 giantclip-bg text-center text_submit col-lg-5 col-md-5">
-                                <div class="row">
-                                    <div class="col-lg-2 col-md-2 margin-top--3 ml-auto">
-                                        <img class="cursor-pointer" src="../img/close.svg" height="40"
+                            <div id="overlay-confirm-res-back" class="overlay-back" onclick="off('confirm-res')"></div>
+                            <div class="text_submit add_activity1 pb-2
+                            giantclip-bg text-center d-flex flex-column justify-content-between">
+
+                                <!-- Titulo modal -->
+                                <div class="mb-2">
+                                    <div class="w-12-5 float-right lh-0">
+                                        <img class="cursor-pointer float-right mr-4" style="height: 40px;"
+                                             src="../img/close.svg"
                                              onclick="off('confirm-res')">
                                     </div>
-                                </div>
-                                <div class="row display-none" id="fa_show">
-                                    <div class="col-lg-12 col-md-12 text-center">
-                                        <i class="fa fa-warning" style="font-size:1.6rem"></i>
-                                    </div>
-                                </div>
-                                <div class="row display-none" id="attention_show">
-                                    <div class="col-lg-12 col-md-12 text-center">
-                                        <h6 class="type_letter">Esta sala está reservada, se fizer a reserva ficará
-                                            em fila de espera. No caso de haver desistência será avisado(a).</h6>
-                                    </div>
-                                </div>
-                                <hr class="display-none" id="hr_show">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 text-center">
-                                        <h5 class="type_letter margin-bottom-3">Reserva Gabinete de Trabalho
-                                            Individual</h5>
-                                    </div>
-                                </div>
-                                <div class="row margin-bottom-3">
-                                    <div class="col-lg-1 col-md-1"></div>
-                                    <div class="col-lg-2 col-md-2 text-right">
-                                        <h6 class="type_letter">Dia:</h6>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 text-left">
-                                        <h6 class="type_letter_no_bold" id="date_output"></h6>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 text-right">
-                                        <h6 class="type_letter">Hora:</h6>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 text-left">
-                                        <h6 class="type_letter_no_bold" id="hour_output"></h6>
-                                    </div>
-                                    <div class="col-lg-1 col-md-1"></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 text-center">
-                                        <h6 class="type_letter" id="gab_output"></h6>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 text-center">
-                                        <button type="button" class="btn button-medium-light margin-none"><p
-                                                class="text-button-small-bold-light">Confirmar</p></button>
+
+                                    <div class="w-75 float-right d-inline-flex mt-4
+                                    lh-auto flex-column justify-content-center">
+                                        <h4 class="type-letter">Reserva Gabinete de <br>Trabalho Grupo</h4>
                                     </div>
                                 </div>
 
+                                <i class="fa fa-warning" id="fa_show" style="font-size:1.6rem"></i>
+                                <h6 id="attention_show" class="type_letter display-none">Esta sala está reservada, se fizer a reserva ficará
+                                    em fila de espera.<br>No caso de haver desistência será avisado(a).</h6>
+
+                                <hr class="display-none w-75 m-auto" id="hr_show">
+
+
+
+                                <h6 class="type_letter">Dia:</h6>
+
+                                <h6 class="type_letter_no_bold" id="date_output"></h6>
+
+                                <h6 class="type_letter">Hora:</h6>
+
+                                <h6 class="type_letter_no_bold" id="hour_output"></h6>
+
+                                <h6 class="type_letter" id="gab_output"></h6>
+
+                                <div>
+                                    <i class="fas fa-arrow-circle-right cursor-pointer mr-4 float-right"
+                                       style="font-size:5vh; color:#ffffff;"
+                                       onclick="submitReservation()"></i>
+                                </div>
                             </div>
                         </div>
+
+
+
+                        <div id="reservation-list"></div>
+
                     </div>
                 </div>
+
+
                 <div class="col-lg-5 col-md-5" id="gab_group_availability" style="display:none">
                     <div class="container-fluid h-80">
-                        <div class="row">
+                        <div class="row" style="margin-bottom: -1vh">
                             <div class="col-lg-12 col-md-12 text-center">
                                 <h1 class="title_medium">Disponibilidades</h1>
-                                <p>Seleciona um gabinete</p>
+                                <p id="select-gab" style="margin-top: -1vh">Seleciona um gabinete</p>
                             </div>
                         </div>
                         <div class="row text-center mb-1">
