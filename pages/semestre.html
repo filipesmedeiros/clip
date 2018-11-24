@@ -23,13 +23,15 @@
 
             <div class="user-picture text-center">
                 <a href="perfil.html">
-                    <img class="img-circle" src="../img/Person.svg">
+                    <div><img class="img-circle mb-2" src="../img/Person.svg"></div>
+                    <div><span id="perfil_font" class="font-options-profile">Filipe Medeiros</span></div>
                 </a>
             </div>
 
             <ul class="nav navbar-nav">
                 <div id="semestre" onclick="selectSection('semestre','semestre_font')" class="option-selected">
-                    <a id="semestre_font" class="font-options font-options-selected" href="semestre.html">O Meu Semestre</a>
+                    <a id="semestre_font" class="font-options font-options-selected" href="semestre.html">O Meu
+                        Semestre</a>
                 </div>
                 <a class="font-options-small" href="semestre.html">Horário</a>
                 <a class="font-options-small" href="">Calendário</a>
@@ -57,7 +59,7 @@
                 </div>
             </ul>
         </div>
-        <div class="col-lg-9 col-md-9 h-100" style="background:#ffffff">
+        <div class="col-lg-10 col-md-10 h-100" style="background:#ffffff">
             <div class="row">
                 <div class="col-lg-12 col-md12 text-center">
                     <h1 class="title-big-h1">Horário 1º Semestre</h1>
@@ -330,7 +332,7 @@
                             <p class="text-button-medium">Apagar atividade</p>
                         </button>
 
-                        <div class="container-fluid ml--3" style="margin-top: 35rem; width: 15rem">
+                        <div class="container-fluid ml--5" style="margin-top: 35rem; width: 15rem">
                             <p class="text-btn title-big-h3-2 cursor-pointer d-inline-block" onclick="on('add-act')">
                                 Nova
                                 atividade</p>
@@ -343,10 +345,20 @@
 
                 <!--- rodape --->
 
-                <div class="container-fluid footer">
+                <div class="container-fluid footer-down">
                     <a href="https://www.fct.unl.pt/" class="float-right">
                         <img class="d-inline-flex" src="../img/LogoFCT.jpg" style="height: 2rem">
                     </a>
+                </div>
+
+                <!--- rodacabeça --->
+
+                <div class="container-fluid footer-up">
+                    <div class="float-right">
+                        <span class="sub-title cursor-pointer d-inline-block" onclick="logOut()"> Sair </span>
+                        <i class="fas fa-sign-out-alt fa-icon cursor-pointer d-inline-block"
+                           style="font-size:20px; color:#032237" onclick="logOut()"></i>
+                    </div>
                 </div>
             </div>
 
@@ -505,13 +517,6 @@
 
 
         </div>
-
-        <div class="col-lg-1 col-md-1 w-15">
-            <span class="sub-title cursor-pointer d-inline-block" onclick="logOut()"> Sair </span>
-            <i class="fas fa-sign-out-alt fa-icon cursor-pointer d-inline-block"
-               style="font-size:20px; color:#032237" onclick="logOut()"></i>
-        </div>
-
     </div>
 
 </div>

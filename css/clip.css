@@ -281,6 +281,10 @@ select:-webkit-autofill:focus {
     margin-left: -30px;
 }
 
+.ml--5 {
+    margin-left: -50px;
+}
+
 .ml-10 {
     margin-left: 200px;
 }
@@ -424,6 +428,15 @@ select:-webkit-autofill:focus {
 
 }
 
+.font-options-profile {
+    font-family: "OverpassBold";
+    font-size: 1rem;
+    text-decoration: none;
+    color: white !important;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
 .font-options {
     font-family: "OverpassBold";
     font-size: 1.1rem;
@@ -459,13 +472,6 @@ select:-webkit-autofill:focus {
     margin-top: 0.5rem;
     margin-left: 1.5rem;
     padding: 0 4rem 0 2rem;
-}
-
-.font-options-profile {
-    font-family: "Overpass";
-    font-size: 1rem;
-    text-decoration: none;
-    color: #032237 !important;
 }
 
 textarea {
@@ -863,7 +869,16 @@ label {
     margin-top: 1rem;
 }
 
-.footer {
+.footer-up {
+    position:fixed;
+    right:0;
+    top:-10px;
+    margin:0.5rem;
+    padding:0;
+    width:75%;
+}
+
+.footer-down {
     position:fixed;
     right:0;
     bottom:0;
