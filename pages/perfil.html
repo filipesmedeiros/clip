@@ -249,8 +249,12 @@
                     <div>
                         <h1>
                             <span class="sub-title float-left">E-mail: </span>
-                            <span class="sub-title-normal float-right"
-                                  id="email">f.medeiros@campus.fct.unl.pt</span>
+                            <ul class="list" id="list_emails">
+                                <li>
+                                    <a class="sub-title-normal float-right cursor-pointer"
+                                       id="email-0">f.medeiros@campus.fct.unl.pt</a>
+                                </li>
+                            </ul>
                         </h1>
                     </div>
                 </div>
@@ -330,12 +334,83 @@
                style="font-size:20px; color:#032237" onclick="logOut()"></i>
         </div>
 
-        <!--------Pop up add email ------------------------------------------------------------------------------------>
+
+        <!------------------------
+         -------------------------
+         ----------------------
+                    MODALS
+         ----------------------------
+         --------------------------
+         ----------------------------->
+
+        <div id="overlay-add-email" class="display-none">
+            <div id="overlay-add-email-back" class="overlay-back" onclick="off('add-email')"></div>
+            <div class="text_submit add_activity1 pb-2
+                giantclip-bg text-center d-flex flex-column justify-content-between">
+
+                <!-- Titulo modal -->
+                <div class="mb-4">
+                    <div class="w-25 float-right lh-0">
+                        <img class="cursor-pointer float-right mr-4" style="height: 40px;"
+                             src="../img/close.svg"
+                             onclick="off('add-email')">
+                    </div>
+
+                    <div class="w-50 float-right d-inline-flex mt-4
+                            lh-auto flex-column justify-content-center">
+                        <h4 class="type-letter">Adicionar E-mail</h4>
+                    </div>
+                </div>
+
+                <!-- Endereço -->
+                <div>
+                    <div class="float-left text-right w-25 lh-0 pr-3">
+                        <span class="sub-title-white text-right lh-auto">Endereço:</span>
+                    </div>
+
+                    <div class="float-left w-50 text-left lh-0">
+                        <input type="text"
+                               class="input-title sub-title-normal-white lh-auto m-auto"
+                               id="endereco_email">
+                    </div>
+                </div>
+
+                <!-- Tipo -->
+                <div class="mt-4">
+                    <div class="float-left d-inline-block h-100 text-right w-25 lh-0 pr-3">
+                        <span class="sub-title-white text-right lh-auto">Tipo:</span>
+                    </div>
+
+                    <div class="float-left d-inline-block w-50  text-center lh-0">
+                        <div class="d-inline-flex flex-column justify-content-center
+                            h-100">
+                            <label class="sub-title-normal-white"><input type="radio" id="principal"
+                                                                         name="optradio"
+                                                                         checked>Principal</label>
+                        </div>
+
+                        <div class="d-inline-flex  ml-5 flex-column justify-content-center h-100">
+                            <label class="sub-title-normal-white"><input type="radio" id="secundario"
+                                                                         name="optradio">Secundário</label>
+                        </div>
+                    </div>
+
+                    <div class="d-inline-block float-right mr-4">
+                        <i class="fas fa-arrow-circle-right cursor-pointer"
+                           style="font-size: 6vh; color:#ffffff;" onclick="addEmail_Profile()"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--------Pop up add email ------------------------------------------------------------------------------------
         <div id="overlay-add-email" class="display-none">
             <div class="overlay-back" id="overlay-add-email-back" onclick="off('add-email')">
             </div>
             <div class="add_activity giantclip-bg text-center text_submit"
-                 style="height: 35vh; width: 70vh">
+                 style="height: 30vh; width: 60vh">
                 <div class="row">
                     <div class="col-lg-10 col-md-10">
                         <h5 class="type_letter mt-3">Adicionar E-mail</h5>
@@ -352,7 +427,7 @@
                         </span>
                         <span class="col-lg-5 col-md-5">
                             <label class="sub-title-normal-white"><input type="radio"
-                                                                         name="optradio"> Secundário</label>
+                                                                        name="optradio"> Secundário</label>
                         </span>
                     </h1>
                 </div>
@@ -370,7 +445,7 @@
                 </div>
             </div>
         </div>
-        <!-------- end Pop up add email ------------------------------------------------------------------------------->
+       -------- end Pop up add email ------------------------------------------------------------------------------->
     </div>
 </div>
 <script src="../js/clip.js"></script>

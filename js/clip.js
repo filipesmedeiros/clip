@@ -7,11 +7,12 @@ var hour_seleted;
 var office_selected;
 var available = true;
 
-var temp_array = ["Gabinete de Trabalho em Grupo : 1.2", "Gabinete de Trabalho em Grupo : 1.3","Gabinete de Trabalho em Grupo : 1.4",
-"Gabinete de Trabalho em Grupo : 2.5","Gabinete de Trabalho em Grupo : 2.7", "Gabinete de Trabalho em Grupo : 2.8"];
-var temp_array_availability = ["Available", "No-Available", "Available","Available","No-Available","No-Available"];
+var temp_array = ["Gabinete de Trabalho em Grupo : 1.2", "Gabinete de Trabalho em Grupo : 1.3", "Gabinete de Trabalho em Grupo : 1.4",
+    "Gabinete de Trabalho em Grupo : 2.5", "Gabinete de Trabalho em Grupo : 2.7", "Gabinete de Trabalho em Grupo : 2.8"];
+var temp_array_availability = ["Available", "No-Available", "Available", "Available", "No-Available", "No-Available"];
 
 var apontamentos_array = [];
+let email_array = [{endereco: "f.medeiros@campus.fct.unl.pt", tipo: "principal"}];
 
 var apontamentos_recentes_array = [];
 var maxSize = 5;
@@ -334,6 +335,38 @@ function changeDropdownName(name) {
     document.getElementById("dropdownCadeiras").innerText = name_output;
 }
 
+function addEmail_Profile() {
+
+    let email = document.getElementById('endereco_email').value;
+    let principal = document.getElementById('principal').checked;
+    let secundario = document.getElementById('secundario').checked;
+    let t = principal;
+
+    if (email !== "" && email_array.length < 3) {
+        if (secundario)
+            t = secundario;
+
+        let emailInfo = {endereco: email, tipo: t};
+
+        email_array.push(emailInfo);
+
+        let list = document.getElementById("list_emails");
+
+        let new_email = document.createElement("li");
+
+        new_email.innerHTML = '<li>\n' +
+            '                                    <a class="sub-title-normal cursor-pointer"\n' +
+            '                                       id="email-' + (email_array.length - 1) + '">' + email + '</a>\n' +
+            '                                </li>';
+
+        list.appendChild(new_email);
+
+        document.getElementById('endereco_email').value = "";
+
+        off("add-email");
+    }
+}
+
 function newApontamento() {
 
     var c = document.getElementById("dropdownCadeiras").innerText;
@@ -402,7 +435,7 @@ function newApontamento() {
     document.getElementById("titulo").value = "";
     document.getElementById("exampleFormControlFile1").value = "";
 
-    off();
+    off("add-note");
     document.getElementById("text_submit").style.display = "none";
 
 }
@@ -691,12 +724,12 @@ window.onload = onload();
 function onload() {
     let loc = window.location.href;
 
-    if(!loc.includes('semestre')) {
-        if(loc.includes('requerimentos'))
+    if (!loc.includes('semestre')) {
+        if (loc.includes('requerimentos'))
             selectSection('requerimentos', 'requerimentos_font');
-        else if(loc.includes('apontamentos'))
+        else if (loc.includes('apontamentos'))
             selectSection('apontamentos', 'apontamentos_font');
-        else if(loc.includes('espacos'))
+        else if (loc.includes('espacos'))
             selectSection('espacos', 'espacos_font');
 
         return;

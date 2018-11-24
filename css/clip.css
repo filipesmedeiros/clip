@@ -452,6 +452,13 @@ select:-webkit-autofill:focus {
     padding: 0 4rem 0 2rem;
 }
 
+.font-options-profile {
+    font-family: "Overpass";
+    font-size: 1rem;
+    text-decoration: none;
+    color: #032237 !important;
+}
+
 textarea {
     resize: none;
 }
@@ -670,6 +677,10 @@ hr {
 
 .lh-auto {
     line-height: 1;
+}
+
+.lh-auto2 {
+    line-height: 0.5;
 }
 
 .lh-0 {
