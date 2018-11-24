@@ -828,12 +828,10 @@ label {
     text-decoration: none;
     color: #747474 !important;
     margin-top: 1rem;
-    pointer-events: none;
 }
 
 .margin-none {
-    margin: 0px;
-    margin-bottom: 1rem;
+    margin: 0px 0px 1rem;
 }
 
 .margin-top-3 {

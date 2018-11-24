@@ -724,12 +724,12 @@ window.onload = onload();
 function onload() {
     let loc = window.location.href;
 
-    if (!loc.includes('semestre')) {
-        if (loc.includes('requerimentos'))
+    if(!loc.includes('semestre')) {
+        if(loc.includes('requerimentos'))
             selectSection('requerimentos', 'requerimentos_font');
-        else if (loc.includes('apontamentos'))
-            selectSection('apontamentos', 'apontamentos_font');
-        else if (loc.includes('espacos'))
+        else if(loc.includes('apontamentos'))
+            selectSection('semestre', 'semestre_font');
+        else if(loc.includes('espacos'))
             selectSection('espacos', 'espacos_font');
 
         return;
