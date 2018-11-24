@@ -222,11 +222,16 @@ function availability(option) {
 
     count_gab_available = temp_array.length;
 
+    document.getElementById('select-gab').innerHTML = 'Seleciona um gabinete';
+
     for (let i = 0; i < count_gab_available; i++) {
 
         let row = table_availability.insertRow(-1);
         let cell_0 = row.insertCell(0);
         let cell_1 = row.insertCell(1);
+
+        row.style.lineHeight = '1.1';
+        console.log(row);
 
         if (temp_array_availability[i] === "Available")
             cell_0.outerHTML = "<td bgcolor='green'></td>";
@@ -248,7 +253,7 @@ function select_availability(num_office) {
 
             if (i !== num_office) {
                 document.getElementById("gab_selected_" + i).style.color = "#032237";
-                document.getElementById("gab_selected_" + i).style.backgroundColor = "#EFF0EF";
+                document.getElementById("gab_selected_" + i).style.backgroundColor = "#FFFFFF";
             }
         }
 
@@ -269,6 +274,8 @@ function select_availability(num_office) {
             document.getElementById("hr_show").style.display = "none";
         }
     }
+
+    document.getElementById('select-gab').innerHTML = '&nbsp';
 }
 
 function submit_reservation() {
