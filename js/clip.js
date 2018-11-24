@@ -879,34 +879,42 @@ window.onload = onload();
 function onload() {
     let loc = window.location.href;
 
-    if (!loc.includes('semestre')) {
-        if (loc.includes('requerimentos'))
-            selectSection('requerimentos', 'requerimentos_font');
-        else if (loc.includes('apontamentos'))
-            selectSection('semestre', 'semestre_font');
-        else if (loc.includes('espacos'))
-            selectSection('espacos', 'espacos_font');
+    if (loc.includes('requerimentos'))
+        selectSection('requerimentos', 'requerimentos_font');
 
-        else if (loc.includes('semestre')) {
-            selectSection('semestre', 'semestre_font');
+    else if(loc.includes('perfil')) {
+        viaturas_array = JSON.parse(localStorage.getItem('viaturas'));
+        updateViaturas();
 
-            addClass(9, 'col-2f', 2, 'IPM', 'T1', 'Ed.4/203', '1', '#00375b');
-            addClass(14, 'col-2f', 2, 'IIO', 'T2', 'Ed.7/1D', '1', '#00375b');
-            addClass(16, 'col-2f', 2, 'IPM', 'P2', 'Ed.2/120', '2', '#00578a');
-            addClass(9, 'col-3f', 2, 'ICL', 'T1', 'Ed.2/128', '1', '#00375b');
-            addClass(11, 'col-3f', 2, 'ICL', 'P1', 'Ed.2/121', '2', '#00578a');
-            addClass(14, 'col-3f', 2, 'IIO', 'P6', 'Ed.7/1.4', '2', '#00578a');
-            addClass(16, 'col-3f', 2, 'AA', 'T1', 'Ed.2/128', '1', '#00375b');
-            addClass(9, 'col-5f', 2, 'AA', 'P6', 'Ed.2/120', '2', '#00578a');
+        email_array = JSON.parse(localStorage.getItem('emails'));
+        updateEmails();
+    }
 
-            let acts = localStorage.getItem('activities');
-            if (acts !== undefined && acts !== null && acts.length !== 0)
-                for (let i = 0; i < acts.length; i++) {
-                    addActivity(acts[i].hours[0], acts[i].day, acts[i].hours.length, acts[i].actName, acts[i].color);
-                    console.log(i);
-                }
+    else if (loc.includes('apontamentos'))
+        selectSection('semestre', 'semestre_font');
 
-        }
+    else if (loc.includes('espacos'))
+        selectSection('espacos', 'espacos_font');
+
+    else if (loc.includes('semestre')) {
+        selectSection('semestre', 'semestre_font');
+
+        addClass(9, 'col-2f', 2, 'IPM', 'T1', 'Ed.4/203', '1', '#00375b');
+        addClass(14, 'col-2f', 2, 'IIO', 'T2', 'Ed.7/1D', '1', '#00375b');
+        addClass(16, 'col-2f', 2, 'IPM', 'P2', 'Ed.2/120', '2', '#00578a');
+        addClass(9, 'col-3f', 2, 'ICL', 'T1', 'Ed.2/128', '1', '#00375b');
+        addClass(11, 'col-3f', 2, 'ICL', 'P1', 'Ed.2/121', '2', '#00578a');
+        addClass(14, 'col-3f', 2, 'IIO', 'P6', 'Ed.7/1.4', '2', '#00578a');
+        addClass(16, 'col-3f', 2, 'AA', 'T1', 'Ed.2/128', '1', '#00375b');
+        addClass(9, 'col-5f', 2, 'AA', 'P6', 'Ed.2/120', '2', '#00578a');
+
+        let acts = localStorage.getItem('activities');
+        if (acts !== undefined && acts !== null && acts.length !== 0)
+            for (let i = 0; i < acts.length; i++) {
+                addActivity(acts[i].hours[0], acts[i].day, acts[i].hours.length, acts[i].actName, acts[i].color);
+                console.log(i);
+            }
+
     }
 }
 
