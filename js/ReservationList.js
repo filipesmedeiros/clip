@@ -4,7 +4,6 @@ function createModal() {
     el.innerHTML = '<div id="overlay-confirm-res-back" class="overlay-back" onclick="off(\'confirm-res\')"></div>' +
         '                            <div class="text_submit add_activity1 pb-2\n' +
         '                            giantclip-bg text-center d-flex flex-column justify-content-between">' +
-        '\n' +
         '                                <!-- Titulo modal -->' +
         '                                <div class="mb-2">' +
         '                                    <div class="w-12-5 float-right lh-0">' +
@@ -16,7 +15,7 @@ function createModal() {
         '                                    lh-auto flex-column justify-content-center">' +
         '                                        <h4 class="type-letter">Reservas</h4>' +
         '                                    </div>' +
-        '                                </div>'
+        '                                </div>' +
         '                            </div>'
 
     return el;
