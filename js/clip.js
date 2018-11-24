@@ -13,6 +13,15 @@ var temp_array_availability = ["Available", "No-Available", "Available", "Availa
 
 var apontamentos_array = [];
 let email_array = [{endereco: "f.medeiros@campus.fct.unl.pt", tipo: "principal"}];
+let viaturas_array = [{
+    matricula: "23-SD-00",
+    pais: "Portugal",
+    marca: "Tesla",
+    ano: "2017",
+    modelo: "S",
+    cor: "Preto",
+    combustivel: "Elétrico"
+}];
 
 var apontamentos_recentes_array = [];
 var maxSize = 5;
@@ -325,7 +334,7 @@ function submitReservation() {
 
 function showReservations() {
     let modalSpot = document.getElementById('reservation-list');
-    if(modalSpot.childNodes.length !== 0)
+    if (modalSpot.childNodes.length !== 0)
         modalSpot.removeChild(modalSpot.firstChild);
 
     let modal = createModal();
@@ -383,30 +392,134 @@ function addEmail_Profile() {
     let secundario = document.getElementById('secundario').checked;
     let t = principal;
 
-    if (email !== "" && email_array.length < 3) {
-        if (secundario)
-            t = secundario;
+    if (email_array.length < 3) {
+        if (email !== "") {
+            if (secundario)
+                t = secundario;
 
-        let emailInfo = {endereco: email, tipo: t};
+            let emailInfo = {endereco: email, tipo: t};
 
-        email_array.push(emailInfo);
+            email_array.push(emailInfo);
 
-        let list = document.getElementById("list_emails");
+            let list = document.getElementById("list_emails");
 
-        let new_email = document.createElement("li");
+            let new_email = document.createElement("li");
 
-        new_email.innerHTML = '<li>\n' +
-            '                                    <a class="sub-title-normal cursor-pointer"\n' +
-            '                                       id="email-' + (email_array.length - 1) + '">' + email + '</a>\n' +
-            '                                </li>';
+            new_email.innerHTML = '<li>\n' +
+                '                                    <br><a class="sub-title-normal cursor-pointer float-right mt--3"\n' +
+                '                                       id="email-' + (email_array.length - 1) + '">' + email + '</a>\n' +
+                '                                </li>';
 
-        list.appendChild(new_email);
+            list.appendChild(new_email);
 
-        document.getElementById('endereco_email').value = "";
+            localStorage.setItem("emails", JSON.stringify(emails_array));
 
-        off("add-email");
+            document.getElementById('endereco_email').value = "";
+
+            off("add-email");
+        }
+        else
+            alert("Email inválido");
     }
 }
+
+function updateEmails() {
+
+    let list = document.getElementById("list_emails");
+
+    let email = document.createElement("li");
+
+    for (let i = 0; i < email_array.length; i++) {
+
+        if (i == 0)
+            email.innerHTML = '<li>\n' +
+                '                                    <a class="sub-title-normal cursor-pointer float-right"\n' +
+                '                                       id="email-' + i + '">' + email_array[i] + '</a>\n' +
+                '                                </li>';
+
+        else
+            email.innerHTML = '<li>\n' +
+                '                                    <br><a class="sub-title-normal cursor-pointer float-right mt--3"\n' +
+                '                                       id="email-' + i + '">' + email_array[i] + '</a>\n' +
+                '                                </li>';
+        list.appendChild(email);
+    }
+}
+
+function updateViaturas() {
+
+    let list = document.getElementById("list_viaturas");
+
+    let viatura = document.createElement("li");
+
+    for (let i = 0; i < viaturas_array.length; i++) {
+
+        if (i == 0)
+            viatura.innerHTML = '<li>\n' +
+                '                                    <a class="sub-title-normal cursor-pointer float-right"\n' +
+                '                                       id="email-' + i + '">' + viaturas_array[i] + '</a>\n' +
+                '                                </li>';
+
+        else
+            viatura.innerHTML = '<li>\n' +
+                '                                    <br><a class="sub-title-normal cursor-pointer float-right mt--3"\n' +
+                '                                       id="email-' + i + '">' + viaturas_array[i] + '</a>\n' +
+                '                                </li>';
+        list.appendChild(viatura);
+    }
+
+}
+
+
+function addViaturas_Profile() {
+
+    let m = document.getElementById('matricula_viaturas').value;
+    let c = document.getElementById('pais-viaturas').value;
+    let y = document.getElementById('year-car').value;
+    let b = document.getElementById('brand-car').value;
+    let mdl = document.getElementById('modelo_viaturas').value;
+    let clr = document.getElementById('color_viaturas').value;
+    let comb = document.getElementById('combustivel-car').value;
+
+    if (viaturas_array.length < 3) {
+        if (m !== "" && m.match("([0-9]{2}-[0-9]{2}-[A-Z]{2})|([0-9]{2}-[A-Z]{2}-[0-9]{2})|([A-Z]{2}-[0-9]{2}-[0-9]{2})") !== null) {
+            let viaturaInfo = {
+                matricula: m,
+                pais: c,
+                marca: b,
+                ano: y,
+                modelo: mdl,
+                cor: clr,
+                combustivel: comb
+            };
+
+            viaturas_array.push(viaturaInfo);
+
+            let list = document.getElementById("list_viaturas");
+
+            let new_viatura = document.createElement("li");
+
+            new_viatura.innerHTML = '<li>\n' +
+                '                                    <br><a class="sub-title-normal cursor-pointer float-right mt--3"\n' +
+                '                                       id="viatura-' + (viaturas_array.length - 1) + '">' + m + '</a>\n' +
+                '                                </li>';
+
+            list.appendChild(new_viatura);
+
+            document.getElementById('matricula_viaturas').value = "";
+            document.getElementById('modelo_viaturas').value = "";
+            document.getElementById('color_viaturas').value = "";
+
+            off("add-viatura");
+
+            localStorage.setItem("viaturas", JSON.stringify(viaturas_array));
+        }
+        else
+            alert("Matrícula inválida");
+    }
+
+}
+
 
 function newApontamento() {
 
@@ -606,7 +719,9 @@ function addClass(time, day, duration, name, room, shift, id, color) {
     for (let i = time; i < time + duration; i++)
         hourarray.push(i);
 
-    activities_array.push({"actName": name, "day": day, "hours": hourarray, "class": true});
+    activities_array.push({'actName': name, 'day': day, 'hours': hourarray});
+
+    localStorage.setItem('activities', activities_array);
 
     off('add-act');
 }
@@ -699,9 +814,9 @@ function addActivity(time, day, duration, name, color) {
     for (let i = time; i < time + duration; i++)
         hourarray.push(i);
 
-    activities_array.push({"actName": name, "day": day, "hours": hourarray, "color": color});
+    activities_array.push({'actName': name, 'day': day, 'hours': hourarray, 'color': color});
 
-    localStorage.setItem('activities', JSON.stringify(activities_array));
+    localStorage.setItem('activities', activities_array);
 
     off('add-act');
 }
@@ -732,8 +847,6 @@ function deleteAct() {
             activities_array.splice(i, 1);
 
     currentActivity.remove();
-
-    localStorage.setItem('activities', JSON.stringify(activities_array));
 
     document.getElementById('delete-act-btn').classList.add('display-none');
 }
@@ -766,35 +879,34 @@ window.onload = onload();
 function onload() {
     let loc = window.location.href;
 
-    if(loc.includes('requerimentos'))
-        selectSection('requerimentos', 'requerimentos_font');
+    if (!loc.includes('semestre')) {
+        if (loc.includes('requerimentos'))
+            selectSection('requerimentos', 'requerimentos_font');
+        else if (loc.includes('apontamentos'))
+            selectSection('semestre', 'semestre_font');
+        else if (loc.includes('espacos'))
+            selectSection('espacos', 'espacos_font');
 
-    else if(loc.includes('apontamentos'))
-        selectSection('semestre', 'semestre_font');
+        else if (loc.includes('semestre')) {
+            selectSection('semestre', 'semestre_font');
 
-    else if(loc.includes('espacos'))
-        selectSection('espacos', 'espacos_font');
+            addClass(9, 'col-2f', 2, 'IPM', 'T1', 'Ed.4/203', '1', '#00375b');
+            addClass(14, 'col-2f', 2, 'IIO', 'T2', 'Ed.7/1D', '1', '#00375b');
+            addClass(16, 'col-2f', 2, 'IPM', 'P2', 'Ed.2/120', '2', '#00578a');
+            addClass(9, 'col-3f', 2, 'ICL', 'T1', 'Ed.2/128', '1', '#00375b');
+            addClass(11, 'col-3f', 2, 'ICL', 'P1', 'Ed.2/121', '2', '#00578a');
+            addClass(14, 'col-3f', 2, 'IIO', 'P6', 'Ed.7/1.4', '2', '#00578a');
+            addClass(16, 'col-3f', 2, 'AA', 'T1', 'Ed.2/128', '1', '#00375b');
+            addClass(9, 'col-5f', 2, 'AA', 'P6', 'Ed.2/120', '2', '#00578a');
 
-    else if(loc.includes('semestre')) {
-        selectSection('semestre', 'semestre_font');
-
-        addClass(9, 'col-2f', 2, 'IPM', 'T1', 'Ed.4/203', '1', '#00375b');
-        addClass(14, 'col-2f', 2, 'IIO', 'T2', 'Ed.7/1D', '1', '#00375b');
-        addClass(16, 'col-2f', 2, 'IPM', 'P2', 'Ed.2/120', '2', '#00578a');
-        addClass(9, 'col-3f', 2, 'ICL', 'T1', 'Ed.2/128', '1', '#00375b');
-        addClass(11, 'col-3f', 2, 'ICL', 'P1', 'Ed.2/121', '2', '#00578a');
-        addClass(14, 'col-3f', 2, 'IIO', 'P6', 'Ed.7/1.4', '2', '#00578a');
-        addClass(16, 'col-3f', 2, 'AA', 'T1', 'Ed.2/128', '1', '#00375b');
-        addClass(9, 'col-5f', 2, 'AA', 'P6', 'Ed.2/120', '2', '#00578a');
-
-        let acts = JSON.parse(localStorage.getItem('activities'));
-        if(acts !== undefined && acts !== null && acts.length !== 0)
-            for(let i = 0; i < acts.length; i++) {
-                if(!acts[i].class)
+            let acts = localStorage.getItem('activities');
+            if (acts !== undefined && acts !== null && acts.length !== 0)
+                for (let i = 0; i < acts.length; i++) {
                     addActivity(acts[i].hours[0], acts[i].day, acts[i].hours.length, acts[i].actName, acts[i].color);
-                console.log(i);
-            }
+                    console.log(i);
+                }
 
+        }
     }
 }
 
