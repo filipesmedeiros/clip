@@ -36,7 +36,7 @@ function logIn() {
     if (username === USERNAME && password === PASSWORD)
         window.location.href = "../pages/semestre.html";
     else
-        alert("Not correct");
+        alert("Credenciais inválidas");
 }
 
 function logOut() {
@@ -387,6 +387,10 @@ function changeDropdownName(name) {
 
 function addEmail_Profile() {
 
+    console.log(email_array[0]);
+    console.log(email_array[1]);
+    console.log(email_array[2]);
+
     let email = document.getElementById('endereco_email').value;
     let principal = document.getElementById('principal').checked;
     let secundario = document.getElementById('secundario').checked;
@@ -399,13 +403,15 @@ function addEmail_Profile() {
 
             let emailInfo = {endereco: email, tipo: t};
 
-            console.log(email_array.length);
-            console.log(email_array);
+            console.log(email_array[0]);
+            console.log(email_array[1]);
+            console.log(email_array[2]);
 
-            email_array.push(emailInfo);;
+            email_array.push(emailInfo);
 
-            console.log(email_array.length);
-            console.log(email_array);
+            console.log(email_array[0]);
+            console.log(email_array[1]);
+            console.log(email_array[2]);
 
             let list = document.getElementById("list_emails");
 
@@ -437,17 +443,21 @@ function updateEmails() {
 
     for (let i = 0; i < email_array.length; i++) {
 
-        if (i == 0)
-            email.innerHTML = '<li>\n' +
-                '                                    <a class="sub-title-normal cursor-pointer float-right"\n' +
+        if (i == 0) {
+            console.log(email);
+            console.log(email_array);
+
+            email.innerHTML = '<li><a class="sub-title-normal cursor-pointer float-right"\n' +
                 '                                       id="email-' + i + '">' + email_array[i].endereco + '</a>\n' +
                 '                                </li>';
+        }
 
         else
             email.innerHTML = '<li>\n' +
                 '                                    <br><a class="sub-title-normal cursor-pointer float-right mt--3"\n' +
                 '                                       id="email-' + i + '">' + email_array[i].endereco + '</a>\n' +
                 '                                </li>';
+
         list.appendChild(email);
     }
 }
@@ -890,15 +900,13 @@ function onload() {
 
     else if(loc.includes('perfil')) {
 
-        if (viaturas_array.length !== 1)
-        viaturas_array = JSON.parse(localStorage.getItem('viaturas'));
+        if(localStorage.getItem('viaturas') !== null)
+            viaturas_array = JSON.parse(localStorage.getItem('viaturas'));
 
-        updateViaturas();
+        if(localStorage.getItem('emails') !== null)
+            email_array = JSON.parse(localStorage.getItem('emails'));
 
-        if (email_array.length !== 1)
-        email_array = JSON.parse(localStorage.getItem('emails'));
-
-        console.log(email_array[0] +"   "+email_array[1]);
+        console.log(email_array);
 
         updateEmails();
     }
