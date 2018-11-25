@@ -44,7 +44,11 @@ function logOut() {
 }
 
 function on(overlay) {
-    document.getElementById("overlay-" + overlay).style.display = "inline";
+    let stuff = document.getElementById("overlay-" + overlay);
+    stuff.style.display = "inline";
+    stuff.classList.add('fade-in');
+
+    stuff.children[1].classList.add('fade-in');
 }
 
 function off(overlay) {
