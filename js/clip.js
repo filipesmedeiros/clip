@@ -445,13 +445,13 @@ function updateEmails() {
 
         let email = document.createElement("li");
 
-        if(i === 0)
+        if (i === 1)
+            email.innerHTML = '<br><a class="sub-title-normal cursor-pointer float-right mt--3"' +
+                'id="email-' + i + '">' + email_array[i].endereco + '</a>';
+        else
             email.innerHTML = '<a class="sub-title-normal cursor-pointer float-right" id="email-'
                 + i + '">' + email_array[i].endereco + '</a>';
 
-        else
-            email.innerHTML = '<br><a class="sub-title-normal cursor-pointer float-right mt--3"' +
-                'id="email-' + i + '">' + email_array[i].endereco + '</a>';
 
         arr.push(email);
     }
@@ -477,12 +477,14 @@ function updateViaturas() {
 
         else
             viatura.innerHTML = '<br><a class="sub-title-normal cursor-pointer float-right mt--3"\n' +
-            'id="viatura-' + i + '">' + viaturas_array[i].matricula + '</a>';
+                'id="viatura-' + i + '">' + viaturas_array[i].matricula + '</a>';
 
         arr.push(viatura);
     }
 
-    arr.map((el) => {list.appendChild(el)});
+    arr.map((el) => {
+        list.appendChild(el)
+    });
 
 }
 
@@ -897,14 +899,14 @@ function onload() {
     if (loc.includes('requerimentos'))
         selectSection('requerimentos', 'requerimentos_font');
 
-    else if(loc.includes('perfil')) {
+    else if (loc.includes('perfil')) {
 
-        if(localStorage.getItem('viaturas') !== null)
+        if (localStorage.getItem('viaturas') !== null)
             viaturas_array = JSON.parse(localStorage.getItem('viaturas'));
 
         updateViaturas();
 
-        if(localStorage.getItem('emails') !== null)
+        if (localStorage.getItem('emails') !== null)
             email_array = JSON.parse(localStorage.getItem('emails'));
 
         console.log(email_array);
@@ -932,8 +934,8 @@ function onload() {
 
         let acts = JSON.parse(localStorage.getItem('activities'));
         if (acts !== undefined && acts !== null && acts.length !== 0)
-            for(let i = 0; i < acts.length; i++) {
-                if(!acts[i].class)
+            for (let i = 0; i < acts.length; i++) {
+                if (!acts[i].class)
                     addActivity(acts[i].hours[0], acts[i].day, acts[i].hours.length, acts[i].actName, acts[i].color);
             }
     }
