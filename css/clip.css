@@ -409,6 +409,7 @@ select:-webkit-autofill:focus {
 .mt--2 {
     margin-top: -2vh;
 }
+
 .mt--3 {
     margin-top: -3vh;
 }
@@ -989,6 +990,10 @@ td {
 
 .ml-6 {
     margin-left: 6rem;
+}
+
+.ml-25 {
+    margin-left: 24.5%;
 }
 
 .left-border {
